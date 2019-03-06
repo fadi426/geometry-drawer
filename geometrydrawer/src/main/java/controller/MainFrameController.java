@@ -1,9 +1,11 @@
 package controller;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JButton;
-import javax.swing.JTextArea;
+import javax.swing.*;
+
+import model.DrawPanel;
 import view.MainFrame;
 
 public class MainFrameController {
@@ -11,6 +13,7 @@ public class MainFrameController {
     private MainFrame mainFrame;
     private JButton welcomeBtn;
     private JTextArea welcomeTA;
+    private JPanel drawPanel;
 
     public MainFrameController() {
         initComponents();
@@ -26,6 +29,9 @@ public class MainFrameController {
 
         welcomeBtn = mainFrame.getWelcomeBtn();
         welcomeTA = mainFrame.getWelcomeTA();
+        drawPanel = mainFrame.getDrawPanel();
+        drawPanel.setLayout(new BorderLayout());
+        drawPanel.add(new DrawPanel(), BorderLayout.NORTH);
     }
 
     private void initListeners() {

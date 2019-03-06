@@ -1,22 +1,26 @@
 package view;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.*;
 
 public class MainFrame extends JFrame {
 
-    private static final int WIDTH = 500;
-    private static final int HEIGHT = 500;
+    private static final int WIDTH = 1000;
+    private static final int HEIGHT = 1000;
     private JPanel mainPanel;
     private JButton welcomeBtn;
     private JTextArea welcomeTA;
+    private JPanel drawPanel;
 
     public MainFrame() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().add(mainPanel);
         setSize(WIDTH, HEIGHT);
-        setContentPane(mainPanel);
-        setLocationRelativeTo(null);
+        setLocation(550, 25);
+        setVisible(true);
+    }
+
+    public JPanel getDrawPanel() {
+        return drawPanel;
     }
 
     public JButton getWelcomeBtn() {
