@@ -7,9 +7,8 @@ import javax.swing.*;
 
 import model.Circle;
 import model.Line;
-import model.Polygon;
+import model.Pentagon;
 import model.Rectangle;
-import model.Shape;
 import view.MainFrame;
 
 public class MainFrameController {
@@ -83,7 +82,7 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(currCanvas!=null){
-                currCanvas.setCurrShape(Polygon.class);
+                currCanvas.setCurrShape(Pentagon.class);
             }
             welcomeTA.append("polygon\n");
         }

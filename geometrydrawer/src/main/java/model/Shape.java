@@ -51,25 +51,4 @@ public abstract class Shape implements java.io.Serializable {
 		this.filled = filled;
 	}
 
-	protected class PointComparator implements Comparator<Point> {
-	    public int compare(final Point a, final Point b) {
-	        if (a.y > b.y) {
-	            return 1;
-	        }
-	        else if (a.y < b.y) {
-	            return -1;
-	        }
-	        else {
-	        	if (a.x > b.x) {
-		            return 1;
-		        }
-		        else if (a.x < b.x) {
-		            return -1;
-		        }
-		        else {
-		        	return 0;
-		        }
-	        }
-	    }
-	}
 }

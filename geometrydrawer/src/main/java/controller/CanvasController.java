@@ -1,12 +1,11 @@
 package controller;
 
 
-import model.Polygon;
+import model.Pentagon;
 import model.Shape;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -42,7 +41,7 @@ public class CanvasController extends JPanel {
             }
 
             public void mouseClicked(MouseEvent e){
-                if(currShape instanceof Polygon){
+                if(currShape instanceof Pentagon){
                     currShape.setShapeEnd(e.getPoint());
                     repaint();
                 }
