@@ -71,21 +71,9 @@ public class CanvasController extends JPanel {
         shapeType = toDraw;
     }
 
-    public void changeShapePoints(Point newStart,Point newEnd,int shapeIndex){
-        Shape shaperef = listmodel.elementAt(shapeIndex);
-        if(shaperef instanceof Polygon)
-            return;
-        shaperef.setShapeStart(newStart);
-        shaperef.setShapeEnd(newEnd);
-    }
-
     public void clear(){
         listmodel.clear();
         repaint();
-    }
-
-    public void setDrawingColor(Color toDraw){
-        drawingColor = toDraw;
     }
 
     public void paint(Graphics g) {
