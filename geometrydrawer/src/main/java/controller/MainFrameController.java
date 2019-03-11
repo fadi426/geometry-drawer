@@ -20,6 +20,7 @@ public class MainFrameController {
     private JButton polygonBtn;
     private JButton rectangleBtn;
     private JButton clearBtn;
+    private JButton selectBtn;
     private JPanel drawPanel;
     private CanvasController currCanvas = new CanvasController(Color.WHITE);
 
@@ -42,6 +43,7 @@ public class MainFrameController {
         polygonBtn = mainFrame.getPolygonBtn();
         rectangleBtn = mainFrame.getRectangleBtn();
         clearBtn = mainFrame.getClearBtn();
+        selectBtn = mainFrame.getSelectBtn();
     }
 
     private void createCanvas(int width,int height){
@@ -58,11 +60,13 @@ public class MainFrameController {
         polygonBtn.addActionListener(new polygonBtnListener());
         rectangleBtn.addActionListener(new rectangleBtnListener());
         clearBtn.addActionListener(new clearBtnListener());
+        selectBtn.addActionListener(new selectBtnListener());
     }
 
     private class circleBtnLister implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            currCanvas.setOperation("draw");
             if(currCanvas!=null){
                 currCanvas.setCurrShape(Circle.class);
             }
@@ -72,6 +76,7 @@ public class MainFrameController {
     private class lineBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            currCanvas.setOperation("draw");
             if(currCanvas!=null){
                 currCanvas.setCurrShape(Line.class);
             }
@@ -81,6 +86,7 @@ public class MainFrameController {
     private class polygonBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            currCanvas.setOperation("draw");
             if(currCanvas!=null){
                 currCanvas.setCurrShape(Pentagon.class);
             }
@@ -90,6 +96,7 @@ public class MainFrameController {
     private class rectangleBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            currCanvas.setOperation("draw");
             if(currCanvas!=null){
                 currCanvas.setCurrShape(Rectangle.class);
             }
@@ -103,6 +110,14 @@ public class MainFrameController {
             if(currCanvas!=null){
                 currCanvas.clear();
             }
+            welcomeTA.append("cleared\n");
+        }
+    }
+
+    private class selectBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            currCanvas.setOperation("select");
             welcomeTA.append("cleared\n");
         }
     }

@@ -40,9 +40,20 @@ public class Rectangle extends Shape {
 	}
 
 	@Override
+	public boolean contain(int x, int y) {
+		if (x >= points.get(0).x && x <= (points.get(2).x) && y >= points.get(0).y
+				&& y <= (points.get(2).y)) {
+			return true;
+		}
+		return false;
+	}
+
+	@Override
 	public String toString(){
 		return "Rectangle: (" + points.get(0).x + "," + points.get(0).y + ")-"
 				+ "(" + points.get(3).x + "," + points.get(3).y + ")";
 	}
+
+
 
 }

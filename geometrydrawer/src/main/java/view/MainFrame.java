@@ -14,6 +14,7 @@ public class MainFrame extends JFrame {
     private JButton polygonBtn;
     private JButton rectangleBtn;
     private JButton clearBtn;
+    private JButton selectBtn;
 
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,5 +43,7 @@ public class MainFrame extends JFrame {
     public JButton getRectangleBtn() { return rectangleBtn; }
 
     public JButton getClearBtn() { return clearBtn; }
+
+    public JButton getSelectBtn() { return selectBtn; }
 }
 

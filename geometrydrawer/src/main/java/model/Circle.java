@@ -50,6 +50,15 @@ public class Circle extends Shape {
 		  }
 	}
 
+	@Override
+	public boolean contain(int x, int y) {
+		if (x >= getShapeStart().x - radius && x <= (getShapeStart().x + radius) && y >= getShapeStart().y - radius
+				&& y <= (getShapeStart().y + radius)) {
+			return true;
+		}
+		return false;
+	}
+
 	public String toString(){
 		return "Circle: ("+ getShapeStart().x+","+getShapeStart().y+")"
 				+ " Radius: " + radius;

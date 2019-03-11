@@ -69,6 +69,12 @@
               <text value="Clear"/>
             </properties>
           </component>
+          <component id="edaa7" class="javax.swing.JButton" binding="selectBtn">
+            <constraints/>
+            <properties>
+              <text value="Select"/>
+            </properties>
+          </component>
         </children>
       </toolbar>
     </children>

@@ -3,13 +3,13 @@ package model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.util.Comparator;
 
 public abstract class Shape implements java.io.Serializable {
 
 	private Point shapeStart,shapeEnd;
 	private Color currentColor = Color.BLACK;
 	private boolean filled = false;
+
 
 	public void drawPoint(Graphics g,int x,int y){
 		g.drawLine(x,y,x,y);
@@ -41,6 +41,10 @@ public abstract class Shape implements java.io.Serializable {
 
 	protected Color getCurrentColor() {
 		return currentColor;
+	}
+
+	public boolean contain(int x, int y) {
+		return false;
 	}
 
 	public boolean isFilled() {

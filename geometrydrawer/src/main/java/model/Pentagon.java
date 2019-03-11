@@ -8,7 +8,7 @@ public class Pentagon extends Shape {
 	private int sides = 5;
 	private int radius;
 	private ArrayList<Point> points;
-	private Point hoi;
+	private Point point;
 	private Line line ;
 
 	public Pentagon() {
@@ -20,8 +20,6 @@ public class Pentagon extends Shape {
 	public Pentagon(Point start,Point end){
 		setShapeStart(start);
 		setShapeEnd(end);
-		radius = Math.round((float)(Math.hypot(getShapeStart().x - getShapeEnd().x,
-				getShapeStart().y - getShapeEnd().y)));
 	}
 
 	@Override
@@ -35,9 +33,9 @@ public class Pentagon extends Shape {
 		int radiusError = 1 - x;
 		while(x >= y){
 			for (int i = 0; i < sides; i++) {
-				hoi = new Point((int) (getShapeStart().x + radius * Math.cos(i * 2 * Math.PI / sides)),
+				point = new Point((int) (getShapeStart().x + radius * Math.cos(i * 2 * Math.PI / sides)),
 						 (int) (getShapeStart().y + radius * Math.sin(i * 2 * Math.PI / sides)));
-				points.add(hoi);
+				points.add(point);
 				if (i >= 1) {
 					line = new Line(points.get(i - 1), points.get(i));
 					line.setCurrentColor(getCurrentColor());
@@ -61,6 +59,42 @@ public class Pentagon extends Shape {
 			}
 		}
 	}
+
+	@Override
+	public boolean contain(int x, int y) {
+		int xMin = getShapeStart().x;
+		int xMax = getShapeStart().x;
+		int yMin = getShapeStart().y;
+		int yMax = getShapeStart().y;
+
+		for (int i = 0; i < sides; i++) {
+			point = new Point((int) (getShapeStart().x + radius * Math.cos(i * 2 * Math.PI / sides)),
+					(int) (getShapeStart().y + radius * Math.sin(i * 2 * Math.PI / sides)));
+			points.add(point);
+		}
+		for(int i = 0; i < points.size(); i++){
+			if (points.get(i).x < xMin){
+				xMin = points.get(i).x;
+			}
+			if (points.get(i).x > xMax){
+				xMax = points.get(i).x;
+			}
+			if (points.get(i).y < yMin){
+				yMin = points.get(i).y;
+			}
+			if (points.get(i).y > yMax){
+				yMax = points.get(i).y;
+			}
+		}
+		if (x >= xMin && x <= xMax && y >= yMin
+				&& y <= yMax) {
+			points.clear();
+			return true;
+		}
+		points.clear();
+		return false;
+	}
+
 	public String toString(){
 		return "Pentagon: ("+ getShapeStart().x+","+getShapeStart().y+")"
 				+ " Radius: " + radius;
