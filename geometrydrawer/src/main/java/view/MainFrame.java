@@ -15,6 +15,8 @@ public class MainFrame extends JFrame {
     private JButton rectangleBtn;
     private JButton clearBtn;
     private JButton selectBtn;
+    private JButton UndoBtn;
+    private JButton RedoBtn;
 
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,5 +47,8 @@ public class MainFrame extends JFrame {
     public JButton getClearBtn() { return clearBtn; }
 
     public JButton getSelectBtn() { return selectBtn; }
+
+    public JButton getUndoBtn() {return UndoBtn;}
+    public JButton getRedoBtn() {return RedoBtn;}
 }
 

@@ -5,15 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-import model.Circle;
-import model.Line;
-import model.Pentagon;
+import model.*;
 import model.Rectangle;
 import view.MainFrame;
 
 public class MainFrameController {
 
     private MainFrame mainFrame;
+    private CommandManager commandManager;
     private JTextArea welcomeTA;
     private JButton circleBtn;
     private JButton lineBtn;
@@ -21,8 +20,10 @@ public class MainFrameController {
     private JButton rectangleBtn;
     private JButton clearBtn;
     private JButton selectBtn;
+    private JButton undoBtn;
+    private JButton redoBtn;
     private JPanel drawPanel;
-    private CanvasController currCanvas = new CanvasController(Color.WHITE);
+    private CanvasController currCanvas;
 
     public MainFrameController() {
         initComponents();
@@ -35,6 +36,7 @@ public class MainFrameController {
 
     private void initComponents() {
         mainFrame = new MainFrame();
+        currCanvas = new CanvasController(Color.WHITE, currCanvas);
         welcomeTA = mainFrame.getShapeInfoTA();
         drawPanel = mainFrame.getDrawPanel();
         drawPanel.setLayout(new BorderLayout());
@@ -44,11 +46,13 @@ public class MainFrameController {
         rectangleBtn = mainFrame.getRectangleBtn();
         clearBtn = mainFrame.getClearBtn();
         selectBtn = mainFrame.getSelectBtn();
+        undoBtn = mainFrame.getUndoBtn();
+        redoBtn = mainFrame.getRedoBtn();
     }
 
     private void createCanvas(int width,int height){
         drawPanel.removeAll();
-        currCanvas=new CanvasController(Color.WHITE);
+        currCanvas = new CanvasController(Color.WHITE, currCanvas);
         currCanvas.setPreferredSize(new Dimension(width,height));
         drawPanel.add(currCanvas);
     }
@@ -61,6 +65,8 @@ public class MainFrameController {
         rectangleBtn.addActionListener(new rectangleBtnListener());
         clearBtn.addActionListener(new clearBtnListener());
         selectBtn.addActionListener(new selectBtnListener());
+        undoBtn.addActionListener(new undoBtnListener());
+        redoBtn.addActionListener(new redoBtnListener());
     }
 
     private class circleBtnLister implements ActionListener {
@@ -68,7 +74,7 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             currCanvas.setOperation("draw");
             if(currCanvas!=null){
-                currCanvas.setCurrShape(Circle.class);
+                currCanvas.setCurrShape(new Circle());
             }
             welcomeTA.append("circle\n");
         }
@@ -78,7 +84,7 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             currCanvas.setOperation("draw");
             if(currCanvas!=null){
-                currCanvas.setCurrShape(Line.class);
+                currCanvas.setCurrShape(new Line());
             }
             welcomeTA.append("line\n");
         }
@@ -88,7 +94,7 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             currCanvas.setOperation("draw");
             if(currCanvas!=null){
-                currCanvas.setCurrShape(Pentagon.class);
+                currCanvas.setCurrShape(new Pentagon());
             }
             welcomeTA.append("polygon\n");
         }
@@ -98,7 +104,7 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             currCanvas.setOperation("draw");
             if(currCanvas!=null){
-                currCanvas.setCurrShape(Rectangle.class);
+                currCanvas.setCurrShape(new Rectangle());
             }
             welcomeTA.append("rectangle\n");
         }
@@ -123,4 +129,21 @@ public class MainFrameController {
     }
 
 
+    private class undoBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            commandManager = currCanvas.getCommandManager();
+            commandManager.Undo();
+            welcomeTA.append("undo\n");
+        }
+    }
+
+    private class redoBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            commandManager = currCanvas.getCommandManager();
+            commandManager.Redo();
+            welcomeTA.append("redo\n");
+        }
+    }
 }

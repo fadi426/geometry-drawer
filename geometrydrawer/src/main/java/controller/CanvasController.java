@@ -1,8 +1,7 @@
 package controller;
 
 
-import model.Pentagon;
-import model.Shape;
+import model.*;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -17,9 +16,10 @@ import javax.swing.JPanel;
 
 public class CanvasController extends JPanel {
 
-    public Class<?> shapeType;
+    public Shape shapeType;
     public Shape currShape;
     private Color drawingColor = Color.BLACK;
+    private CommandManager commandManager = new CommandManager();
 
     public DefaultListModel<Shape> listmodel = new DefaultListModel<Shape>();
     public static List<Shape> selectedShapes = new ArrayList<>();
@@ -30,7 +30,7 @@ public class CanvasController extends JPanel {
     private int currentY;
     private String operation;
 
-    public CanvasController(Color bg){
+    public CanvasController(Color bg, CanvasController canvas){
         this.setBackground(bg);
         this.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
@@ -38,14 +38,18 @@ public class CanvasController extends JPanel {
                 switch (operation) {
                     case "draw":
                         try {
-                            currShape = (Shape) shapeType.newInstance();
+                            Class c=Class.forName(shapeType.getClass().getName());
+                            currShape =(Shape)c.newInstance();
+                            commandManager.Execute(new MakeShapeCommand(currShape, canvas));
                             currShape.setCurrentColor(drawingColor);
-                        } catch (InstantiationException e1) {
-                            e1.printStackTrace();
-                        } catch (IllegalAccessException e1) {
-                            e1.printStackTrace();
                         } catch (NullPointerException e3) {
                             JOptionPane.showMessageDialog(getParent(), "No Shape Selected!");
+                        } catch (IllegalAccessException e1) {
+                            e1.printStackTrace();
+                        } catch (InstantiationException e1) {
+                            e1.printStackTrace();
+                        } catch (ClassNotFoundException e1) {
+                            e1.printStackTrace();
                         }
                         if (currShape != null) {
                             currShape.setShapeStart(e.getPoint());
@@ -73,6 +77,7 @@ public class CanvasController extends JPanel {
             public void mouseReleased(MouseEvent e){
                 if(currShape != null){
                     listmodel.addElement(currShape);
+                    System.out.println(listmodel.size());
                     currShape=null;
                     repaint();
                 }
@@ -89,8 +94,23 @@ public class CanvasController extends JPanel {
         });
     }
 
-    public void setCurrShape(Class<?> toDraw){
+    public void setCurrShape(Shape toDraw){
         shapeType = toDraw;
+    }
+
+    public void removeLastElement(){
+        if (listmodel.size() > 0) {
+            int last = listmodel.size() - 1;
+            System.out.println(listmodel);
+            listmodel.removeElementAt(last);
+            System.out.println(listmodel);
+            repaint();
+        }
+    }
+
+    public void addElementToList(Shape shape){
+        listmodel.addElement(shape);
+        repaint();
     }
 
     public void clear(){
@@ -115,4 +135,9 @@ public class CanvasController extends JPanel {
     public void setOperation(String o){
         operation = o;
     }
+
+    public CommandManager getCommandManager(){
+        return commandManager;
+    }
+
 }
