@@ -1,6 +1,7 @@
 package controller;
 
 
+import com.sun.org.apache.bcel.internal.generic.Select;
 import model.*;
 
 import java.awt.Color;
@@ -56,20 +57,7 @@ public class CanvasController extends JPanel {
                         }
                         break;
                     case "select":
-                        oldX = e.getX();
-                        oldY = e.getY();
-                        currentX = oldX;
-                        currentY = oldY;
-                        boolean shapeFound = false;
-
-                        for (int i = listmodel.size() - 1; i >= 0; i = i - 1) {
-                            Shape shape = listmodel.get(i);
-                            if (shape.contain(currentX, currentY)) {
-                                selectedShapes.add(shape);
-                                shapeFound = true;
-                                System.out.println("found shape");
-                            }
-                        }
+                        selectShape(e);
                         break;
                 }
             }
@@ -92,6 +80,7 @@ public class CanvasController extends JPanel {
             }
         });
     }
+
 
     public void setCurrShape(Shape toDraw){
         shapeType = toDraw;
@@ -133,8 +122,44 @@ public class CanvasController extends JPanel {
         operation = o;
     }
 
-    public CommandManager getCommandManager(){
-        return commandManager;
+
+    public void changeColor(Shape shape, Color color){
+        shape.setCurrentColor(color);
+        repaint();
     }
 
+    public void selectShape(MouseEvent e){
+        oldX = e.getX();
+        oldY = e.getY();
+        currentX = oldX;
+        currentY = oldY;
+        int unSelectedCounter = 0;
+
+        for (int i = listmodel.size() - 1; i >= 0; i = i - 1) {
+            Shape shape = listmodel.get(i);
+
+            if (!shape.contain(currentX, currentY)) {
+                unSelectedCounter++;
+                System.out.println(unSelectedCounter);
+                continue;
+            }
+
+            if (selectedShapes.contains(shape)) {
+                selectedShapes.remove(shape);
+                changeColor(shape, Color.BLACK);
+                break;
+            }
+
+            selectedShapes.add(shape);
+            changeColor(shape, Color.RED);
+            break;
+        }
+
+        if (unSelectedCounter == listmodel.size() ) {
+            for (Shape s : selectedShapes){
+                changeColor(s, Color.BLACK);
+            }
+            selectedShapes.clear();
+        }
+    }
 }

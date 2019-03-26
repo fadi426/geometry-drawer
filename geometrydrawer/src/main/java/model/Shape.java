@@ -12,6 +12,7 @@ public abstract class Shape implements java.io.Serializable {
 
 
 	public void drawPoint(Graphics g,int x,int y){
+		g.setColor(currentColor);
 		g.drawLine(x,y,x,y);
 	}
 
@@ -39,7 +40,7 @@ public abstract class Shape implements java.io.Serializable {
 		this.currentColor = currentColor;
 	}
 
-	protected Color getCurrentColor() {
+	public Color getCurrentColor() {
 		return currentColor;
 	}
 
