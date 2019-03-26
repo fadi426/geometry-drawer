@@ -18,6 +18,7 @@ public class MainFrame extends JFrame {
     private JButton UndoBtn;
     private JButton RedoBtn;
 
+
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().add(mainPanel);

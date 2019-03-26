@@ -19,7 +19,7 @@ public class CanvasController extends JPanel {
     public Shape shapeType;
     public Shape currShape;
     private Color drawingColor = Color.BLACK;
-    private CommandManager commandManager = new CommandManager();
+    private CommandManager commandManager = SingletonCmdMng.getInstance();;
 
     public DefaultListModel<Shape> listmodel = new DefaultListModel<Shape>();
     public static List<Shape> selectedShapes = new ArrayList<>();
@@ -30,7 +30,7 @@ public class CanvasController extends JPanel {
     private int currentY;
     private String operation;
 
-    public CanvasController(Color bg, CanvasController canvas){
+    public CanvasController(Color bg){
         this.setBackground(bg);
         this.addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
@@ -40,7 +40,7 @@ public class CanvasController extends JPanel {
                         try {
                             Class c=Class.forName(shapeType.getClass().getName());
                             currShape =(Shape)c.newInstance();
-                            commandManager.Execute(new MakeShapeCommand(currShape, canvas));
+                            commandManager.Execute(new MakeShapeCommand(currShape));
                             currShape.setCurrentColor(drawingColor);
                         } catch (NullPointerException e3) {
                             JOptionPane.showMessageDialog(getParent(), "No Shape Selected!");
@@ -77,7 +77,6 @@ public class CanvasController extends JPanel {
             public void mouseReleased(MouseEvent e){
                 if(currShape != null){
                     listmodel.addElement(currShape);
-                    System.out.println(listmodel.size());
                     currShape=null;
                     repaint();
                 }
@@ -101,9 +100,7 @@ public class CanvasController extends JPanel {
     public void removeLastElement(){
         if (listmodel.size() > 0) {
             int last = listmodel.size() - 1;
-            System.out.println(listmodel);
             listmodel.removeElementAt(last);
-            System.out.println(listmodel);
             repaint();
         }
     }

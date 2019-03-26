@@ -13,21 +13,14 @@ public class CommandManager {
 
     public void Execute(Command cmd)
     {
-
-        System.out.println(cmd);
         cmd.Execute();
         undoStack.push(cmd);
         redoStack.clear();
-        System.out.println(undoStack.size());
-
-
     }
 
     public void Undo()
     {
-//        if (!undoStack.isEmpty()) return;
         if (!undoStack.isEmpty()) {
-            System.out.println(undoStack);
             Command cmd = undoStack.pop();
             cmd.Undo();
             redoStack.push(cmd);
@@ -36,6 +29,11 @@ public class CommandManager {
 
     public void Redo()
     {
+        if (redoStack.size() == 0) {
+            System.out.println("Redostack is empty, returning");
+            return;
+        }
+
         Command cmd = redoStack.pop();
         cmd.Redo();
         undoStack.push(cmd);

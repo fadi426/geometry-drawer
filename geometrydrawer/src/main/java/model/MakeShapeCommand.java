@@ -6,11 +6,10 @@ public class MakeShapeCommand implements Command {
     private Shape shape;
     private CanvasController canvas;
 
-    public MakeShapeCommand(Shape shape, CanvasController canvas)
+    public MakeShapeCommand(Shape shape)
     {
         this.shape = shape;
-        this.canvas = canvas;
-        System.out.println(canvas.listmodel.size());
+        this.canvas = SingletonCanvas.getInstance();
     }
 
     public void Execute()
@@ -20,7 +19,6 @@ public class MakeShapeCommand implements Command {
 
     public void Undo()
     {
-        System.out.println("undo");
         canvas.removeLastElement();
     }
 

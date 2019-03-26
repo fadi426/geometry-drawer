@@ -36,7 +36,7 @@ public class MainFrameController {
 
     private void initComponents() {
         mainFrame = new MainFrame();
-        currCanvas = new CanvasController(Color.WHITE, currCanvas);
+        currCanvas = SingletonCanvas.getInstance();
         welcomeTA = mainFrame.getShapeInfoTA();
         drawPanel = mainFrame.getDrawPanel();
         drawPanel.setLayout(new BorderLayout());
@@ -52,7 +52,7 @@ public class MainFrameController {
 
     private void createCanvas(int width,int height){
         drawPanel.removeAll();
-        currCanvas = new CanvasController(Color.WHITE, currCanvas);
+        currCanvas = SingletonCanvas.getInstance();
         currCanvas.setPreferredSize(new Dimension(width,height));
         drawPanel.add(currCanvas);
     }
@@ -132,18 +132,18 @@ public class MainFrameController {
     private class undoBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            commandManager = currCanvas.getCommandManager();
+            commandManager = SingletonCmdMng.getInstance();
             commandManager.Undo();
-            welcomeTA.append("undo\n");
+//            welcomeTA.append("undo\n");
         }
     }
 
     private class redoBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            commandManager = currCanvas.getCommandManager();
+            commandManager = SingletonCmdMng.getInstance();
             commandManager.Redo();
-            welcomeTA.append("redo\n");
+//            welcomeTA.append("redo\n");
         }
     }
 }
