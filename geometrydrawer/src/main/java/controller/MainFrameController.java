@@ -38,6 +38,7 @@ public class MainFrameController {
     private void initComponents() {
         mainFrame = new MainFrame();
         currCanvas = SingletonCanvas.getInstance();
+        commandManager = SingletonCmdMng.getInstance();
 
         welcomeTA = mainFrame.getShapeInfoTA();
         drawPanel = mainFrame.getDrawPanel();
@@ -73,9 +74,7 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             currCanvas.setOperation("draw");
-            if(currCanvas!=null){
-                currCanvas.setCurrShape(new Circle());
-            }
+            currCanvas.setCurrShape(new Circle());
             welcomeTA.append("circle\n");
         }
     }
@@ -83,9 +82,7 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             currCanvas.setOperation("draw");
-            if(currCanvas!=null){
-                currCanvas.setCurrShape(new Rectangle());
-            }
+            currCanvas.setCurrShape(new Rectangle());
             welcomeTA.append("rectangle\n");
         }
     }
@@ -93,9 +90,7 @@ public class MainFrameController {
     private class clearBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            if(currCanvas!=null){
-                currCanvas.clear();
-            }
+            commandManager.Execute(new ClearCommand(currCanvas.toList()));
             welcomeTA.append("cleared\n");
         }
     }
@@ -112,16 +107,16 @@ public class MainFrameController {
     private class undoBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            commandManager = SingletonCmdMng.getInstance();
             commandManager.Undo();
+            currCanvas.repaint();
         }
     }
 
     private class redoBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            commandManager = SingletonCmdMng.getInstance();
             commandManager.Redo();
+            currCanvas.repaint();
         }
     }
 

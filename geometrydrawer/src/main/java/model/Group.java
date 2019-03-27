@@ -24,7 +24,6 @@ public class Group extends Shape {
     };
 
     public void addShapes(List<Shape> shapes){
-        System.out.println(shapes);
         subShapes.addAll(shapes);
     }
 

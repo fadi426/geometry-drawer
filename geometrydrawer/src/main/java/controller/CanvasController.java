@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
@@ -48,12 +49,15 @@ public class CanvasController extends JPanel {
             }
 
             public void mouseReleased(MouseEvent e){
-                if(currShape != null){
-                    listmodel.addElement(currShape);
-                    mainGroup.addShape(currShape);
-                    currShape=null;
-                    repaint();
-                }
+
+                if(currShape == null)
+                    return;
+
+                clearSelect();
+                listmodel.addElement(currShape);
+                mainGroup.addShape(currShape);
+                currShape=null;
+                repaint();
             }
         });
 
@@ -92,6 +96,15 @@ public class CanvasController extends JPanel {
         shapeType = toDraw;
     }
 
+    public List<Shape> toList(){
+        List<Shape> shapes = new ArrayList<>();
+        for (int i = 0; i < listmodel.size(); i++)
+        {
+            shapes.add(listmodel.get(i));
+        }
+        return shapes;
+    }
+
     public void removeLastElement(){
         if (listmodel.size() > 0) {
             int last = listmodel.size() - 1;
@@ -101,10 +114,23 @@ public class CanvasController extends JPanel {
         }
     }
 
+    public void clearSelect(){
+        for (Shape shape : selectedShapes) {
+            shape.setColor(Color.BLACK);
+        }
+        selectedShapes.clear();
+    }
+
     public void addElementToList(Shape shape){
         listmodel.addElement(shape);
         mainGroup.addShape(shape);
         repaint();
+    }
+
+    public void addElementsToList(List<Shape> shapes){
+        for (Shape s : shapes) {
+            addElementToList(s);
+        }
     }
 
     public void clear(){
@@ -142,10 +168,10 @@ public class CanvasController extends JPanel {
             Shape shape = listmodel.get(i);
 
             if (shape.getSubShapes().size()> 0 && shape.contain(currentX, currentY, shape.getSubShapes())){
-                shape.setColor(Color.RED);
+                commandManager.Execute(new SelectCommand(shape));
             }
             else if (shape.contain(currentX, currentY )) {
-                shape.setColor(Color.RED);
+                commandManager.Execute(new SelectCommand(shape));
             }
             else {
                 unSelectedCounter++;
@@ -154,10 +180,7 @@ public class CanvasController extends JPanel {
 
             if (selectedShapes.contains(shape)) {
                 selectedShapes.remove(shape);
-                if (shape.getSubShapes().size() > 0)
-                    shape.setColor(Color.BLACK);
-                else
-                    shape.setColor(Color.BLACK);
+                commandManager.Execute(new UnselectCommand(shape));
                 break;
             }
 
@@ -167,13 +190,8 @@ public class CanvasController extends JPanel {
         }
 
         if (unSelectedCounter == listmodel.size() ) {
-            System.out.println("unselect");
             for (Shape s : selectedShapes){
-                if (s.getSubShapes().size() > 0) {
-                    s.setColor(Color.BLACK);
-                    continue;
-                }
-                s.setColor(Color.BLACK);
+                commandManager.Execute(new UnselectCommand(s));
             }
             selectedShapes.clear();
         }
@@ -181,20 +199,8 @@ public class CanvasController extends JPanel {
     }
 
     public void createGroup() {
-        Group group = new Group();
-        group.addShapes(selectedShapes);
-
-        for (Shape s : selectedShapes){
-            if(listmodel.contains(s)) {
-                listmodel.removeElement(s);
-                mainGroup.removeShape(s);
-            }
-        }
-
-        listmodel.addElement(group);
-        mainGroup.addShape(group);
+        commandManager.Execute(new MakeGroupCommand(selectedShapes));
         selectedShapes.clear();
-        group.setColor(Color.BLACK);
         repaint();
     }
 }
