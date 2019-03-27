@@ -10,14 +10,12 @@ public class MainFrame extends JFrame {
     private JTextArea shapeInfoTA;
     private JPanel drawPanel;
     private JButton circleBtn;
-    private JButton lineBtn;
-    private JButton polygonBtn;
     private JButton rectangleBtn;
     private JButton clearBtn;
     private JButton selectBtn;
     private JButton UndoBtn;
     private JButton RedoBtn;
-
+    private JButton groupBtn;
 
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,18 +36,11 @@ public class MainFrame extends JFrame {
     public JButton getCircleBtn() {
         return circleBtn;
     }
-
-    public JButton getLineBtn() { return lineBtn; }
-
-    public JButton getPolygonBtn() { return polygonBtn; }
-
     public JButton getRectangleBtn() { return rectangleBtn; }
-
     public JButton getClearBtn() { return clearBtn; }
-
     public JButton getSelectBtn() { return selectBtn; }
-
     public JButton getUndoBtn() {return UndoBtn;}
     public JButton getRedoBtn() {return RedoBtn;}
+    public JButton getGroupBtn() {return groupBtn;}
 }
 

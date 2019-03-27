@@ -14,14 +14,15 @@ public class MainFrameController {
     private MainFrame mainFrame;
     private CommandManager commandManager;
     private JTextArea welcomeTA;
+
     private JButton circleBtn;
-    private JButton lineBtn;
-    private JButton polygonBtn;
     private JButton rectangleBtn;
     private JButton clearBtn;
     private JButton selectBtn;
     private JButton undoBtn;
     private JButton redoBtn;
+    private JButton groupBtn;
+
     private JPanel drawPanel;
     private CanvasController currCanvas;
 
@@ -37,17 +38,17 @@ public class MainFrameController {
     private void initComponents() {
         mainFrame = new MainFrame();
         currCanvas = SingletonCanvas.getInstance();
+
         welcomeTA = mainFrame.getShapeInfoTA();
         drawPanel = mainFrame.getDrawPanel();
         drawPanel.setLayout(new BorderLayout());
         circleBtn = mainFrame.getCircleBtn();
-        lineBtn = mainFrame.getLineBtn();
-        polygonBtn = mainFrame.getPolygonBtn();
         rectangleBtn = mainFrame.getRectangleBtn();
         clearBtn = mainFrame.getClearBtn();
         selectBtn = mainFrame.getSelectBtn();
         undoBtn = mainFrame.getUndoBtn();
         redoBtn = mainFrame.getRedoBtn();
+        groupBtn = mainFrame.getGroupBtn();
     }
 
     private void createCanvas(int width,int height){
@@ -59,17 +60,16 @@ public class MainFrameController {
 
     private void initListeners() {
         createCanvas(500,500);
-        circleBtn.addActionListener(new circleBtnLister());
-        lineBtn.addActionListener(new lineBtnListener());
-        polygonBtn.addActionListener(new polygonBtnListener());
+        circleBtn.addActionListener(new circleBtnListener());
         rectangleBtn.addActionListener(new rectangleBtnListener());
         clearBtn.addActionListener(new clearBtnListener());
         selectBtn.addActionListener(new selectBtnListener());
         undoBtn.addActionListener(new undoBtnListener());
         redoBtn.addActionListener(new redoBtnListener());
+        groupBtn.addActionListener(new groupBtnListener());
     }
 
-    private class circleBtnLister implements ActionListener {
+    private class circleBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             currCanvas.setOperation("draw");
@@ -77,26 +77,6 @@ public class MainFrameController {
                 currCanvas.setCurrShape(new Circle());
             }
             welcomeTA.append("circle\n");
-        }
-    }
-    private class lineBtnListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            currCanvas.setOperation("draw");
-            if(currCanvas!=null){
-                currCanvas.setCurrShape(new Line());
-            }
-            welcomeTA.append("line\n");
-        }
-    }
-    private class polygonBtnListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            currCanvas.setOperation("draw");
-            if(currCanvas!=null){
-                currCanvas.setCurrShape(new Pentagon());
-            }
-            welcomeTA.append("polygon\n");
         }
     }
     private class rectangleBtnListener implements ActionListener {
@@ -134,7 +114,6 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             commandManager = SingletonCmdMng.getInstance();
             commandManager.Undo();
-//            welcomeTA.append("undo\n");
         }
     }
 
@@ -143,7 +122,13 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             commandManager = SingletonCmdMng.getInstance();
             commandManager.Redo();
-//            welcomeTA.append("redo\n");
+        }
+    }
+
+    private class groupBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            currCanvas.createGroup();
         }
     }
 }

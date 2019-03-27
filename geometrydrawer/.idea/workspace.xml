@@ -2,29 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21b9792e-5936-47ff-9453-03df808597ac" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/SingleObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/SingletonCanvas.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/SingletonCmdMng.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/Group.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CanvasController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/MainFrameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MainFrameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MakeShapeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MakeShapeCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Pentagon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Pentagon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/MainFrame.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainFrame.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/view/MainFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/MainFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/CanvasController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CanvasController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/CanvasController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CanvasController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/CanvasController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/CanvasController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$circleBtnLister.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController$circleBtnLister.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$circleBtnLister.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$clearBtnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController$clearBtnListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$lineBtnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController$lineBtnListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$polygonBtnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController$polygonBtnListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$lineBtnListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$polygonBtnListener.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$rectangleBtnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController$rectangleBtnListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$redoBtnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController$redoBtnListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$selectBtnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController$selectBtnListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController$undoBtnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController$undoBtnListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/controller/MainFrameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/controller/MainFrameController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/MakeShapeCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/MakeShapeCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Shape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/MainFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/MainFrame.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,10 +39,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/controller/MainFrameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="146" column="9" lean-forward="true" selection-start-line="146" selection-start-column="9" selection-end-line="146" selection-end-column="9" />
+            <state relative-caret-position="186">
+              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3980#3981#0" expanded="true" />
+                <element signature="e#4028#4029#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -57,44 +59,32 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/CommandManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="32" column="61" selection-start-line="32" selection-start-column="61" selection-end-line="32" selection-end-column="61" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/SingleObject.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Shape.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="3" lean-forward="true" selection-end-line="8" />
-              <folding>
-                <element signature="e#0#133#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/SingletonCanvas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
+            <state relative-caret-position="242">
+              <caret line="39" column="24" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#765#766#0" expanded="true" />
+                <element signature="e#789#790#0" expanded="true" />
+                <element signature="e#837#838#0" expanded="true" />
+                <element signature="e#872#873#0" expanded="true" />
+                <element signature="e#903#904#0" expanded="true" />
+                <element signature="e#925#926#0" expanded="true" />
+                <element signature="e#969#970#0" expanded="true" />
+                <element signature="e#1000#1001#0" expanded="true" />
+                <element signature="e#1052#1053#0" expanded="true" />
+                <element signature="e#1091#1092#0" expanded="true" />
+                <element signature="e#817#818#0" expanded="true" />
+                <element signature="e#843#844#0" expanded="true" />
+                <element signature="e#884#885#0" expanded="true" />
+                <element signature="e#903#904#0" expanded="true" />
+                <element signature="e#1007#1008#0" expanded="true" />
+                <element signature="e#1026#1027#0" expanded="true" />
+                <element signature="e#991#992#0" expanded="true" />
+                <element signature="e#1023#1024#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/Command.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -103,42 +93,90 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/model/MakeShapeCommand.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+              <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/SingletonCanvas.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
               <folding>
-                <element signature="e#385#386#0" expanded="true" />
-                <element signature="e#427#428#0" expanded="true" />
-                <element signature="e#457#458#0" expanded="true" />
-                <element signature="e#499#500#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/MainFrame.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Circle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            <state relative-caret-position="-664">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/view/MainFrame.form">
-          <provider selected="true" editor-type-id="ui-designer" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Group.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#420#421#0" expanded="true" />
+                <element signature="e#447#448#0" expanded="true" />
+                <element signature="e#662#663#0" expanded="true" />
+                <element signature="e#686#687#0" expanded="true" />
+                <element signature="e#941#942#0" expanded="true" />
+                <element signature="e#980#981#0" expanded="true" />
+                <element signature="e#1028#1029#0" expanded="true" />
+                <element signature="e#1060#1061#0" expanded="true" />
+                <element signature="e#1671#1672#0" expanded="true" />
+                <element signature="e#1749#1750#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/CanvasController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Line.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+            <state relative-caret-position="-680">
+              <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4406#4407#0" expanded="true" />
-                <element signature="e#4435#4436#0" expanded="true" />
-                <element signature="e#4483#4484#0" expanded="true" />
-                <element signature="e#4520#4521#0" expanded="true" />
+                <element signature="e#1301#1302#0" expanded="true" />
+                <element signature="e#1320#1321#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/Rectangle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="527">
+              <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/controller/CanvasController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3179">
+              <caret line="196" column="22" selection-start-line="196" selection-start-column="22" selection-end-line="196" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,9 +193,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>new Jpanel</find>
-      <find>new</find>
-      <find>Shape</find>
       <find>shapes</find>
       <find>shapes.Polygon</find>
       <find>createCanvas</find>
@@ -170,7 +205,6 @@
       <find>getListModel</find>
       <find>polygon</find>
       <find>String</find>
-      <find>draw</find>
       <find>current</find>
       <find>curr</find>
       <find>welcomeBtn</find>
@@ -185,6 +219,10 @@
       <find>currentColor</find>
       <find>currShap</find>
       <find>commandManager</find>
+      <find>g</find>
+      <find>draw</find>
+      <find>paint</find>
+      <find>element</find>
     </findStrings>
     <replaceStrings>
       <replace>Square</replace>
@@ -212,22 +250,23 @@
         <option value="$PROJECT_DIR$/src/main/java/model/Polygon.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Line.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Circle.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Pentagon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Rectangle.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/UndoableCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/RedoableCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Command.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/DrawCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Shape.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/SingleObject.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/SingletonCanvas.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/SingletonCmdMng.java" />
-        <option value="$PROJECT_DIR$/src/main/java/view/MainFrame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/view/MainFrame.form" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/MainFrameController.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/MakeShapeCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/CanvasController.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/CommandManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/view/MainFrame.form" />
+        <option value="$PROJECT_DIR$/src/main/java/view/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Rectangle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Pentagon.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/MainFrameController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Shape.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Group.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/CanvasController.java" />
       </list>
     </option>
   </component>
@@ -248,10 +287,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="145" />
-    <option name="y" value="-13" />
-    <option name="width" value="1293" />
-    <option name="height" value="1073" />
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -309,15 +347,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="geometrydrawer" type="b2602c69:ProjectViewProjectNode" />
-              <item name="geometrydrawer" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="MainFrame" type="e9f4de52:FormNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -327,21 +356,15 @@
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="156" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="375" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553594093361" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553685779037" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="model" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Fadi\Documents\GitHub\geometry-drawer" />
@@ -349,6 +372,12 @@
       <recent name="C:\Users\Fadi\Documents\GitHub\geometry-drawer\geometrydrawer\src\main\java\model" />
       <recent name="C:\Users\Fadi\Documents\GitHub\geometry-drawer\geometrydrawer\src\main\java\Extra" />
       <recent name="C:\Users\Fadi\Documents\GitHub\geometry-drawer\geometrydrawer\src\main\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="model" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -467,7 +496,7 @@
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1401919" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1401919" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -476,8 +505,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.29367632" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29367632" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39764202" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -495,18 +524,49 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.18491484" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1401919" />
+      <window_info id="Structure" order="1" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29367632" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39869282" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32690248" />
+      <window_info anchor="right" id="Maven" order="0" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Theme Preview" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Maven Projects" order="8" visible="true" weight="0.18491484" />
+    </layout-to-restore>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/Pentagon.java</url>
-          <line>74</line>
-          <properties />
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>shape.contain(currentX, currentY, shape.getSubShapes())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>shape.getSubShapes().size()&gt; 0 &amp;&amp; shape.contain(currentX, currentY, shape.getSubShapes())</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/PainterPanelController.java" />
@@ -533,41 +593,9 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Dimensions.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Square.java" />
     <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/jre/lib/rt.jar!/java/awt/Point.class" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Pentagon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Rectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/UndoableCommand.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/model/RedoableCommand.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/model/DrawCommand.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Line.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1301#1302#0" expanded="true" />
-            <element signature="e#1320#1321#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/JavaJDK/src.zip!/javax/swing/DefaultListModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -575,53 +603,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Circle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Shape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="57" column="1" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#453#454#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-            <element signature="e#525#526#0" expanded="true" />
-            <element signature="e#560#561#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-            <element signature="e#613#614#0" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#740#741#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#843#844#0" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-            <element signature="e#903#904#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/Command.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/SingletonCanvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -635,6 +620,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/CommandManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#895#896#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/MainFrame.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Pentagon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="45" column="37" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Line.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-680">
+          <caret line="2" selection-start-line="2" selection-end-line="3" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1301#1302#0" expanded="true" />
+            <element signature="e#1320#1321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/SingletonCmdMng.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -642,22 +680,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="35" column="5" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/MainFrame.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/MainFrameController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="146" column="9" lean-forward="true" selection-start-line="146" selection-start-column="9" selection-end-line="146" selection-end-column="9" />
+        <state relative-caret-position="186">
+          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3980#3981#0" expanded="true" />
+            <element signature="e#4028#4029#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -665,34 +695,85 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/model/MakeShapeCommand.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <caret line="11" column="52" lean-forward="true" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/SingletonCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
           <folding>
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#427#428#0" expanded="true" />
-            <element signature="e#457#458#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Circle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-664">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="39" column="24" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#765#766#0" expanded="true" />
+            <element signature="e#789#790#0" expanded="true" />
+            <element signature="e#837#838#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
+            <element signature="e#903#904#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1091#1092#0" expanded="true" />
+            <element signature="e#817#818#0" expanded="true" />
+            <element signature="e#843#844#0" expanded="true" />
+            <element signature="e#884#885#0" expanded="true" />
+            <element signature="e#903#904#0" expanded="true" />
+            <element signature="e#1007#1008#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+            <element signature="e#991#992#0" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="35" column="38" lean-forward="true" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#980#981#0" expanded="true" />
+            <element signature="e#1028#1029#0" expanded="true" />
+            <element signature="e#1060#1061#0" expanded="true" />
+            <element signature="e#1671#1672#0" expanded="true" />
+            <element signature="e#1749#1750#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/controller/CanvasController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        <state relative-caret-position="3179">
+          <caret line="196" column="22" selection-start-line="196" selection-start-column="22" selection-end-line="196" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4406#4407#0" expanded="true" />
-            <element signature="e#4435#4436#0" expanded="true" />
-            <element signature="e#4483#4484#0" expanded="true" />
-            <element signature="e#4520#4521#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/CommandManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="32" column="61" selection-start-line="32" selection-start-column="61" selection-end-line="32" selection-end-column="61" />
         </state>
       </provider>
     </entry>

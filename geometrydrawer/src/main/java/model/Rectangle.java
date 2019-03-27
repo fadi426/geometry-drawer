@@ -1,7 +1,6 @@
 package model;
 
-import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class Rectangle extends Shape {
@@ -19,18 +18,20 @@ public class Rectangle extends Shape {
 		points.add(new Point(getShapeStart().x,getShapeEnd().y));
 		points.add(getShapeEnd());
 		points.add(new Point(getShapeEnd().x,getShapeStart().y));
+
+		Color color = getColor();
 		
 		Line line = new Line(points.get(0),points.get(1));
-		line.setCurrentColor(getCurrentColor());
+		line.setColor(color);
 		line.draw(g);
 		Line line2 = new Line(points.get(3),points.get(2));
-		line2.setCurrentColor(getCurrentColor());
+		line2.setColor(color);
 		line2.draw(g);
 		Line line3 = new Line(points.get(0),points.get(3));
-		line3.setCurrentColor(getCurrentColor());
+		line3.setColor(color);
 		line3.draw(g);
 		Line line4 = new Line(points.get(1),points.get(2));
-		line4.setCurrentColor(getCurrentColor());
+		line4.setColor(color);
 		line4.draw(g);
 	}
 

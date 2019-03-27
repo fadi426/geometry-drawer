@@ -3,14 +3,15 @@ package model;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Shape implements java.io.Serializable {
 
 	private Point shapeStart,shapeEnd;
 	private Color currentColor = Color.BLACK;
 	private boolean filled = false;
-
-
+	
 	public void drawPoint(Graphics g,int x,int y){
 		g.setColor(currentColor);
 		g.drawLine(x,y,x,y);
@@ -36,17 +37,25 @@ public abstract class Shape implements java.io.Serializable {
 		this.shapeEnd = shapeEnd;
 	}
 
-	public void setCurrentColor(Color currentColor) {
+	public void setColor(Color currentColor) {
 		this.currentColor = currentColor;
 	}
 
-	public Color getCurrentColor() {
+	public Color getColor() {
 		return currentColor;
 	}
 
 	public boolean contain(int x, int y) {
 		return false;
 	}
+
+	public boolean contain(int x, int y, List<Shape> shapes) {
+		return false;
+	}
+
+	public List getSubShapes(){
+		return new ArrayList();
+	};
 
 	public boolean isFilled() {
 		return filled;

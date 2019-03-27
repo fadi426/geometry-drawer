@@ -45,18 +45,6 @@
               <text value="Circle"/>
             </properties>
           </component>
-          <component id="101c4" class="javax.swing.JButton" binding="lineBtn">
-            <constraints/>
-            <properties>
-              <text value="Line"/>
-            </properties>
-          </component>
-          <component id="67ed0" class="javax.swing.JButton" binding="polygonBtn">
-            <constraints/>
-            <properties>
-              <text value="Polygon"/>
-            </properties>
-          </component>
           <component id="28e9b" class="javax.swing.JButton" binding="rectangleBtn">
             <constraints/>
             <properties>
@@ -85,6 +73,12 @@
             <constraints/>
             <properties>
               <text value="Redo"/>
+            </properties>
+          </component>
+          <component id="89a8b" class="javax.swing.JButton" binding="groupBtn">
+            <constraints/>
+            <properties>
+              <text value="Group"/>
             </properties>
           </component>
         </children>

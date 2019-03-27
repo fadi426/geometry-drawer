@@ -38,12 +38,12 @@ public class Pentagon extends Shape {
 				points.add(point);
 				if (i >= 1) {
 					line = new Line(points.get(i - 1), points.get(i));
-					line.setCurrentColor(getCurrentColor());
+					line.setColor(getColor());
 					line.draw(g);
 				}
 				if (i == sides - 1) {
 					line = new Line(points.get(sides - 1), points.get(0));
-					line.setCurrentColor(getCurrentColor());
+					line.setColor(getColor());
 					line.draw(g);
 				}
 			}
