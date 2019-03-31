@@ -16,6 +16,8 @@ public class MainFrame extends JFrame {
     private JButton UndoBtn;
     private JButton RedoBtn;
     private JButton groupBtn;
+    private JButton moveBtn;
+    private JButton resizeBtn;
 
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,5 +44,7 @@ public class MainFrame extends JFrame {
     public JButton getUndoBtn() {return UndoBtn;}
     public JButton getRedoBtn() {return RedoBtn;}
     public JButton getGroupBtn() {return groupBtn;}
+    public JButton getMoveBtn() {return moveBtn; }
+    public JButton getResizeBtn() { return resizeBtn; }
 }
 

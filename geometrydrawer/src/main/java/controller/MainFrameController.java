@@ -5,8 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-import model.*;
-import model.Rectangle;
+import model.Mouse;
+import model.commands.ClearCommand;
+import model.commands.CommandManager;
+import model.shapes.Circle;
+import model.shapes.Rectangle;
+import model.singleObjects.SingleMouse;
+import model.singleObjects.SingletonCanvas;
+import model.singleObjects.SingletonCmdMng;
 import view.MainFrame;
 
 public class MainFrameController {
@@ -22,9 +28,12 @@ public class MainFrameController {
     private JButton undoBtn;
     private JButton redoBtn;
     private JButton groupBtn;
+    private JButton moveBtn;
+    private JButton resizeBtn;
 
     private JPanel drawPanel;
     private CanvasController currCanvas;
+    private Mouse mouse;
 
     public MainFrameController() {
         initComponents();
@@ -39,6 +48,8 @@ public class MainFrameController {
         mainFrame = new MainFrame();
         currCanvas = SingletonCanvas.getInstance();
         commandManager = SingletonCmdMng.getInstance();
+        mouse = SingleMouse.getInstance();
+        mouse.setCanvas(currCanvas);
 
         welcomeTA = mainFrame.getShapeInfoTA();
         drawPanel = mainFrame.getDrawPanel();
@@ -50,6 +61,8 @@ public class MainFrameController {
         undoBtn = mainFrame.getUndoBtn();
         redoBtn = mainFrame.getRedoBtn();
         groupBtn = mainFrame.getGroupBtn();
+        moveBtn = mainFrame.getMoveBtn();
+        resizeBtn = mainFrame.getResizeBtn();
     }
 
     private void createCanvas(int width,int height){
@@ -68,12 +81,14 @@ public class MainFrameController {
         undoBtn.addActionListener(new undoBtnListener());
         redoBtn.addActionListener(new redoBtnListener());
         groupBtn.addActionListener(new groupBtnListener());
+        moveBtn.addActionListener(new moveBtnListener());
+        resizeBtn.addActionListener(new resizeBtnListener());
     }
 
     private class circleBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            currCanvas.setOperation("draw");
+            mouse.setOperation("draw");
             currCanvas.setCurrShape(new Circle());
             welcomeTA.append("circle\n");
         }
@@ -81,7 +96,7 @@ public class MainFrameController {
     private class rectangleBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            currCanvas.setOperation("draw");
+            mouse.setOperation("draw");
             currCanvas.setCurrShape(new Rectangle());
             welcomeTA.append("rectangle\n");
         }
@@ -98,7 +113,7 @@ public class MainFrameController {
     private class selectBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            currCanvas.setOperation("select");
+            mouse.setOperation("select");
             welcomeTA.append("cleared\n");
         }
     }
@@ -125,5 +140,15 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             currCanvas.createGroup();
         }
+    }
+
+    private class moveBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) { mouse.setOperation("move"); }
+    }
+
+    private class resizeBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) { mouse.setOperation("resize"); }
     }
 }

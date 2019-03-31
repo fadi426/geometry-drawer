@@ -1,21 +1,25 @@
 package controller;
 
 
-import com.sun.org.apache.bcel.internal.generic.Select;
-import com.sun.org.apache.xpath.internal.operations.Bool;
-import model.*;
+import model.Mouse;
+import model.commands.*;
+import model.shapes.Group;
+import model.shapes.Shape;
+import model.singleObjects.SingleMouse;
+import model.singleObjects.SingletonCmdMng;
+import model.visitors.MoveVisitor;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+
+import static java.lang.Math.abs;
 
 public class CanvasController extends JPanel {
 
@@ -28,50 +32,22 @@ public class CanvasController extends JPanel {
     public DefaultListModel<Shape> listmodel = new DefaultListModel<Shape>();
     public static List<Shape> selectedShapes = new ArrayList<>();
 
-    private int oldX;
-    private int oldY;
-    private int currentX;
-    private int currentY;
+    public int currentX;
+    public int currentY;
+    public int endX;
+    public int endY;
     private String operation;
+    private Boolean move = false;
+
+    Mouse mouse = SingleMouse.getInstance();
 
     public CanvasController(Color bg){
         this.setBackground(bg);
-        this.addMouseListener(new MouseAdapter() {
-            public void mousePressed(MouseEvent e) {
-                switch (operation) {
-                    case "draw":
-                        draw(e);
-                        break;
-                    case "select":
-                        selectShape(e);
-                        break;
-                }
-            }
-
-            public void mouseReleased(MouseEvent e){
-
-                if(currShape == null)
-                    return;
-
-                clearSelect();
-                listmodel.addElement(currShape);
-                mainGroup.addShape(currShape);
-                currShape=null;
-                repaint();
-            }
-        });
-
-        this.addMouseMotionListener(new MouseAdapter() {
-            public void mouseDragged(MouseEvent e){
-                if(currShape!= null){
-                    currShape.setShapeEnd(e.getPoint());
-                    repaint();
-                }
-            }
-        });
+        this.addMouseListener(mouse);
+        this.addMouseMotionListener(mouse);
     }
 
-    private void draw(MouseEvent e) {
+    public void draw(MouseEvent e) {
         try {
             Class c=Class.forName(shapeType.getClass().getName());
             currShape =(Shape)c.newInstance();
@@ -158,10 +134,8 @@ public class CanvasController extends JPanel {
     }
 
     public void selectShape(MouseEvent e){
-        oldX = e.getX();
-        oldY = e.getY();
-        currentX = oldX;
-        currentY = oldY;
+        currentX = e.getX();
+        currentY = e.getY();
         int unSelectedCounter = 0;
 
         for (int i = listmodel.size() - 1; i >= 0; i = i - 1) {
@@ -202,5 +176,42 @@ public class CanvasController extends JPanel {
         commandManager.Execute(new MakeGroupCommand(selectedShapes));
         selectedShapes.clear();
         repaint();
+    }
+
+    public void moveShape() {
+        int width;
+        int height;
+        int xDifference;
+        int yDifference;
+
+        for (Shape s : selectedShapes) {
+
+            width = abs(s.getShapeEnd().x - s.getShapeStart().x);
+            height = abs(s.getShapeEnd().y - s.getShapeStart().y);
+
+            xDifference = endX - currentX;
+            yDifference = endY - currentY;
+
+            s.setShapeStart(new Point(s.getShapeStart().x + xDifference, s.getShapeStart().y + yDifference));
+            s.setShapeEnd(new Point(s.getShapeStart().x + width, s.getShapeStart().y + height));
+        }
+    }
+
+    public void editSizeShape() {
+        int width;
+        int height;
+        int xDifference;
+        int yDifference;
+
+        for (Shape s : selectedShapes) {
+
+            width = abs(s.getShapeEnd().x - s.getShapeStart().x);
+            height = abs(s.getShapeEnd().y - s.getShapeStart().y);
+
+            xDifference = endX - currentX;
+            yDifference = endY - currentY;
+
+            s.setShapeEnd(new Point(s.getShapeStart().x + width + xDifference , s.getShapeStart().y + height + yDifference ));
+        }
     }
 }
