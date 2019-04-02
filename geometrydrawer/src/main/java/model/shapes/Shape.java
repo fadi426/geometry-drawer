@@ -56,9 +56,9 @@ public abstract class Shape implements Visitable {
 		return false;
 	}
 
-	public List getSubShapes(){
+	public List<Shape> getSubShapes(){
 		return new ArrayList();
-	};
+	}
 
 	public boolean isFilled() {
 		return filled;

@@ -49,9 +49,13 @@ public class MakeGroupCommand implements Command{
     }
 
     private void RemoveShapes(){
+        List<Shape> mainGroupShapes = canvas.getMainGroup().getSubShapes();
+        List<Shape> listmodel = canvas.toList();
+
         for (Shape s : shapes) {
-            if(canvas.listmodel.contains(s)) {
+            if(listmodel.contains(s) && mainGroupShapes.contains(s)) {
                 canvas.listmodel.removeElement(s);
+                canvas.mainGroup.removeShape(s);
             }
         }
     }

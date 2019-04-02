@@ -18,6 +18,8 @@ public class MainFrame extends JFrame {
     private JButton groupBtn;
     private JButton moveBtn;
     private JButton resizeBtn;
+    private JButton SaveBtn;
+    private JButton LoadBtn;
 
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,5 +48,7 @@ public class MainFrame extends JFrame {
     public JButton getGroupBtn() {return groupBtn;}
     public JButton getMoveBtn() {return moveBtn; }
     public JButton getResizeBtn() { return resizeBtn; }
+    public JButton getSaveBtn(){return SaveBtn;}
+    public JButton getLoadBtn(){return LoadBtn;}
 }
 

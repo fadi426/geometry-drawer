@@ -81,6 +81,11 @@ public class CanvasController extends JPanel {
         return shapes;
     }
 
+    public Group getMainGroup(){
+        return mainGroup;
+    }
+    public void setMainGroup(Shape group){this.mainGroup = (Group) group;}
+
     public void removeLastElement(){
         if (listmodel.size() > 0) {
             int last = listmodel.size() - 1;
@@ -107,6 +112,13 @@ public class CanvasController extends JPanel {
         for (Shape s : shapes) {
             addElementToList(s);
         }
+    }
+
+    public void insertFromFile(List<Shape> shapes){
+        for (Shape s : shapes){
+            listmodel.addElement(s);
+        }
+        repaint();
     }
 
     public void clear(){

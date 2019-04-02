@@ -97,11 +97,6 @@ public class Pentagon extends Shape {
 		return false;
 	}
 
-	public String toString(){
-		return "Pentagon: ("+ getShapeStart().x+","+getShapeStart().y+")"
-				+ " Radius: " + radius;
-	}
-
 	@Override
 	public void fill(Graphics g) {
 

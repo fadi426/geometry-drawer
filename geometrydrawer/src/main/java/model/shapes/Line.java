@@ -71,12 +71,6 @@ public class Line extends Shape {
 	}
 
 	@Override
-	public String toString(){
-		return "Line: (" + getShapeStart().x + ","+getShapeStart().y + ")"
-				+ "-("+getShapeEnd().x + ","+getShapeEnd().y + ")";
-	}
-
-	@Override
 	public void fill(Graphics g) {
 
 	}
