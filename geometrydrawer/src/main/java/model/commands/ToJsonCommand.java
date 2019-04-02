@@ -41,6 +41,7 @@ public class ToJsonCommand implements Command {
         catch (IOException e) {
             e.printStackTrace();
         }
+        canvas.clearSelect();
     }
 
     @Override
@@ -80,8 +81,11 @@ public class ToJsonCommand implements Command {
 
     private String ParseContent(){
         Group group = canvas.getMainGroup();
+        List<Shape> subshapes = group.getSubShapes();
 
-        if(group.getSubShapes().size() == 0) return null;
+        if(subshapes.size() == 0) return null;
+
+        resetColors(subshapes);
 
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
@@ -90,6 +94,12 @@ public class ToJsonCommand implements Command {
 
         String json = gson.toJson(group, Shape.class);
         return json;
+    }
+
+    private void resetColors(List<Shape> shapes){
+        //reset colors
+        for (Shape s : shapes)
+            s.setColor(Color.BLACK);
     }
 
 }
