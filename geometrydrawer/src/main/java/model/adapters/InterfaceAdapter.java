@@ -18,11 +18,8 @@ public class InterfaceAdapter<T>
     {
         final JsonObject member = new JsonObject();
 
-        System.out.println(object.getClass().getName());
         member.addProperty("type", object.getClass().getName());
-
         member.add("data", context.serialize(object));
-        System.out.println(member);
 
         return member;
     }

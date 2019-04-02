@@ -12,19 +12,16 @@ import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 import model.singleObjects.SingletonCmdMng;
 
-import javax.swing.filechooser.FileSystemView;
-import java.io.File;
+import java.awt.*;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.List;
 
 public class FromJsonCommand implements Command {
 
     private CanvasController canvas;
     private CommandManager commandManager;
-    private String FilePath = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/GeometryDrawer/%s.json";
 
     public FromJsonCommand(){
         this.canvas = SingletonCanvas.getInstance();
@@ -33,12 +30,13 @@ public class FromJsonCommand implements Command {
 
     @Override
     public void Execute() {
-        LoadContent("test");
+        String filePath = pickFile();
+        LoadContent(filePath);
     }
 
     @Override
     public void Undo() {
-
+        
     }
 
     @Override
@@ -46,11 +44,16 @@ public class FromJsonCommand implements Command {
 
     }
 
-    private void LoadContent(String fileName){
+    private String pickFile(){
+        FileDialog dialog = new FileDialog((Frame)null, "Select File to Open");
+        dialog.setMode(FileDialog.LOAD);
+        dialog.setVisible(true);
+        return dialog.getDirectory() + dialog.getFile();
+    }
+
+    private void LoadContent(String filePath){
         Gson gson = new GsonBuilder().registerTypeAdapter(Shape.class, new InterfaceAdapter<Shape>()).create();
 
-        //read from filepath
-        String filePath = String.format(FilePath, "test");
         String content = "";
         try {
             content = new String(Files.readAllBytes(Paths.get(filePath)));
@@ -66,6 +69,7 @@ public class FromJsonCommand implements Command {
     }
 
     private void Instantiate(Shape group){
+        canvas.clear();
         canvas.setMainGroup(group);
         canvas.insertFromFile(group.getSubShapes());
     }

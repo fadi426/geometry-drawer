@@ -12,6 +12,7 @@ import model.singleObjects.SingletonCanvas;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -35,7 +36,7 @@ public class ToJsonCommand implements Command {
     @Override
     public void Execute(){
         try {
-            Save("test");
+            Save();
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -52,18 +53,23 @@ public class ToJsonCommand implements Command {
 
     }
 
-    private void Save(String fileName) throws IOException {
-        String filePath = CreateFile(fileName);
+    private void Save() throws IOException {
+        String filePath = CreateFile();
         String content = ParseContent();
 
         WriteFile(filePath, content);
     }
 
-    private String CreateFile(String fileName){
-        String filePath = String.format(FilePath, fileName);
-        File file = new File(filePath);
+    private String CreateFile(){
+        FileDialog dialog = new FileDialog((Frame)null, "Select File to Open", FileDialog.SAVE);
+        dialog.setFile("*.json");
+        dialog.setVisible(true);
+
+
+        String path = dialog.getDirectory() + dialog.getFile();
+        File file = new File(path);
         file.getParentFile().mkdirs();
-        return filePath;
+        return path;
     }
 
     private void WriteFile(String filePath, String content) throws IOException{
