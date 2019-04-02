@@ -12,6 +12,7 @@ import java.util.List;
 public abstract class Shape implements Visitable {
 
 	private Point shapeStart,shapeEnd;
+	private Point previousShapeStart, previousShapeEnd;
 	private Color currentColor = Color.BLACK;
 	private boolean filled = false;
 	
@@ -40,6 +41,14 @@ public abstract class Shape implements Visitable {
 		this.shapeEnd = shapeEnd;
 	}
 
+	public Point getPreviousShapeEnd() { return previousShapeEnd; }
+
+	public Point getPreviousShapeStart() { return previousShapeStart; }
+
+	public void setPreviousShapeEnd(Point previousShapeEnd) { this.previousShapeEnd = previousShapeEnd; }
+
+	public void setPreviousShapeStart(Point previousShapeStart) { this.previousShapeStart = previousShapeStart; }
+
 	public void setColor(Color currentColor) {
 		this.currentColor = currentColor;
 	}
@@ -56,7 +65,7 @@ public abstract class Shape implements Visitable {
 		return false;
 	}
 
-	public List getSubShapes(){
+	public List<Shape> getSubShapes(){
 		return new ArrayList();
 	};
 

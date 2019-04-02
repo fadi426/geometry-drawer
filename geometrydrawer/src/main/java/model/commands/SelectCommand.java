@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class SelectCommand implements Command {
 
-    private model.shapes.Shape shape;
+    private Shape shape;
 
     public SelectCommand(Shape shape){
         this.shape = shape;

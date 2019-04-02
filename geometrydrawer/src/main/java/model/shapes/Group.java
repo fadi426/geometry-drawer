@@ -50,7 +50,7 @@ public class Group extends Shape {
     };
 
     @Override
-    public List getSubShapes(){
+    public List<Shape> getSubShapes(){
         return subShapes;
     };
 

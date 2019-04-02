@@ -31,13 +31,12 @@ public class CanvasController extends JPanel {
     public Group mainGroup = new Group();
     public DefaultListModel<Shape> listmodel = new DefaultListModel<Shape>();
     public static List<Shape> selectedShapes = new ArrayList<>();
+    public List<Point> editableShapes = new ArrayList<>();
 
     public int currentX;
     public int currentY;
     public int endX;
     public int endY;
-    private String operation;
-    private Boolean move = false;
 
     Mouse mouse = SingleMouse.getInstance();
 
@@ -129,10 +128,6 @@ public class CanvasController extends JPanel {
         }
     }
 
-    public void setOperation(String o){
-        operation = o;
-    }
-
     public void selectShape(MouseEvent e){
         currentX = e.getX();
         currentY = e.getY();
@@ -178,40 +173,28 @@ public class CanvasController extends JPanel {
         repaint();
     }
 
-    public void moveShape() {
-        int width;
-        int height;
-        int xDifference;
-        int yDifference;
-
-        for (Shape s : selectedShapes) {
-
-            width = abs(s.getShapeEnd().x - s.getShapeStart().x);
-            height = abs(s.getShapeEnd().y - s.getShapeStart().y);
-
-            xDifference = endX - currentX;
-            yDifference = endY - currentY;
-
-            s.setShapeStart(new Point(s.getShapeStart().x + xDifference, s.getShapeStart().y + yDifference));
-            s.setShapeEnd(new Point(s.getShapeStart().x + width, s.getShapeStart().y + height));
+    public void setPreviousPosition(Shape shape){
+        if (shape.getSubShapes().size() > 0)
+            setPreviousGroupPositions(shape.getSubShapes());
+        else {
+            shape.setPreviousShapeStart(shape.getShapeStart());
+            shape.setPreviousShapeEnd(shape.getShapeEnd());
         }
+
     }
 
-    public void editSizeShape() {
-        int width;
-        int height;
-        int xDifference;
-        int yDifference;
-
-        for (Shape s : selectedShapes) {
-
-            width = abs(s.getShapeEnd().x - s.getShapeStart().x);
-            height = abs(s.getShapeEnd().y - s.getShapeStart().y);
-
-            xDifference = endX - currentX;
-            yDifference = endY - currentY;
-
-            s.setShapeEnd(new Point(s.getShapeStart().x + width + xDifference , s.getShapeStart().y + height + yDifference ));
+    public void setPreviousGroupPositions(List<Shape> subShapes){
+        for (Shape s : subShapes){
+            if (s.getSubShapes().size() > 0){
+                setPreviousGroupPositions(s.getSubShapes());
+            }
+            else {
+                s.setPreviousShapeStart(s.getShapeStart());
+                s.setPreviousShapeEnd(s.getShapeEnd());
+            }
         }
+        return;
     }
+
+
 }
