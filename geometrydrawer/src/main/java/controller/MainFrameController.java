@@ -123,6 +123,7 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             mouse.setOperation("select");
             welcomeTA.append("cleared\n");
+            currCanvas.clearSelect();
         }
     }
 
