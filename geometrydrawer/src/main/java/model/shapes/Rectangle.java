@@ -52,13 +52,6 @@ public class Rectangle extends Shape {
 	}
 
 	@Override
-	public String toString(){
-		return "Rectangle: (" + points.get(0).x + "," + points.get(0).y + ")-"
-				+ "(" + points.get(3).x + "," + points.get(3).y + ")";
-	}
-
-
-	@Override
 	public void accept(Visitor v) {
 		v.visit(this);
 	}

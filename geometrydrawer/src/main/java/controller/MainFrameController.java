@@ -8,6 +8,8 @@ import javax.swing.*;
 import model.Mouse;
 import model.commands.ClearCommand;
 import model.commands.CommandManager;
+import model.commands.FromJsonCommand;
+import model.commands.ToJsonCommand;
 import model.shapes.Circle;
 import model.shapes.Rectangle;
 import model.singleObjects.SingleMouse;
@@ -30,6 +32,8 @@ public class MainFrameController {
     private JButton groupBtn;
     private JButton moveBtn;
     private JButton resizeBtn;
+    private JButton saveBtn;
+    private JButton loadBtn;
 
     private JPanel drawPanel;
     private CanvasController currCanvas;
@@ -63,6 +67,8 @@ public class MainFrameController {
         groupBtn = mainFrame.getGroupBtn();
         moveBtn = mainFrame.getMoveBtn();
         resizeBtn = mainFrame.getResizeBtn();
+        saveBtn = mainFrame.getSaveBtn();
+        loadBtn = mainFrame.getLoadBtn();
     }
 
     private void createCanvas(int width,int height){
@@ -83,6 +89,8 @@ public class MainFrameController {
         groupBtn.addActionListener(new groupBtnListener());
         moveBtn.addActionListener(new moveBtnListener());
         resizeBtn.addActionListener(new resizeBtnListener());
+        saveBtn.addActionListener(new saveBtnListener());
+        loadBtn.addActionListener(new loadBtnListener());
     }
 
     private class circleBtnListener implements ActionListener {
@@ -151,4 +159,19 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) { mouse.setOperation("resize"); }
     }
+
+    private class saveBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            commandManager.Execute(new ToJsonCommand());
+        }
+    }
+
+    private class loadBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            commandManager.Execute(new FromJsonCommand());
+        }
+    }
+
 }

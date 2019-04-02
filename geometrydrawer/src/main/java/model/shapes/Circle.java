@@ -61,10 +61,6 @@ public class Circle extends Shape {
 		return false;
 	}
 
-	public String toString(){
-		return "Circle: ("+ getShapeStart().x+","+getShapeStart().y+")"
-				+ " Radius: " + radius;
-	}
 	@Override
 	public void fill(Graphics g) {
 
