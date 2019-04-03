@@ -16,10 +16,6 @@ public class Group extends Shape {
         setShapeStart(new Point(0,0));
         setShapeEnd(new Point(0,0));
     }
-    public Group(Point start,Point end){
-        setShapeStart(start);
-        setShapeEnd(end);
-    }
 
     public void addShape(Shape shape){
         subShapes.add(shape);
@@ -64,6 +60,11 @@ public class Group extends Shape {
     public void draw(Graphics g) {
         for (Shape s : subShapes) {
             s.draw(g);
+            if (getOrnaments().size() > 0) {
+                for (Ornament ornament : getOrnaments()) {
+                    ornament.draw(g);
+                }
+            }
         }
     }
 
@@ -94,6 +95,31 @@ public class Group extends Shape {
     @Override
     public void accept(Visitor v) {
         v.visit(this);
+    }
+
+    public void CalculateBoundary(){
+        Point start = new Point();
+        Point end = new Point();
+
+        start.x = getSubShapes().get(0).getShapeStart().x;
+        start.y = getSubShapes().get(0).getShapeStart().y;
+
+        for (Shape shape : getSubShapes()) {
+            if (shape.getShapeEnd().x > end.x)
+                end.x = shape.getShapeEnd().x;
+
+            if (shape.getShapeEnd().y > end.y)
+                end.y = shape.getShapeEnd().y;
+
+            if (shape.getShapeStart().x < start.x)
+                start.x = shape.getShapeStart().x;
+
+            if (shape.getShapeStart().y < start.y)
+                start.y = shape.getShapeStart().y;
+        }
+
+        setShapeStart(start);
+        setShapeEnd(end);
     }
 
 }

@@ -1,6 +1,8 @@
 package model.commands;
 
 import controller.CanvasController;
+import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 
@@ -12,11 +14,13 @@ public class MoveCommand implements Command {
     private List<Shape> shapes;
     private List<Shape> flatShapes;
     private List<List<Point>> points;
+    private List<Shape> groupList;
 
     public MoveCommand(List<Shape> shapes){
         this.shapes = shapes;
         flatShapes = new ArrayList<>();
         points = new ArrayList<>();
+        groupList = new ArrayList<>();
     }
 
     @Override
@@ -29,6 +33,17 @@ public class MoveCommand implements Command {
         for (Shape shape : flatShapes) {
             shape.setShapeStart(shape.getPreviousShapeStart());
             shape.setShapeEnd(shape.getPreviousShapeEnd());
+            for (Ornament ornament : shape.getOrnaments()) {
+                shape.updateOrnament(ornament);
+            }
+        }
+
+        for (Shape shape : groupList) {
+            Group group = (Group) shape;
+            group.CalculateBoundary();
+            for (Ornament ornament : shape.getOrnaments()) {
+                shape.updateOrnament(ornament);
+            }
         }
     }
 
@@ -38,12 +53,24 @@ public class MoveCommand implements Command {
             Shape shape = flatShapes.get(i);
             shape.setShapeStart(points.get(i).get(0));
             shape.setShapeEnd(points.get(i).get(1));
+            for (Ornament ornament : shape.getOrnaments()) {
+                shape.updateOrnament(ornament);
+            }
+        }
+
+        for (Shape shape : groupList) {
+            Group group = (Group) shape;
+            group.CalculateBoundary();
+            for (Ornament ornament : shape.getOrnaments()) {
+                shape.updateOrnament(ornament);
+            }
         }
     }
 
     public void flatMap(List<Shape> shapes){
         for (Shape s : shapes){
             if (s.getSubShapes().size() > 0){
+                groupList.add(s);
                 flatMap(s.getSubShapes());
             }
             else {

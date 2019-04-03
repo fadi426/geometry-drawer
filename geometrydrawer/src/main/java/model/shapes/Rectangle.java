@@ -6,15 +6,17 @@ import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.Math.abs;
 
 public class Rectangle extends Shape {
 
-	ArrayList<Point> points;
 	Rectangle2D rectangle;
+
 	public Rectangle(){
-		points = new ArrayList<Point>(4);
+		setShapeStart(new Point(0,0));
+		setShapeEnd(new Point(0,0));
 	}
 	@Override
 	public void draw(Graphics g) {
@@ -24,6 +26,13 @@ public class Rectangle extends Shape {
 		rectangle = new Rectangle2D.Double(getShapeStart().x,getShapeStart().y, width,height);
 		g.setColor(getColor());
 		g2D.draw(rectangle);
+
+
+		if (getOrnaments().size() > 0) {
+			for (Ornament ornament : getOrnaments()) {
+				ornament.draw(g);
+			}
+		}
 	}
 
 	@Override

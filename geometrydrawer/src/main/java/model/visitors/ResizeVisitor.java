@@ -1,6 +1,8 @@
 package model.visitors;
 
 import controller.CanvasController;
+import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 
@@ -27,11 +29,20 @@ public class ResizeVisitor implements Visitor {
         if (shape.getSubShapes().size() > 0){
             for (Shape s: shape.getSubShapes()) {
                 resizeShape(s);
+                for (Ornament ornament : shape.getOrnaments()){
+                    shape.updateOrnament(ornament);
+                }
             }
+            Group group = (Group) shape;
+            group.CalculateBoundary();
         }
         else {
-            if (shape.getPreviousShapeEnd() != null)
-                shape.setShapeEnd(new Point(shape.getPreviousShapeEnd().x + xDifference,shape.getPreviousShapeEnd().y + yDifference));
+            if (shape.getPreviousShapeEnd() != null) {
+                shape.setShapeEnd(new Point(shape.getPreviousShapeEnd().x + xDifference, shape.getPreviousShapeEnd().y + yDifference));
+                for (Ornament ornament : shape.getOrnaments()) {
+                    shape.updateOrnament(ornament);
+                }
+            }
         }
     }
 

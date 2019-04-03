@@ -9,16 +9,16 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.Math.abs;
+
 public abstract class Shape implements Visitable {
 
 	private Point shapeStart,shapeEnd;
 	private Point previousShapeStart, previousShapeEnd;
+	private List<Ornament> ornaments = new ArrayList<>();
 	private Color currentColor = Color.BLACK;
 	private boolean filled = false;
-	
-	public void drawPoint(Graphics g,int x,int y){
-		g.setColor(currentColor);
-	}
+
 
 	public abstract void draw(Graphics g);
 
@@ -79,5 +79,36 @@ public abstract class Shape implements Visitable {
 
 	public void accept(Visitor v) {
 		v.visit(this);
+	}
+
+	public void addOrnament(Ornament ornament){
+
+		updateOrnament(ornament);
+		ornaments.add(ornament);
+	}
+
+	public void updateOrnament(Ornament ornament){
+		int width = abs(getShapeEnd().x - getShapeStart().x);
+		int height = abs(getShapeEnd().y - getShapeStart().y);
+		int offset = 10;
+
+		switch (ornament.getPosition()){
+			case "top":
+				ornament.setShapeStart(new Point(getShapeStart().x + width/2, getShapeStart().y + offset));
+				break;
+			case "bottom":
+				ornament.setShapeStart(new Point(getShapeStart().x + width/2, getShapeEnd().y + offset));
+				break;
+			case "left":
+				ornament.setShapeStart(new Point(getShapeStart().x, getShapeStart().y + height/2 + offset));
+				break;
+			case "right":
+				ornament.setShapeStart(new Point(getShapeEnd().x, getShapeStart().y + height/2 + offset));
+				break;
+		}
+	}
+
+	public List<Ornament> getOrnaments(){
+		return ornaments;
 	}
 }

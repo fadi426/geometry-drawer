@@ -12,13 +12,10 @@ import static java.lang.Math.abs;
 public class Circle extends Shape {
 
 	Ellipse2D ellipse;
+
 	public Circle(){
 		setShapeStart(new Point(0,0));
 		setShapeEnd(new Point(0,0));
-	}
-	public Circle(Point start,Point end){
-		setShapeStart(start);
-		setShapeEnd(end);
 	}
 
 	@Override
@@ -29,6 +26,12 @@ public class Circle extends Shape {
 		ellipse = new Ellipse2D.Double(getShapeStart().x,getShapeStart().y, width,height);
 		g.setColor(getColor());
 		g2D.draw(ellipse);
+
+		if (getOrnaments().size() > 0) {
+			for (Ornament ornament : getOrnaments()) {
+				ornament.draw(g);
+			}
+		}
 	}
 
 	@Override

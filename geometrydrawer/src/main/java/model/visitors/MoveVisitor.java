@@ -3,6 +3,8 @@ package model.visitors;
 import controller.CanvasController;
 import model.commands.CommandManager;
 import model.commands.MoveCommand;
+import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 import model.singleObjects.SingletonCmdMng;
@@ -32,7 +34,12 @@ public class MoveVisitor implements Visitor {
         if (shape.getSubShapes().size() > 0){
             for (Shape s: shape.getSubShapes()) {
                 moveShape(s);
+                for (Ornament ornament : shape.getOrnaments()){
+                    shape.updateOrnament(ornament);
+                }
             }
+            Group group = (Group) shape;
+            group.CalculateBoundary();
         }
         else {
             int width;
@@ -44,7 +51,11 @@ public class MoveVisitor implements Visitor {
             if (shape.getPreviousShapeStart() != null) {
                 shape.setShapeStart(new Point(shape.getPreviousShapeStart().x + xDifference, shape.getPreviousShapeStart().y + yDifference));
                 shape.setShapeEnd(new Point(shape.getShapeStart().x + width, shape.getShapeStart().y + height));
+                for (Ornament ornament : shape.getOrnaments()){
+                    shape.updateOrnament(ornament);
+                }
             }
         }
+
     }
 }

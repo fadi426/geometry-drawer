@@ -3,6 +3,7 @@ package controller;
 
 import model.Mouse;
 import model.commands.*;
+import model.decorators.OrnamentDecorator;
 import model.shapes.Group;
 import model.shapes.Ornament;
 import model.shapes.Shape;
@@ -227,14 +228,45 @@ public class CanvasController extends JPanel {
 
 
     public void addOrnament(){
-        System.out.println(selectedShapes.size());
         if(selectedShapes.size() == 0)
             return;
 
-        for (Shape s : selectedShapes) {
-            Ornament ornament = new Ornament(s);
-            ornament.addToShape();
-            addElementToList(ornament);
+
+        String message = inputDialog();
+        String position = dropdownDialog();
+
+
+        if ((message == null) || (message.length() == 0) || position == null || position.length() == 0) {
+            return;
         }
+
+
+        for (Shape s : selectedShapes) {
+            if (listmodel.contains(s))
+                listmodel.removeElement(s);
+            OrnamentDecorator ornamentDecorator = new OrnamentDecorator(s, message, position);
+            System.out.println(s.getOrnaments());
+            listmodel.addElement(s);
+        }
+        repaint();
+    }
+
+    public String inputDialog(){
+        String message = JOptionPane.showInputDialog(this, "What's your message?");
+        return message;
+    }
+
+    public String dropdownDialog() {
+        Object[] possibilities = {"top", "bottom", "left", "right"};
+        String message = (String)JOptionPane.showInputDialog(
+                this,
+                "Choose your text position",
+                "Customized Dialog",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                possibilities,
+                "top");
+
+        return message;
     }
 }

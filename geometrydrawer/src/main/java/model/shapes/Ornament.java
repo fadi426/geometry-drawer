@@ -6,13 +6,13 @@ import static java.lang.Math.abs;
 
 public class Ornament extends Shape{
 
-    private String value = "This is gona be awesome";
+    private String value;
     private String position;
     private Shape shape;
 
-    public Ornament(Shape shape){
-        this.shape = shape;
-        this.position = "left";
+    public Ornament(String value, String position){
+        this.position = position;
+        this.value = value;
     }
 
     @Override
@@ -21,15 +21,6 @@ public class Ornament extends Shape{
         {
             Graphics2D g2 = (Graphics2D)g;
             g2.drawString(value,getShapeStart().x, getShapeStart().y);
-
-            switch (position){
-                case "left":
-
-                    break;
-                case "rigt":
-
-                    break;
-            }
         }
     }
 
@@ -38,24 +29,12 @@ public class Ornament extends Shape{
 
     }
 
-    public void addToShape() {
-        int width = abs(shape.getShapeEnd().x - shape.getShapeStart().x);
-        int height = abs(shape.getShapeEnd().y - shape.getShapeStart().y);
-        int offset = 5;
+    @Override
+    public void addOrnament(Ornament ornament){
+        return;
+    }
 
-        switch (position){
-            case "top":
-                setShapeStart(new Point(shape.getShapeStart().x + width/2, shape.getShapeStart().y + offset));
-                break;
-            case "bottom":
-                setShapeStart(new Point(shape.getShapeStart().x + width/2, shape.getShapeEnd().y + offset));
-                break;
-            case "left":
-                setShapeStart(new Point(shape.getShapeStart().x, shape.getShapeStart().y + height/2 + offset));
-                break;
-            case "rigt":
-                setShapeStart(new Point(shape.getShapeEnd().x, shape.getShapeStart().y + height/2 + offset));
-                break;
-        }
+    public String getPosition() {
+        return position;
     }
 }
