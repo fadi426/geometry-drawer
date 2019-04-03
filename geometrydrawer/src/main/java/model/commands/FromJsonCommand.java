@@ -36,7 +36,7 @@ public class FromJsonCommand implements Command {
 
     @Override
     public void Undo() {
-        
+
     }
 
     @Override
@@ -70,6 +70,7 @@ public class FromJsonCommand implements Command {
 
     private void Instantiate(Shape group){
         canvas.clear();
+        canvas.clearSelect();
         canvas.setMainGroup(group);
         canvas.insertFromFile(group.getSubShapes());
     }
