@@ -4,32 +4,23 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import controller.CanvasController;
 import model.adapters.InterfaceAdapter;
-import model.shapes.Circle;
 import model.shapes.Group;
-import model.shapes.Rectangle;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
-
-import javax.swing.*;
 import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.Format;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
-public class ToJsonCommand implements Command {
+public class SaveCommand implements Command {
 
     private CanvasController canvas;
     private String FilePath = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/GeometryDrawer/%s.json";
 
-    public ToJsonCommand(){
+    public SaveCommand(){
         this.canvas = SingletonCanvas.getInstance();
     }
 

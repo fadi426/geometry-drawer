@@ -1,6 +1,7 @@
 package model.commands;
 
 import controller.CanvasController;
+import model.shapes.Circle;
 import model.singleObjects.SingletonCanvas;
 import model.shapes.Group;
 import model.shapes.Shape;
@@ -25,6 +26,7 @@ public class MakeGroupCommand implements Command{
         group = new Group();
         group.addShapes(shapes);
         group.setColor(Color.BLACK);
+        CalculateBoundary(group);
 
         RemoveShapes();
 
@@ -58,5 +60,30 @@ public class MakeGroupCommand implements Command{
                 canvas.mainGroup.removeShape(s);
             }
         }
+    }
+
+    private void CalculateBoundary(Group group){
+        Point start = new Point();
+        Point end = new Point();
+
+        start.x = group.getSubShapes().get(0).getShapeStart().x;
+        start.y = group.getSubShapes().get(0).getShapeStart().y;
+
+        for (Shape shape : group.getSubShapes()) {
+                if (shape.getShapeEnd().x > end.x)
+                    end.x = shape.getShapeEnd().x;
+
+                if (shape.getShapeEnd().y > end.y)
+                    end.y = shape.getShapeEnd().y;
+
+                if (shape.getShapeStart().x < start.x)
+                    start.x = shape.getShapeStart().x;
+
+                if (shape.getShapeStart().y < start.y)
+                    start.y = shape.getShapeStart().y;
+        }
+
+        group.setShapeStart(start);
+        group.setShapeEnd(end);
     }
 }

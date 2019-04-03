@@ -18,12 +18,12 @@ import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class FromJsonCommand implements Command {
+public class LoadCommand implements Command {
 
     private CanvasController canvas;
     private CommandManager commandManager;
 
-    public FromJsonCommand(){
+    public LoadCommand(){
         this.canvas = SingletonCanvas.getInstance();
         this.commandManager = SingletonCmdMng.getInstance();
     }

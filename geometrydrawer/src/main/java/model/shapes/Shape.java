@@ -32,6 +32,7 @@ public abstract class Shape implements Visitable {
 		this.shapeStart = shapeStart;
 	}
 
+
 	public Point getShapeEnd() {
 		return shapeEnd;
 	}

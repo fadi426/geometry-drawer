@@ -4,6 +4,8 @@ import model.visitors.Visitor;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
+import java.util.List;
 
 import static java.lang.Math.abs;
 
