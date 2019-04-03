@@ -8,8 +8,8 @@ import javax.swing.*;
 import model.Mouse;
 import model.commands.ClearCommand;
 import model.commands.CommandManager;
-import model.commands.FromJsonCommand;
-import model.commands.ToJsonCommand;
+import model.commands.LoadCommand;
+import model.commands.SaveCommand;
 import model.shapes.Circle;
 import model.shapes.Rectangle;
 import model.singleObjects.SingleMouse;
@@ -164,14 +164,14 @@ public class MainFrameController {
     private class saveBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            commandManager.Execute(new ToJsonCommand());
+            commandManager.Execute(new SaveCommand());
         }
     }
 
     private class loadBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            commandManager.Execute(new FromJsonCommand());
+            commandManager.Execute(new LoadCommand());
         }
     }
 
