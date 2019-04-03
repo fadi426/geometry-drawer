@@ -1,5 +1,7 @@
 package view;
 
+import model.shapes.Ornament;
+
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
@@ -20,6 +22,7 @@ public class MainFrame extends JFrame {
     private JButton resizeBtn;
     private JButton SaveBtn;
     private JButton LoadBtn;
+    private JButton OrnamentBtn;
 
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,5 +53,6 @@ public class MainFrame extends JFrame {
     public JButton getResizeBtn() { return resizeBtn; }
     public JButton getSaveBtn(){return SaveBtn;}
     public JButton getLoadBtn(){return LoadBtn;}
+    public JButton getOrnamentBtn(){ return OrnamentBtn;}
 }
 

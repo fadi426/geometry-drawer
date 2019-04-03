@@ -34,6 +34,7 @@ public class MainFrameController {
     private JButton resizeBtn;
     private JButton saveBtn;
     private JButton loadBtn;
+    private JButton ornamentBtn;
 
     private JPanel drawPanel;
     private CanvasController currCanvas;
@@ -69,6 +70,7 @@ public class MainFrameController {
         resizeBtn = mainFrame.getResizeBtn();
         saveBtn = mainFrame.getSaveBtn();
         loadBtn = mainFrame.getLoadBtn();
+        ornamentBtn = mainFrame.getOrnamentBtn();
     }
 
     private void createCanvas(int width,int height){
@@ -91,6 +93,7 @@ public class MainFrameController {
         resizeBtn.addActionListener(new resizeBtnListener());
         saveBtn.addActionListener(new saveBtnListener());
         loadBtn.addActionListener(new loadBtnListener());
+        ornamentBtn.addActionListener(new ornamentBtnListener());
     }
 
     private class circleBtnListener implements ActionListener {
@@ -175,4 +178,10 @@ public class MainFrameController {
         }
     }
 
+    private class ornamentBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            currCanvas.addOrnament();
+        }
+    }
 }

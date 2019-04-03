@@ -4,6 +4,7 @@ package controller;
 import model.Mouse;
 import model.commands.*;
 import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCmdMng;
@@ -127,11 +128,14 @@ public class CanvasController extends JPanel {
     }
 
     public void paint(Graphics g) {
+        Graphics2D g2 = (Graphics2D)g;
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+                RenderingHints.VALUE_ANTIALIAS_ON);
         super.paint(g);
         for(int i = 0;i < listmodel.getSize();i++){
-            listmodel.elementAt(i).draw(g);
+            listmodel.elementAt(i).draw(g2);
             if(listmodel.elementAt(i).isFilled()){
-                listmodel.elementAt(i).fill(g);
+                listmodel.elementAt(i).fill(g2);
             }
         }
 
@@ -222,4 +226,15 @@ public class CanvasController extends JPanel {
     }
 
 
+    public void addOrnament(){
+        System.out.println(selectedShapes.size());
+        if(selectedShapes.size() == 0)
+            return;
+
+        for (Shape s : selectedShapes) {
+            Ornament ornament = new Ornament(s);
+            ornament.addToShape();
+            addElementToList(ornament);
+        }
+    }
 }
