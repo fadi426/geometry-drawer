@@ -3,38 +3,27 @@ package model.shapes;
 import model.visitors.Visitor;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+
+import static java.lang.Math.abs;
 
 public class Rectangle extends Shape {
 
 	ArrayList<Point> points;
-
+	Rectangle2D rectangle;
 	public Rectangle(){
 		points = new ArrayList<Point>(4);
 	}
 	@Override
 	public void draw(Graphics g) {
-		points.clear();
-		
-		points.add(getShapeStart());
-		points.add(new Point(getShapeStart().x,getShapeEnd().y));
-		points.add(getShapeEnd());
-		points.add(new Point(getShapeEnd().x,getShapeStart().y));
-
-		Color color = getColor();
-		
-		Line line = new Line(points.get(0),points.get(1));
-		line.setColor(color);
-		line.draw(g);
-		Line line2 = new Line(points.get(3),points.get(2));
-		line2.setColor(color);
-		line2.draw(g);
-		Line line3 = new Line(points.get(0),points.get(3));
-		line3.setColor(color);
-		line3.draw(g);
-		Line line4 = new Line(points.get(1),points.get(2));
-		line4.setColor(color);
-		line4.draw(g);
+		int width = abs(getShapeEnd().x - getShapeStart().x);
+		int height = abs(getShapeEnd().y - getShapeStart().y);
+		Graphics2D g2D = (Graphics2D) g;
+		rectangle = new Rectangle2D.Double(getShapeStart().x,getShapeStart().y, width,height);
+		g.setColor(getColor());
+		g2D.draw(rectangle);
 	}
 
 	@Override
@@ -44,15 +33,12 @@ public class Rectangle extends Shape {
 
 	@Override
 	public boolean contain(int x, int y) {
-		if (x >= points.get(0).x && x <= (points.get(2).x) && y >= points.get(0).y
-				&& y <= (points.get(2).y)) {
-			return true;
-		}
-		return false;
+		return rectangle.contains(x,y);
 	}
 
 	@Override
 	public void accept(Visitor v) {
 		v.visit(this);
 	}
+
 }

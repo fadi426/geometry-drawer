@@ -95,4 +95,5 @@ public class Group extends Shape {
     public void accept(Visitor v) {
         v.visit(this);
     }
+
 }

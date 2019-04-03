@@ -18,7 +18,6 @@ public abstract class Shape implements Visitable {
 	
 	public void drawPoint(Graphics g,int x,int y){
 		g.setColor(currentColor);
-		g.drawLine(x,y,x,y);
 	}
 
 	public abstract void draw(Graphics g);
