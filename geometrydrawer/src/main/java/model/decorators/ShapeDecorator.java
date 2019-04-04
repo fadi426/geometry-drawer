@@ -1,13 +1,14 @@
 package model.decorators;
 
+import model.shapes.Figure;
 import model.shapes.Shape;
 
 import java.awt.*;
 
 public class ShapeDecorator {
-    protected Shape decoratedShape;
+    protected Figure decoratedShape;
 
-    public ShapeDecorator(Shape decoratedShape){
+    public ShapeDecorator(Figure decoratedShape){
         this.decoratedShape = decoratedShape;
     }
 }

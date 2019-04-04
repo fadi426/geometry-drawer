@@ -1,5 +1,7 @@
 package model.shapes;
 
+import model.strategies.RectangleStrategy;
+import model.strategies.ShapeContext;
 import model.visitors.Visitor;
 
 import java.awt.*;
@@ -12,7 +14,7 @@ import static java.lang.Math.abs;
 
 public class Rectangle extends Shape {
 
-	Rectangle2D rectangle;
+	ShapeContext shapeContext = new ShapeContext(new RectangleStrategy());
 
 	public Rectangle(){
 		setShapeStart(new Point(0,0));
@@ -20,19 +22,7 @@ public class Rectangle extends Shape {
 	}
 	@Override
 	public void draw(Graphics g) {
-		int width = abs(getShapeEnd().x - getShapeStart().x);
-		int height = abs(getShapeEnd().y - getShapeStart().y);
-		Graphics2D g2D = (Graphics2D) g;
-		rectangle = new Rectangle2D.Double(getShapeStart().x,getShapeStart().y, width,height);
-		g.setColor(getColor());
-		g2D.draw(rectangle);
-
-
-		if (getOrnaments().size() > 0) {
-			for (Ornament ornament : getOrnaments()) {
-				ornament.draw(g);
-			}
-		}
+		shapeContext.executeDrawStrategy(this, g);
 	}
 
 	@Override
@@ -41,8 +31,8 @@ public class Rectangle extends Shape {
 	}
 
 	@Override
-	public boolean contain(int x, int y) {
-		return rectangle.contains(x,y);
+	public boolean contain(Point point) {
+		return shapeContext.executeContain(point);
 	}
 
 	@Override

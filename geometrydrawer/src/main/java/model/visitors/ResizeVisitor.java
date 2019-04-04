@@ -1,6 +1,7 @@
 package model.visitors;
 
 import controller.CanvasController;
+import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Ornament;
 import model.shapes.Shape;
@@ -17,32 +18,20 @@ public class ResizeVisitor implements Visitor {
     int yDifference;
 
     @Override
-    public void visit(Shape shape) {
+    public void visit(Figure figure) {
 
         xDifference = canvas.endX - canvas.currentX;
         yDifference = canvas.endY - canvas.currentY;
 
-        resizeShape(shape);
+        resizeShape(figure);
     }
 
-    private void resizeShape(Shape shape) {
-        if (shape.getSubShapes().size() > 0){
-            for (Shape s: shape.getSubShapes()) {
-                resizeShape(s);
-                for (Ornament ornament : shape.getOrnaments()){
-                    shape.updateOrnament(ornament);
-                }
-            }
-            Group group = (Group) shape;
-            group.CalculateBoundary();
-        }
-        else {
-            if (shape.getPreviousShapeEnd() != null) {
-                shape.setShapeEnd(new Point(shape.getPreviousShapeEnd().x + xDifference, shape.getPreviousShapeEnd().y + yDifference));
-                for (Ornament ornament : shape.getOrnaments()) {
-                    shape.updateOrnament(ornament);
-                }
-            }
+    private void resizeShape(Figure figure) {
+        if (figure.getPreviousShapeEnd() != null) {
+            figure.setShapeEnd(new Point(figure.getPreviousShapeEnd().x + xDifference, figure.getPreviousShapeEnd().y + yDifference));
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
         }
     }
 

@@ -4,6 +4,7 @@ import controller.CanvasController;
 import model.commands.CommandManager;
 import model.commands.MoveCommand;
 import model.commands.ResizeCommand;
+import model.shapes.Figure;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCmdMng;
 import model.visitors.MoveVisitor;
@@ -98,11 +99,11 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                 MoveVisitor moveVisitor = new MoveVisitor();
                 canvas.endX = e.getPoint().x;
                 canvas.endY = e.getPoint().y;
-                for (Shape s : canvas.selectedShapes) {
+                for (Figure f : canvas.selectedShapes) {
                     if (firstTurn)
-                        canvas.setPreviousPosition(s);
+                        canvas.setPreviousPosition(f);
 
-                    s.accept(moveVisitor);
+                    f.accept(moveVisitor);
                 }
                 firstTurn = false;
                 break;
@@ -110,11 +111,11 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                 ResizeVisitor resizeVisitor = new ResizeVisitor();
                 canvas.endX = e.getPoint().x;
                 canvas.endY = e.getPoint().y;
-                for (Shape s : canvas.selectedShapes) {
+                for (Figure f : canvas.selectedShapes) {
                     if (firstTurn)
-                        canvas.setPreviousPosition(s);
+                        canvas.setPreviousPosition(f);
 
-                    s.accept(resizeVisitor);
+                    f.accept(resizeVisitor);
                 }
                 firstTurn = false;
                 break;

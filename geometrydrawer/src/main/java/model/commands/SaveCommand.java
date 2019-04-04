@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import controller.CanvasController;
 import model.adapters.InterfaceAdapter;
+import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
@@ -72,7 +73,7 @@ public class SaveCommand implements Command {
 
     private String ParseContent(){
         Group group = canvas.getMainGroup();
-        List<Shape> subshapes = group.getSubShapes();
+        List<Figure> subshapes = group.getSubShapes();
 
         if(subshapes.size() == 0) return null;
 
@@ -87,10 +88,10 @@ public class SaveCommand implements Command {
         return json;
     }
 
-    private void resetColors(List<Shape> shapes){
+    private void resetColors(List<Figure> figures){
         //reset colors
-        for (Shape s : shapes)
-            s.setColor(Color.BLACK);
+        for (Figure f : figures)
+            f.setColor(Color.BLACK);
     }
 
 }

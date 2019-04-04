@@ -15,6 +15,8 @@ import model.shapes.Rectangle;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCanvas;
 import model.singleObjects.SingletonCmdMng;
+import model.strategies.RectangleStrategy;
+import model.strategies.ShapeContext;
 import view.MainFrame;
 
 public class MainFrameController {

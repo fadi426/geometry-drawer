@@ -1,6 +1,7 @@
 package model.commands;
 
 import controller.CanvasController;
+import model.shapes.Figure;
 import model.singleObjects.SingletonCanvas;
 import model.shapes.Shape;
 
@@ -10,10 +11,10 @@ import java.util.List;
 public class ClearCommand implements Command {
 
     private CanvasController canvas;
-    private List<Shape> shapes = new ArrayList<>();
+    private List<Figure> figures = new ArrayList<>();
 
-    public ClearCommand(List<Shape> shapes){
-        this.shapes.addAll(shapes);
+    public ClearCommand(List<Figure> figures){
+        this.figures.addAll(figures);
         this.canvas = SingletonCanvas.getInstance();
     }
 
@@ -24,7 +25,7 @@ public class ClearCommand implements Command {
 
     @Override
     public void Undo() {
-        canvas.addElementsToList(shapes);
+        canvas.addElementsToList(figures);
     }
 
     @Override

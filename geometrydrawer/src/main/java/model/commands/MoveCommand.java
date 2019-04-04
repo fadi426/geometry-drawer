@@ -1,6 +1,7 @@
 package model.commands;
 
 import controller.CanvasController;
+import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Ornament;
 import model.shapes.Shape;
@@ -11,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MoveCommand implements Command {
-    private List<Shape> shapes;
-    private List<Shape> flatShapes;
+    private List<Figure> figures;
+    private List<Figure> flatShapes;
     private List<List<Point>> points;
-    private List<Shape> groupList;
+    private List<Figure> groupList;
 
-    public MoveCommand(List<Shape> shapes){
-        this.shapes = shapes;
+    public MoveCommand(List<Figure> figures){
+        this.figures = figures;
         flatShapes = new ArrayList<>();
         points = new ArrayList<>();
         groupList = new ArrayList<>();
@@ -25,59 +26,60 @@ public class MoveCommand implements Command {
 
     @Override
     public void Execute() {
-        flatMap(shapes);
+        flatMap(figures);
     }
 
     @Override
     public void Undo() {
-        for (Shape shape : flatShapes) {
-            shape.setShapeStart(shape.getPreviousShapeStart());
-            shape.setShapeEnd(shape.getPreviousShapeEnd());
-            for (Ornament ornament : shape.getOrnaments()) {
-                shape.updateOrnament(ornament);
-            }
+        for (Figure figure : flatShapes) {
+            figure.setShapeStart(figure.getPreviousShapeStart());
+            figure.setShapeEnd(figure.getPreviousShapeEnd());
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
         }
 
-        for (Shape shape : groupList) {
-            Group group = (Group) shape;
-            group.CalculateBoundary();
-            for (Ornament ornament : shape.getOrnaments()) {
-                shape.updateOrnament(ornament);
-            }
-        }
+//        for (Shape figure : groupList) {
+//            Group group = (Group) figure;
+//            group.CalculateBoundary();
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
+//        }
     }
 
     @Override
     public void Redo() {
         for (int i = 0; i< flatShapes.size(); i++) {
-            Shape shape = flatShapes.get(i);
-            shape.setShapeStart(points.get(i).get(0));
-            shape.setShapeEnd(points.get(i).get(1));
-            for (Ornament ornament : shape.getOrnaments()) {
-                shape.updateOrnament(ornament);
-            }
+            Figure figure = flatShapes.get(i);
+            figure.setShapeStart(points.get(i).get(0));
+            figure.setShapeEnd(points.get(i).get(1));
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
         }
 
-        for (Shape shape : groupList) {
-            Group group = (Group) shape;
-            group.CalculateBoundary();
-            for (Ornament ornament : shape.getOrnaments()) {
-                shape.updateOrnament(ornament);
-            }
-        }
+//        for (Shape figure : groupList) {
+//            Group group = (Group) figure;
+//            group.CalculateBoundary();
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
+//        }
     }
 
-    public void flatMap(List<Shape> shapes){
-        for (Shape s : shapes){
-            if (s.getSubShapes().size() > 0){
-                groupList.add(s);
-                flatMap(s.getSubShapes());
+    public void flatMap(List<Figure> figures){
+        for (Figure f : figures){
+            if (f instanceof Group){
+                Group group = (Group) f;
+                groupList.add(f);
+                flatMap(group.getSubShapes());
             }
             else {
-                flatShapes.add(s);
+                flatShapes.add(f);
                 List<Point> temp_point = new ArrayList<>();
-                temp_point.add(s.getShapeStart());
-                temp_point.add(s.getShapeEnd());
+                temp_point.add(f.getShapeStart());
+                temp_point.add(f.getShapeEnd());
                 points.add(temp_point);
             }
         }

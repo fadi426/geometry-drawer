@@ -1,29 +1,30 @@
 package model.commands;
 
+import model.shapes.Figure;
 import model.shapes.Shape;
 
 import java.awt.*;
 
 public class UnselectCommand implements Command {
 
-    private model.shapes.Shape shape;
+    private Figure figure;
 
-    public UnselectCommand(Shape shape){
-        this.shape = shape;
+    public UnselectCommand(Figure figure){
+        this.figure = figure;
     }
 
     @Override
     public void Execute() {
-        shape.setColor(Color.BLACK);
+        figure.setColor(Color.BLACK);
     }
 
     @Override
     public void Undo() {
-        shape.setColor(Color.RED);
+        figure.setColor(Color.RED);
     }
 
     @Override
     public void Redo() {
-        shape.setColor(Color.BLACK);
+        figure.setColor(Color.BLACK);
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 import static java.lang.Math.abs;
 
-public abstract class Shape implements Visitable {
+public abstract class Shape implements Visitable, Figure {
 
 	private Point shapeStart,shapeEnd;
 	private Point previousShapeStart, previousShapeEnd;
@@ -57,24 +57,8 @@ public abstract class Shape implements Visitable {
 		return currentColor;
 	}
 
-	public boolean contain(int x, int y) {
+	public boolean contain(Point point) {
 		return false;
-	}
-
-	public boolean contain(int x, int y, List<Shape> shapes) {
-		return false;
-	}
-
-	public List<Shape> getSubShapes(){
-		return new ArrayList();
-	}
-
-	public boolean isFilled() {
-		return filled;
-	}
-
-	public void setFilled(boolean filled) {
-		this.filled = filled;
 	}
 
 	public void accept(Visitor v) {

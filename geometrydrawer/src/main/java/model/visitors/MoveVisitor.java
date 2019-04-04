@@ -3,6 +3,7 @@ package model.visitors;
 import controller.CanvasController;
 import model.commands.CommandManager;
 import model.commands.MoveCommand;
+import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Ornament;
 import model.shapes.Shape;
@@ -20,41 +21,26 @@ public class MoveVisitor implements Visitor {
     int yDifference;
 
     @Override
-    public void visit(Shape shape) {
+    public void visit(Figure figure) {
 
         xDifference = canvas.endX - canvas.currentX;
         yDifference = canvas.endY - canvas.currentY;
 
-        moveShape(shape);
+        moveShape(figure);
     }
 
 
 
-    public void moveShape(Shape shape) {
-        if (shape.getSubShapes().size() > 0){
-            for (Shape s: shape.getSubShapes()) {
-                moveShape(s);
-                for (Ornament ornament : shape.getOrnaments()){
-                    shape.updateOrnament(ornament);
-                }
-            }
-            Group group = (Group) shape;
-            group.CalculateBoundary();
-        }
-        else {
-            int width;
-            int height;
+    public void moveShape(Figure figure) {
+        int width;
+        int height;
 
-            width = abs(shape.getShapeEnd().x - shape.getShapeStart().x);
-            height = abs(shape.getShapeEnd().y - shape.getShapeStart().y);
+        width = abs(figure.getShapeEnd().x - figure.getShapeStart().x);
+        height = abs(figure.getShapeEnd().y - figure.getShapeStart().y);
 
-            if (shape.getPreviousShapeStart() != null) {
-                shape.setShapeStart(new Point(shape.getPreviousShapeStart().x + xDifference, shape.getPreviousShapeStart().y + yDifference));
-                shape.setShapeEnd(new Point(shape.getShapeStart().x + width, shape.getShapeStart().y + height));
-                for (Ornament ornament : shape.getOrnaments()){
-                    shape.updateOrnament(ornament);
-                }
-            }
+        if (figure.getPreviousShapeStart() != null) {
+            figure.setShapeStart(new Point(figure.getPreviousShapeStart().x + xDifference, figure.getPreviousShapeStart().y + yDifference));
+            figure.setShapeEnd(new Point(figure.getShapeStart().x + width, figure.getShapeStart().y + height));
         }
 
     }

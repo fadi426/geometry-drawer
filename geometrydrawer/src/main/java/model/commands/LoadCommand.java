@@ -61,14 +61,14 @@ public class LoadCommand implements Command {
             e.printStackTrace();
         }
 
-        Type type = new TypeToken<Shape>(){}.getType();
-        Shape group = gson.fromJson(content, type);
+        Type type = new TypeToken<Group>(){}.getType();
+        Group group = gson.fromJson(content, type);
 
         Instantiate(group);
 
     }
 
-    private void Instantiate(Shape group){
+    private void Instantiate(Group group){
         canvas.clear();
         canvas.clearSelect();
         canvas.setMainGroup(group);

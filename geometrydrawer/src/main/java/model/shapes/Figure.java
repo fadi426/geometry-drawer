@@ -5,9 +5,7 @@ import model.visitors.Visitor;
 import java.awt.*;
 import java.util.List;
 
- interface Figure {
-
-     void drawPoint(Graphics g, int x, int y);
+ public interface Figure {
 
      void draw(Graphics g);
 
@@ -33,15 +31,9 @@ import java.util.List;
 
      Color getColor();
 
-     boolean contain(int x, int y);
+     boolean contain(Point point);
 
-     boolean contain(int x, int y, java.util.List<Shape> shapes);
-
-     List<Shape> getSubShapes();
-
-     boolean isFilled();
-
-     void setFilled(boolean filled);
+     void addOrnament(Ornament ornament);
 
      void accept(Visitor v);
 }

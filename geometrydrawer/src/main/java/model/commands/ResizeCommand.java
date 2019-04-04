@@ -1,6 +1,7 @@
 package model.commands;
 
 import controller.CanvasController;
+import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Ornament;
 import model.shapes.Shape;
@@ -11,14 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ResizeCommand implements Command {
-    private List<Shape> shapes;
-    private List<Shape> flatShapes;
+    private List<Figure> figures;
+    private List<Figure> flatShapes;
     private CanvasController canvas;
     private List<Point> points;
-    private List<Shape> groupList;
+    private List<Figure> groupList;
 
-    public ResizeCommand(List<Shape> shapes){
-        this.shapes = shapes;
+    public ResizeCommand(List<Figure> figures){
+        this.figures = figures;
         flatShapes = new ArrayList<>();
         points = new ArrayList<>();
         groupList = new ArrayList<>();
@@ -27,55 +28,56 @@ public class ResizeCommand implements Command {
 
     @Override
     public void Execute() {
-        flatMap(shapes);
+        flatMap(figures);
     }
 
     @Override
     public void Undo() {
-        for (Shape shape : flatShapes) {
-            shape.setShapeEnd(shape.getPreviousShapeEnd());
-            for (Ornament ornament : shape.getOrnaments()) {
-                shape.updateOrnament(ornament);
-            }
+        for (Figure figure : flatShapes) {
+            figure.setShapeEnd(figure.getPreviousShapeEnd());
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
         }
 
-        for (Shape shape : groupList) {
-            Group group = (Group) shape;
+        for (Figure figure : groupList) {
+            Group group = (Group) figure;
             group.CalculateBoundary();
-            for (Ornament ornament : shape.getOrnaments()) {
-                shape.updateOrnament(ornament);
-            }
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
         }
     }
 
     @Override
     public void Redo() {
         for (int i = 0; i< flatShapes.size(); i++) {
-            Shape shape = flatShapes.get(i);
-            shape.setShapeEnd(points.get(i));
-            for (Ornament ornament : shape.getOrnaments()) {
-                shape.updateOrnament(ornament);
-            }
+            Figure figure = flatShapes.get(i);
+            figure.setShapeEnd(points.get(i));
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
         }
 
-        for (Shape shape : groupList) {
-            Group group = (Group) shape;
+        for (Figure figure : groupList) {
+            Group group = (Group) figure;
             group.CalculateBoundary();
-            for (Ornament ornament : shape.getOrnaments()) {
-                shape.updateOrnament(ornament);
-            }
+//            for (Ornament ornament : figure.getOrnaments()) {
+//                figure.updateOrnament(ornament);
+//            }
         }
     }
 
-    public void flatMap(List<Shape> shapes){
-        for (Shape s : shapes){
-            if (s.getSubShapes().size() > 0){
-                flatMap(s.getSubShapes());
-                groupList.add(s);
+    public void flatMap(List<Figure> figures){
+        for (Figure f : figures){
+            if (f instanceof Group){
+                Group group = (Group) f;
+                flatMap(group.getSubShapes());
+                groupList.add(f);
             }
             else {
-                flatShapes.add(s);
-                points.add(s.getShapeEnd());
+                flatShapes.add(f);
+                points.add(f.getShapeEnd());
             }
         }
     }

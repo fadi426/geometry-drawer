@@ -2,6 +2,7 @@ package model.commands;
 
 import controller.CanvasController;
 import model.shapes.Circle;
+import model.shapes.Figure;
 import model.singleObjects.SingletonCanvas;
 import model.shapes.Group;
 import model.shapes.Shape;
@@ -12,19 +13,19 @@ import java.util.List;
 
 public class MakeGroupCommand implements Command{
 
-    private List<model.shapes.Shape> shapes = new ArrayList<>();
+    private List<Figure> figures = new ArrayList<>();
     private CanvasController canvas;
     private Group group;
 
-    public MakeGroupCommand(List<model.shapes.Shape> shapes){
-        this.shapes.addAll(shapes);
+    public MakeGroupCommand(List<Figure> figures){
+        this.figures.addAll(figures);
         this.canvas = SingletonCanvas.getInstance();
     }
 
     @Override
     public void Execute() {
         group = new Group();
-        group.addShapes(shapes);
+        group.addFigures(figures);
         group.setColor(Color.BLACK);
         group.CalculateBoundary();
 
@@ -37,8 +38,8 @@ public class MakeGroupCommand implements Command{
     public void Undo() {
         canvas.removeLastElement();
 
-        for (model.shapes.Shape s : shapes) {
-            canvas.addElementToList(s);
+        for (Figure f : figures) {
+            canvas.addElementToList(f);
         }
     }
 
@@ -51,13 +52,13 @@ public class MakeGroupCommand implements Command{
     }
 
     private void RemoveShapes(){
-        List<Shape> mainGroupShapes = canvas.getMainGroup().getSubShapes();
-        List<Shape> listmodel = canvas.toList();
+        List<Figure> mainGroupShapes = canvas.getMainGroup().getSubShapes();
+        List<Figure> listmodel = canvas.toList();
 
-        for (Shape s : shapes) {
-            if(listmodel.contains(s) && mainGroupShapes.contains(s)) {
-                canvas.listmodel.removeElement(s);
-                canvas.mainGroup.removeShape(s);
+        for (Figure f : figures) {
+            if(listmodel.contains(f) && mainGroupShapes.contains(f)) {
+                canvas.listmodel.removeElement(f);
+                canvas.mainGroup.removeFigure(f);
             }
         }
     }

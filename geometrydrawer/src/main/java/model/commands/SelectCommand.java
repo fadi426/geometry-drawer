@@ -1,29 +1,30 @@
 package model.commands;
 
+import model.shapes.Figure;
 import model.shapes.Shape;
 
 import java.awt.*;
 
 public class SelectCommand implements Command {
 
-    private Shape shape;
+    private Figure figure;
 
-    public SelectCommand(Shape shape){
-        this.shape = shape;
+    public SelectCommand(Figure figure){
+        this.figure = figure;
     }
 
     @Override
     public void Execute() {
-        shape.setColor(Color.RED);
+        figure.setColor(Color.RED);
     }
 
     @Override
     public void Undo() {
-        shape.setColor(Color.BLACK);
+        figure.setColor(Color.BLACK);
     }
 
     @Override
     public void Redo() {
-        shape.setColor(Color.RED);
+        figure.setColor(Color.RED);
     }
 }

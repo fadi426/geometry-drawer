@@ -4,11 +4,13 @@ package controller;
 import model.Mouse;
 import model.commands.*;
 import model.decorators.OrnamentDecorator;
+import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCmdMng;
+import model.strategies.ShapeContext;
 import model.visitors.MoveVisitor;
 
 import java.awt.*;
@@ -31,8 +33,8 @@ public class CanvasController extends JPanel {
     private CommandManager commandManager = SingletonCmdMng.getInstance();
 
     public Group mainGroup = new Group();
-    public DefaultListModel<Shape> listmodel = new DefaultListModel<Shape>();
-    public static List<Shape> selectedShapes = new ArrayList<>();
+    public DefaultListModel<Figure> listmodel = new DefaultListModel<Figure>();
+    public static List<Figure> selectedShapes = new ArrayList<>();
     public List<Point> editableShapes = new ArrayList<>();
 
     public int currentX;
@@ -73,51 +75,51 @@ public class CanvasController extends JPanel {
         shapeType = toDraw;
     }
 
-    public List<Shape> toList(){
-        List<Shape> shapes = new ArrayList<>();
+    public List<Figure> toList(){
+        List<Figure> figures = new ArrayList<>();
         for (int i = 0; i < listmodel.size(); i++)
         {
-            shapes.add(listmodel.get(i));
+            figures.add(listmodel.get(i));
         }
-        return shapes;
+        return figures;
     }
 
     public Group getMainGroup(){
         return mainGroup;
     }
-    public void setMainGroup(Shape group){this.mainGroup = (Group) group;}
+    public void setMainGroup(Group group){this.mainGroup = group;}
 
     public void removeLastElement(){
         if (listmodel.size() > 0) {
             int last = listmodel.size() - 1;
-            mainGroup.removeShape(listmodel.get(last));
+            mainGroup.removeFigure(listmodel.get(last));
             listmodel.removeElementAt(last);
             repaint();
         }
     }
 
     public void clearSelect(){
-        for (Shape shape : selectedShapes) {
-            shape.setColor(Color.BLACK);
+        for (Figure figure : selectedShapes) {
+            figure.setColor(Color.BLACK);
         }
         selectedShapes.clear();
     }
 
-    public void addElementToList(Shape shape){
-        listmodel.addElement(shape);
-        mainGroup.addShape(shape);
+    public void addElementToList(Figure figure){
+        listmodel.addElement(figure);
+        mainGroup.addFigure(figure);
         repaint();
     }
 
-    public void addElementsToList(List<Shape> shapes){
-        for (Shape s : shapes) {
-            addElementToList(s);
+    public void addElementsToList(List<Figure> figures){
+        for (Figure figure : figures) {
+            addElementToList(figure);
         }
     }
 
-    public void insertFromFile(List<Shape> shapes){
-        for (Shape s : shapes){
-            listmodel.addElement(s);
+    public void insertFromFile(List<Figure> figures){
+        for (Figure figure : figures){
+            listmodel.addElement(figure);
         }
         repaint();
     }
@@ -135,9 +137,6 @@ public class CanvasController extends JPanel {
         super.paint(g);
         for(int i = 0;i < listmodel.getSize();i++){
             listmodel.elementAt(i).draw(g2);
-            if(listmodel.elementAt(i).isFilled()){
-                listmodel.elementAt(i).fill(g2);
-            }
         }
 
         if(currShape != null){
@@ -148,36 +147,34 @@ public class CanvasController extends JPanel {
     public void selectShape(MouseEvent e){
         currentX = e.getX();
         currentY = e.getY();
+        Point currentPoint = new Point(currentX, currentY);
         int unSelectedCounter = 0;
 
         for (int i = listmodel.size() - 1; i >= 0; i = i - 1) {
-            Shape shape = listmodel.get(i);
+            Figure figure = listmodel.get(i);
 
-            if (shape.getSubShapes().size()> 0 && shape.contain(currentX, currentY, shape.getSubShapes())){
-                commandManager.Execute(new SelectCommand(shape));
-            }
-            else if (shape.contain(currentX, currentY )) {
-                commandManager.Execute(new SelectCommand(shape));
-            }
+            if (figure instanceof Group && ((Group) figure).contain(currentPoint, figure))
+                    commandManager.Execute(new SelectCommand(figure));
+            else if (figure instanceof Shape && figure.contain(currentPoint) )
+                    commandManager.Execute(new SelectCommand(figure));
             else {
                 unSelectedCounter++;
                 continue;
             }
 
-            if (selectedShapes.contains(shape)) {
-                selectedShapes.remove(shape);
-                commandManager.Execute(new UnselectCommand(shape));
+            if (selectedShapes.contains(figure)) {
+                selectedShapes.remove(figure);
+                commandManager.Execute(new UnselectCommand(figure));
                 break;
             }
 
-            selectedShapes.add(shape);
-
+            selectedShapes.add(figure);
             break;
         }
 
         if (unSelectedCounter == listmodel.size() ) {
-            for (Shape s : selectedShapes){
-                commandManager.Execute(new UnselectCommand(s));
+            for (Figure figure : selectedShapes){
+                commandManager.Execute(new UnselectCommand(figure));
             }
             selectedShapes.clear();
         }
@@ -190,37 +187,27 @@ public class CanvasController extends JPanel {
         repaint();
     }
 
-    public void setPreviousPosition(Shape shape){
-        if (shape.getSubShapes().size() > 0)
-            setPreviousGroupPositions(shape.getSubShapes());
+    public void setPreviousPosition(Figure figure){
+        if (figure instanceof Group) {
+            Group group = (Group) figure;
+            setPreviousGroupPositions(group.getSubShapes());
+        }
         else {
-            shape.setPreviousShapeStart(shape.getShapeStart());
-            shape.setPreviousShapeEnd(shape.getShapeEnd());
+            figure.setPreviousShapeStart(figure.getShapeStart());
+            figure.setPreviousShapeEnd(figure.getShapeEnd());
         }
 
     }
 
-    @Override
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if(g instanceof Graphics2D)
-        {
-            Graphics2D g2 = (Graphics2D)g;
-            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                    RenderingHints.VALUE_ANTIALIAS_ON);
-
-            g2.drawString("This is gona be awesome",70,20);
-        }
-    }
-
-    public void setPreviousGroupPositions(List<Shape> subShapes){
-        for (Shape s : subShapes){
-            if (s.getSubShapes().size() > 0){
-                setPreviousGroupPositions(s.getSubShapes());
+    public void setPreviousGroupPositions(List<Figure> subShapes){
+        for (Figure f : subShapes){
+            if (f instanceof Group){
+                Group group = (Group) f;
+                setPreviousGroupPositions(group.getSubShapes());
             }
             else {
-                s.setPreviousShapeStart(s.getShapeStart());
-                s.setPreviousShapeEnd(s.getShapeEnd());
+                f.setPreviousShapeStart(f.getShapeStart());
+                f.setPreviousShapeEnd(f.getShapeEnd());
             }
         }
         return;
@@ -241,18 +228,17 @@ public class CanvasController extends JPanel {
         }
 
 
-        for (Shape s : selectedShapes) {
-            if (listmodel.contains(s))
-                listmodel.removeElement(s);
-            OrnamentDecorator ornamentDecorator = new OrnamentDecorator(s, message, position);
-            System.out.println(s.getOrnaments());
-            listmodel.addElement(s);
+        for (Figure figure : selectedShapes) {
+            if (listmodel.contains(figure))
+                listmodel.removeElement(figure);
+            OrnamentDecorator ornamentDecorator = new OrnamentDecorator(figure, message, position);
+            listmodel.addElement(figure);
         }
         repaint();
     }
 
     public String inputDialog(){
-        String message = JOptionPane.showInputDialog(this, "What's your message?");
+        String message = JOptionPane.showInputDialog(this, "What'figure your message?");
         return message;
     }
 
