@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ResizeCommand implements Command {
     private List<Figure> figures;
-    private List<Figure> flatShapes;
+    private List<Shape> flatShapes;
     private CanvasController canvas;
     private List<Point> points;
     private List<Figure> groupList;
@@ -33,16 +33,14 @@ public class ResizeCommand implements Command {
 
     @Override
     public void Undo() {
-        for (Figure figure : flatShapes) {
-            figure.setShapeEnd(figure.getPreviousShapeEnd());
+        for (Shape shape : flatShapes) {
+            shape.setShapeEnd(shape.getPreviousShapeEnd());
 //            for (Ornament ornament : figure.getOrnaments()) {
 //                figure.updateOrnament(ornament);
 //            }
         }
 
         for (Figure figure : groupList) {
-            Group group = (Group) figure;
-            group.CalculateBoundary();
 //            for (Ornament ornament : figure.getOrnaments()) {
 //                figure.updateOrnament(ornament);
 //            }
@@ -52,16 +50,14 @@ public class ResizeCommand implements Command {
     @Override
     public void Redo() {
         for (int i = 0; i< flatShapes.size(); i++) {
-            Figure figure = flatShapes.get(i);
-            figure.setShapeEnd(points.get(i));
+            Shape shape = flatShapes.get(i);
+            shape.setShapeEnd(points.get(i));
 //            for (Ornament ornament : figure.getOrnaments()) {
 //                figure.updateOrnament(ornament);
 //            }
         }
 
         for (Figure figure : groupList) {
-            Group group = (Group) figure;
-            group.CalculateBoundary();
 //            for (Ornament ornament : figure.getOrnaments()) {
 //                figure.updateOrnament(ornament);
 //            }
@@ -76,8 +72,9 @@ public class ResizeCommand implements Command {
                 groupList.add(f);
             }
             else {
-                flatShapes.add(f);
-                points.add(f.getShapeEnd());
+                Shape shape = (Shape) f;
+                flatShapes.add(shape);
+                points.add(shape.getShapeEnd());
             }
         }
     }

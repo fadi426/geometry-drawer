@@ -27,7 +27,6 @@ public class MakeGroupCommand implements Command{
         group = new Group();
         group.addFigures(figures);
         group.setColor(Color.BLACK);
-        group.CalculateBoundary();
 
         RemoveShapes();
 

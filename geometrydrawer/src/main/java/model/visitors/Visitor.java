@@ -4,5 +4,5 @@ import model.shapes.Figure;
 import model.shapes.Shape;
 
 public interface Visitor {
-    public void visit(Figure figure);
+    public void visit(Shape shape);
 }

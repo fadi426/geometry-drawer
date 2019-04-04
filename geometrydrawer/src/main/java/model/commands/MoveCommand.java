@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MoveCommand implements Command {
     private List<Figure> figures;
-    private List<Figure> flatShapes;
+    private List<Shape> flatShapes;
     private List<List<Point>> points;
     private List<Figure> groupList;
 
@@ -31,9 +31,9 @@ public class MoveCommand implements Command {
 
     @Override
     public void Undo() {
-        for (Figure figure : flatShapes) {
-            figure.setShapeStart(figure.getPreviousShapeStart());
-            figure.setShapeEnd(figure.getPreviousShapeEnd());
+        for (Shape shape : flatShapes) {
+            shape.setShapeStart(shape.getPreviousShapeStart());
+            shape.setShapeEnd(shape.getPreviousShapeEnd());
 //            for (Ornament ornament : figure.getOrnaments()) {
 //                figure.updateOrnament(ornament);
 //            }
@@ -51,9 +51,9 @@ public class MoveCommand implements Command {
     @Override
     public void Redo() {
         for (int i = 0; i< flatShapes.size(); i++) {
-            Figure figure = flatShapes.get(i);
-            figure.setShapeStart(points.get(i).get(0));
-            figure.setShapeEnd(points.get(i).get(1));
+            Shape shape = flatShapes.get(i);
+            shape.setShapeStart(points.get(i).get(0));
+            shape.setShapeEnd(points.get(i).get(1));
 //            for (Ornament ornament : figure.getOrnaments()) {
 //                figure.updateOrnament(ornament);
 //            }
@@ -76,10 +76,11 @@ public class MoveCommand implements Command {
                 flatMap(group.getSubShapes());
             }
             else {
-                flatShapes.add(f);
+                Shape shape = (Shape) f;
+                flatShapes.add(shape);
                 List<Point> temp_point = new ArrayList<>();
-                temp_point.add(f.getShapeStart());
-                temp_point.add(f.getShapeEnd());
+                temp_point.add(shape.getShapeStart());
+                temp_point.add(shape.getShapeEnd());
                 points.add(temp_point);
             }
         }

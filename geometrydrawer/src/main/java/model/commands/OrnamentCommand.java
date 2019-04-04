@@ -2,7 +2,7 @@ package model.commands;
 
 import controller.CanvasController;
 import model.decorators.OrnamentDecorator;
-import model.shapes.Shape;
+import model.shapes.Figure;
 import model.singleObjects.SingletonCanvas;
 
 import javax.swing.*;
@@ -12,16 +12,16 @@ import java.util.List;
 public class OrnamentCommand implements Command {
 
     private CanvasController canvas;
-    private List<Shape> shapes;
+    private List<Figure> figures;
     private List<OrnamentDecorator> ornaments;
     private String text;
     private String position;
 
     public OrnamentCommand(){
         this.canvas = SingletonCanvas.getInstance();
-        this.shapes = new ArrayList<>();
+        this.figures = new ArrayList<>();
         this.ornaments = new ArrayList<>();
-        shapes.addAll(canvas.getSelectedShapes());
+        figures.addAll(canvas.getSelectedShapes());
     }
 
     @Override
@@ -44,17 +44,17 @@ public class OrnamentCommand implements Command {
     }
 
     private void addOrnament(){
-        DefaultListModel<Shape> listmodel = canvas.listmodel;
+        DefaultListModel<Figure> listmodel = canvas.listmodel;
 
-        if(shapes.size() == 0)
+        if(figures.size() == 0)
             return;
 
-        for (Shape s : shapes) {
-            if (listmodel.contains(s))
-                listmodel.removeElement(s);
+        for (Figure f : figures) {
+            if (listmodel.contains(f))
+                listmodel.removeElement(f);
 
-            ornaments.add(new OrnamentDecorator(s, text, position));
-            listmodel.addElement(s);
+            ornaments.add(new OrnamentDecorator(f, text, position));
+            listmodel.addElement(f);
         }
         canvas.repaint();
     }

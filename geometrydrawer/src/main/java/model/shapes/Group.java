@@ -12,11 +12,9 @@ public class Group implements Figure {
 
     private List<Figure> subShapes = new ArrayList<>();
     private List<Ornament> ornaments = new ArrayList<>();
+    private Color currentColor = Color.BLACK;
 
-    public Group(){
-        setShapeStart(new Point(0,0));
-        setShapeEnd(new Point(0,0));
-    }
+    public Group(){}
 
     public void addFigure(Figure figure){
         subShapes.add(figure);
@@ -58,6 +56,11 @@ public class Group implements Figure {
         ornaments.add(ornament);
     }
 
+    @Override
+    public void deleteOrnament(Ornament ornament) {
+        ornaments.remove(ornament);
+    }
+
     public void removeFigure(Figure figure){
         subShapes.remove(figure);
     };
@@ -97,93 +100,101 @@ public class Group implements Figure {
         return false;
     }
 
-    public String toString(){
-        return "Group: ("+ getShapeStart().x+","+getShapeStart().y+")";
-    }
-
     @Override
     public void fill(Graphics g) {
 
     }
 
-    @Override
-    public Point getShapeStart() {
-        return null;
-    }
-
-    @Override
-    public void setShapeStart(Point shapeStart) {
-
-    }
-
-    @Override
-    public Point getShapeEnd() {
-        return null;
-    }
-
-    @Override
-    public void setShapeEnd(Point shapeEnd) {
-
-    }
-
-    @Override
-    public Point getPreviousShapeEnd() {
-        return null;
-    }
-
-    @Override
-    public Point getPreviousShapeStart() {
-        return null;
-    }
-
-    @Override
-    public void setPreviousShapeEnd(Point previousShapeEnd) {
-
-    }
-
-    @Override
-    public void setPreviousShapeStart(Point previousShapeStart) {
-
-    }
-
     public void accept(Visitor v) {
         for (Figure f: subShapes) {
-            v.visit(f);
-//            for (Ornament ornament : f.getOrnaments()){
-//                f.updateOrnament(ornament);
-//            }
+            if (f instanceof Group) {
+                accept(v);
+            }
+        else{
+            Shape shape = (Shape) f;
+            v.visit(shape);
+            }
         }
-//        this.CalculateBoundary();
     }
 
-    public void CalculateBoundary(){
+
+        public List<Point> CalculateBoundary(){
+        Shape shape = null;
+        Group group = null;
         Point start = new Point();
         Point end = new Point();
+        List<Point> tempPoints = new ArrayList<>();
 
-        start.x = getSubShapes().get(0).getShapeStart().x;
-        start.y = getSubShapes().get(0).getShapeStart().y;
+//        Shape shape = (Shape) subShapes.get(0);
+//
+//        start.x = shape.getShapeStart().x;
+//        start.y = shape.getShapeStart().y;
 
-        for (Figure figure : getSubShapes()) {
-            if (figure.getShapeEnd().x > end.x)
-                end.x = figure.getShapeEnd().x;
+        for (Figure figure : subShapes) {
+            if (figure instanceof Shape){
+                shape = (Shape) figure;
+                tempPoints = hoi(shape, start, end);
+                start = tempPoints.get(0);
+                end = tempPoints.get(1);
+        }
+            else {
+                group = (Group) figure;
+                tempPoints = multipleHois(group, start, end);
+                start = tempPoints.get(0);
+                end = tempPoints.get(1);
+            }
 
-            if (figure.getShapeEnd().y > end.y)
-                end.y = figure.getShapeEnd().y;
-
-            if (figure.getShapeStart().x < start.x)
-                start.x = figure.getShapeStart().x;
-
-            if (figure.getShapeStart().y < start.y)
-                start.y = figure.getShapeStart().y;
         }
 
-        setShapeStart(start);
-        setShapeEnd(end);
+        List<Point> boundary = new ArrayList<>();
+        boundary.add(start);
+        boundary.add(end);
+
+        return boundary;
     }
 
-    public String toString(Shape shape) {
-        return "Group: (" + shape.getShapeStart() + ")-"
-                + "(" + shape.getShapeEnd() + ")";
+    public List<Point> multipleHois(Group group, Point start, Point end) {
+        for (Figure figure : group.getSubShapes()) {
+            if (figure instanceof Group) {
+                Group nextGroup = (Group) figure;
+                multipleHois(nextGroup, start, end);
+            } else {
+                Shape shape = (Shape) figure;
+                hoi(shape, start, end);
+            }
+        }
+
+
+        List<Point> boundary = new ArrayList<>();
+        boundary.add(start);
+        boundary.add(end);
+
+        return boundary;
     }
+
+    public List<Point> hoi(Shape shape, Point start, Point end){
+
+        if (shape.getShapeEnd().x > end.x)
+            end.x = shape.getShapeEnd().x;
+
+        if (shape.getShapeEnd().y > end.y)
+            end.y = shape.getShapeEnd().y;
+
+        if (shape.getShapeStart().x < start.x)
+            start.x = shape.getShapeStart().x;
+
+        if (shape.getShapeStart().y < start.y)
+            start.y = shape.getShapeStart().y;
+
+        List<Point> boundary = new ArrayList<>();
+        boundary.add(start);
+        boundary.add(end);
+
+        return boundary;
+    }
+//    public String toString(Shape shape) {
+//        return "Group: (" + shape.getShapeStart() + ")-"
+//                + "(" + shape.getShapeEnd() + ")";
+//    }
 
 }

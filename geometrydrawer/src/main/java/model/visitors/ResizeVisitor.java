@@ -18,19 +18,19 @@ public class ResizeVisitor implements Visitor {
     int yDifference;
 
     @Override
-    public void visit(Figure figure) {
+    public void visit(Shape shape) {
 
         xDifference = canvas.endX - canvas.currentX;
         yDifference = canvas.endY - canvas.currentY;
 
-        resizeShape(figure);
+        resizeShape(shape);
     }
 
-    private void resizeShape(Figure figure) {
-        if (figure.getPreviousShapeEnd() != null) {
-            figure.setShapeEnd(new Point(figure.getPreviousShapeEnd().x + xDifference, figure.getPreviousShapeEnd().y + yDifference));
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
+    private void resizeShape(Shape shape) {
+        if (shape.getPreviousShapeEnd() != null) {
+            shape.setShapeEnd(new Point(shape.getPreviousShapeEnd().x + xDifference, shape.getPreviousShapeEnd().y + yDifference));
+//            for (Ornament ornament : shape.getOrnaments()) {
+//                shape.updateOrnament(ornament);
 //            }
         }
     }

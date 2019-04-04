@@ -21,26 +21,25 @@ public class MoveVisitor implements Visitor {
     int yDifference;
 
     @Override
-    public void visit(Figure figure) {
+    public void visit(Shape shape) {
 
         xDifference = canvas.endX - canvas.currentX;
         yDifference = canvas.endY - canvas.currentY;
 
-        moveShape(figure);
+        moveShape(shape);
     }
 
 
-
-    public void moveShape(Figure figure) {
+    public void moveShape(Shape shape) {
         int width;
         int height;
 
-        width = abs(figure.getShapeEnd().x - figure.getShapeStart().x);
-        height = abs(figure.getShapeEnd().y - figure.getShapeStart().y);
+        width = abs(shape.getShapeEnd().x - shape.getShapeStart().x);
+        height = abs(shape.getShapeEnd().y - shape.getShapeStart().y);
 
-        if (figure.getPreviousShapeStart() != null) {
-            figure.setShapeStart(new Point(figure.getPreviousShapeStart().x + xDifference, figure.getPreviousShapeStart().y + yDifference));
-            figure.setShapeEnd(new Point(figure.getShapeStart().x + width, figure.getShapeStart().y + height));
+        if (shape.getPreviousShapeStart() != null) {
+            shape.setShapeStart(new Point(shape.getPreviousShapeStart().x + xDifference, shape.getPreviousShapeStart().y + yDifference));
+            shape.setShapeEnd(new Point(shape.getShapeStart().x + width, shape.getShapeStart().y + height));
         }
 
     }

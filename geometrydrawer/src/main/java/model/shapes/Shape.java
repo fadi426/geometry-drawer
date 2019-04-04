@@ -9,8 +9,6 @@ import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.Math.abs;
-
 public abstract class Shape implements Visitable, Figure {
 
 	private Point shapeStart,shapeEnd;
@@ -66,8 +64,6 @@ public abstract class Shape implements Visitable, Figure {
 	}
 
 	public void addOrnament(Ornament ornament){
-
-		updateOrnament(ornament);
 		ornaments.add(ornament);
 	}
 
@@ -75,32 +71,10 @@ public abstract class Shape implements Visitable, Figure {
 		if (ornaments.contains(ornament)){
 			ornaments.remove(ornament);
 		}
-
 	}
 
 	public void deleteOrnaments(){
 		ornaments.clear();
-	}
-
-	public void updateOrnament(Ornament ornament){
-		int width = abs(getShapeEnd().x - getShapeStart().x);
-		int height = abs(getShapeEnd().y - getShapeStart().y);
-		int offset = 10;
-
-		switch (ornament.getPosition()){
-			case "top":
-				ornament.setShapeStart(new Point(getShapeStart().x + width/2, getShapeStart().y + offset));
-				break;
-			case "bottom":
-				ornament.setShapeStart(new Point(getShapeStart().x + width/2, getShapeEnd().y + offset));
-				break;
-			case "left":
-				ornament.setShapeStart(new Point(getShapeStart().x, getShapeStart().y + height/2 + offset));
-				break;
-			case "right":
-				ornament.setShapeStart(new Point(getShapeEnd().x, getShapeStart().y + height/2 + offset));
-				break;
-		}
 	}
 
 	public List<Ornament> getOrnaments(){

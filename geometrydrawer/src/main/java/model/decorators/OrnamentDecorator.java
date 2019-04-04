@@ -8,13 +8,15 @@ import java.awt.*;
 
 public class OrnamentDecorator extends ShapeDecorator {
 
+    private Ornament ornament;
+
     public OrnamentDecorator(Figure decoratedShape, String value, String position) {
         super(decoratedShape);
         addOrnament(decoratedShape, value, position);
     }
 
     public void addOrnament(Figure figure, String value, String position) {
-        Ornament ornament = new Ornament(value, position);
+        ornament = new Ornament(value, position, figure);
         figure.addOrnament(ornament);
     }
 

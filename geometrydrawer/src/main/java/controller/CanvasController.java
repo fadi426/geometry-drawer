@@ -70,7 +70,7 @@ public class CanvasController extends JPanel {
         }
     }
 
-    public List<Shape> getSelectedShapes(){
+    public List<Figure> getSelectedShapes(){
         return selectedShapes;
     }
 
@@ -197,8 +197,9 @@ public class CanvasController extends JPanel {
             setPreviousGroupPositions(group.getSubShapes());
         }
         else {
-            figure.setPreviousShapeStart(figure.getShapeStart());
-            figure.setPreviousShapeEnd(figure.getShapeEnd());
+            Shape shape = (Shape) figure;
+            shape.setPreviousShapeStart(shape.getShapeStart());
+            shape.setPreviousShapeEnd(shape.getShapeEnd());
         }
 
     }
@@ -210,8 +211,9 @@ public class CanvasController extends JPanel {
                 setPreviousGroupPositions(group.getSubShapes());
             }
             else {
-                f.setPreviousShapeStart(f.getShapeStart());
-                f.setPreviousShapeEnd(f.getShapeEnd());
+                Shape shape = (Shape) f;
+                shape.setPreviousShapeStart(shape.getShapeStart());
+                shape.setPreviousShapeEnd(shape.getShapeEnd());
             }
         }
         return;
