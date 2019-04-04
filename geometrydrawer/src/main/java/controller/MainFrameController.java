@@ -6,10 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import model.Mouse;
-import model.commands.ClearCommand;
-import model.commands.CommandManager;
-import model.commands.LoadCommand;
-import model.commands.SaveCommand;
+import model.commands.*;
 import model.shapes.Circle;
 import model.shapes.Rectangle;
 import model.singleObjects.SingleMouse;
@@ -181,7 +178,7 @@ public class MainFrameController {
     private class ornamentBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            currCanvas.addOrnament();
+            commandManager.Execute(new OrnamentCommand());
         }
     }
 }
