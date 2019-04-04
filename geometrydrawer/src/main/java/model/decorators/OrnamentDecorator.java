@@ -17,4 +17,8 @@ public class OrnamentDecorator extends ShapeDecorator {
         Ornament ornament = new Ornament(value, position);
         figure.addOrnament(ornament);
     }
+
+    public void deleteOrnament(){
+        decoratedShape.deleteOrnament(ornament);
+    }
 }

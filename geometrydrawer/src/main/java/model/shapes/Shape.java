@@ -71,6 +71,17 @@ public abstract class Shape implements Visitable, Figure {
 		ornaments.add(ornament);
 	}
 
+	public void deleteOrnament(Ornament ornament){
+		if (ornaments.contains(ornament)){
+			ornaments.remove(ornament);
+		}
+
+	}
+
+	public void deleteOrnaments(){
+		ornaments.clear();
+	}
+
 	public void updateOrnament(Ornament ornament){
 		int width = abs(getShapeEnd().x - getShapeStart().x);
 		int height = abs(getShapeEnd().y - getShapeStart().y);
