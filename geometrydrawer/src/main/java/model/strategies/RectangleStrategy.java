@@ -20,13 +20,6 @@ public class RectangleStrategy implements ShapeStrategy {
         rectangle = new Rectangle2D.Double(shape.getShapeStart().x,shape.getShapeStart().y, width,height);
         g.setColor(shape.getColor());
         g2D.draw(rectangle);
-
-
-        if (shape.getOrnaments().size() > 0) {
-            for (Ornament ornament : shape.getOrnaments()) {
-                ornament.draw(g);
-            }
-        }
     }
 
     @Override

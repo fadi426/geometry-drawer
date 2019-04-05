@@ -1,20 +1,25 @@
 package model.shapes;
 
+import model.visitors.Visitor;
+
 import java.awt.*;
 import java.util.List;
 
 import static java.lang.Math.abs;
 
-public class Ornament extends Shape{
+public class Ornament implements Figure{
 
+    private Point shapeStart;
     private String value;
     private String position;
     private Figure parent;
+    private Color currentColor = Color.BLACK;
 
     public Ornament(String value, String position, Figure parent){
         this.position = position;
         this.value = value;
         this.parent = parent;
+        updateOrnament();
     }
 
     @Override
@@ -23,6 +28,7 @@ public class Ornament extends Shape{
         {
             Graphics2D g2 = (Graphics2D)g;
             updateOrnament();
+            g.setColor(parent.getColor());
             g2.drawString(value, getShapeStart().x, getShapeStart().y);
         }
     }
@@ -33,8 +39,23 @@ public class Ornament extends Shape{
     }
 
     @Override
-    public void addOrnament(Ornament ornament){
-        return;
+    public void setColor(Color currentColor) {
+        this.currentColor = currentColor;
+    }
+
+    @Override
+    public Color getColor() {
+        return currentColor;
+    }
+
+    @Override
+    public boolean contain(Point point) {
+        return parent.contain(point);
+    }
+
+    @Override
+    public void accept(Visitor v) {
+
     }
 
     public void updateOrnament() {
@@ -71,5 +92,13 @@ public class Ornament extends Shape{
                 setShapeStart(new Point(end.x, start.y + height / 2 + offset));
                 break;
         }
+    }
+
+    public void setShapeStart(Point shapeStart) {
+        this.shapeStart = shapeStart;
+    }
+
+    public Point getShapeStart() {
+        return shapeStart;
     }
 }

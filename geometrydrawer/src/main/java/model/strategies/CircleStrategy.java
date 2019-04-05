@@ -21,12 +21,6 @@ public class CircleStrategy implements ShapeStrategy {
         ellipse = new Ellipse2D.Double(shape.getShapeStart().x,shape.getShapeStart().y, width,height);
         g.setColor(shape.getColor());
         g2D.draw(ellipse);
-
-        if (shape.getOrnaments().size() > 0) {
-            for (Ornament ornament : shape.getOrnaments()) {
-                ornament.draw(g);
-            }
-        }
     }
 
     @Override

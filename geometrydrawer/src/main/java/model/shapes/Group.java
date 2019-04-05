@@ -11,7 +11,6 @@ import java.util.List;
 public class Group implements Figure {
 
     private List<Figure> subShapes = new ArrayList<>();
-    private List<Ornament> ornaments = new ArrayList<>();
 
     public Group(){}
 
@@ -34,8 +33,9 @@ public class Group implements Figure {
                 Group group = (Group) f;
                 group.setColor(color);
             }
-            else {
-                f.setColor(color);
+            else if (f instanceof Shape){
+                Shape shape = (Shape) f;
+                shape.setColor(color);
             }
         }
     }
@@ -50,16 +50,6 @@ public class Group implements Figure {
         return contain(point, this);
     }
 
-    @Override
-    public void addOrnament(Ornament ornament) {
-        ornaments.add(ornament);
-    }
-
-    @Override
-    public void deleteOrnament(Ornament ornament) {
-        ornaments.remove(ornament);
-    }
-
     public void removeFigure(Figure figure){
         subShapes.remove(figure);
     };
@@ -72,11 +62,6 @@ public class Group implements Figure {
     public void draw(Graphics g) {
         for (Figure f : subShapes) {
             f.draw(g);
-            if (ornaments.size() > 0) {
-                for (Ornament ornament : ornaments) {
-                    ornament.draw(g);
-                }
-            }
         }
     }
 
@@ -107,7 +92,7 @@ public class Group implements Figure {
     public void accept(Visitor v) {
         for (Figure f: subShapes) {
             if (f instanceof Group) {
-                accept(v);
+                f.accept(v);
             }
         else{
             Shape shape = (Shape) f;
@@ -154,6 +139,21 @@ public class Group implements Figure {
         }
 
         return boundary;
+    }
+
+    public void setPreviousGroupPositions(List<Figure> subShapes){
+        for (Figure f : subShapes){
+            if (f instanceof Group){
+                Group group = (Group) f;
+                setPreviousGroupPositions(group.getSubShapes());
+            }
+            else {
+                Shape shape = (Shape) f;
+                shape.setPreviousShapeStart(shape.getShapeStart());
+                shape.setPreviousShapeEnd(shape.getShapeEnd());
+            }
+        }
+        return;
     }
 //    public String toString(Shape shape) {
 //        return "Group: (" + shape.getShapeStart() + ")-"

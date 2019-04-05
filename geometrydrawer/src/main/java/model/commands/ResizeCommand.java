@@ -35,15 +35,9 @@ public class ResizeCommand implements Command {
     public void Undo() {
         for (Shape shape : flatShapes) {
             shape.setShapeEnd(shape.getPreviousShapeEnd());
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
-//            }
         }
 
         for (Figure figure : groupList) {
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
-//            }
         }
     }
 
@@ -52,15 +46,6 @@ public class ResizeCommand implements Command {
         for (int i = 0; i< flatShapes.size(); i++) {
             Shape shape = flatShapes.get(i);
             shape.setShapeEnd(points.get(i));
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
-//            }
-        }
-
-        for (Figure figure : groupList) {
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
-//            }
         }
     }
 

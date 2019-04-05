@@ -5,12 +5,12 @@ import model.commands.CommandManager;
 import model.commands.MoveCommand;
 import model.commands.ResizeCommand;
 import model.shapes.Figure;
+import model.shapes.Group;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCmdMng;
 import model.visitors.MoveVisitor;
 import model.visitors.ResizeVisitor;
 
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -26,11 +26,6 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
     public void setCanvas(CanvasController canvas) {
         this.canvas = canvas;
     }
-
-    public String getOperation(){
-        return this.operation;
-    }
-
     public void setOperation(String operation) {
         this.operation = operation;
     }
@@ -101,7 +96,7 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                 canvas.endY = e.getPoint().y;
                 for (Figure f : canvas.selectedShapes) {
                     if (firstTurn)
-                        canvas.setPreviousPosition(f);
+                        canvas.previousPosition(f);
 
                     f.accept(moveVisitor);
                 }
@@ -113,7 +108,7 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                 canvas.endY = e.getPoint().y;
                 for (Figure f : canvas.selectedShapes) {
                     if (firstTurn)
-                        canvas.setPreviousPosition(f);
+                        canvas.previousPosition(f);
 
                     f.accept(resizeVisitor);
                 }

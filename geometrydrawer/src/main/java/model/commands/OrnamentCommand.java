@@ -3,6 +3,7 @@ package model.commands;
 import controller.CanvasController;
 import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;
+import model.shapes.Ornament;
 import model.singleObjects.SingletonCanvas;
 
 import javax.swing.*;
@@ -13,14 +14,14 @@ public class OrnamentCommand implements Command {
 
     private CanvasController canvas;
     private List<Figure> figures;
-    private List<OrnamentDecorator> ornaments;
+    private OrnamentDecorator ornament;
+    private List<OrnamentDecorator> ornaments = new ArrayList<>();
     private String text;
     private String position;
 
     public OrnamentCommand(){
         this.canvas = SingletonCanvas.getInstance();
         this.figures = new ArrayList<>();
-        this.ornaments = new ArrayList<>();
         figures.addAll(canvas.getSelectedShapes());
     }
 
@@ -32,30 +33,30 @@ public class OrnamentCommand implements Command {
 
     @Override
     public void Undo() {
-        for (OrnamentDecorator o : ornaments){
-            o.deleteOrnament();
-        }
-        ornaments.clear();
+       for (OrnamentDecorator od : ornaments){
+           od.deleteOrnament();
+       }
     }
 
     @Override
     public void Redo() {
-        addOrnament();
+        for (int i = 0; i < figures.size(); i++){
+            ornaments.get(i).addOrnament(figures.get(i), text, position);
+        }
     }
 
     private void addOrnament(){
-        DefaultListModel<Figure> listmodel = canvas.listmodel;
-
         if(figures.size() == 0)
             return;
 
-        for (Figure f : figures) {
-            if (listmodel.contains(f))
-                listmodel.removeElement(f);
+            for (Figure f : figures){
+                if (f instanceof Ornament)
+                    continue;
 
-            ornaments.add(new OrnamentDecorator(f, text, position));
-            listmodel.addElement(f);
-        }
+                ornament = (new OrnamentDecorator(f));
+                ornament.addOrnament(f, text, position);
+                ornaments.add(ornament);
+            }
         canvas.repaint();
     }
 

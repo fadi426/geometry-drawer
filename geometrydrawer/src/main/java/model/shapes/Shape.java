@@ -13,7 +13,6 @@ public abstract class Shape implements Visitable, Figure {
 
 	private Point shapeStart,shapeEnd;
 	private Point previousShapeStart, previousShapeEnd;
-	private List<Ornament> ornaments = new ArrayList<>();
 	private Color currentColor = Color.BLACK;
 	private boolean filled = false;
 
@@ -63,21 +62,7 @@ public abstract class Shape implements Visitable, Figure {
 		v.visit(this);
 	}
 
-	public void addOrnament(Ornament ornament){
-		ornaments.add(ornament);
-	}
-
-	public void deleteOrnament(Ornament ornament){
-		if (ornaments.contains(ornament)){
-			ornaments.remove(ornament);
-		}
-	}
-
-	public void deleteOrnaments(){
-		ornaments.clear();
-	}
-
-	public List<Ornament> getOrnaments(){
-		return ornaments;
+	public void setPreviousPosition(Point point){
+		this.previousShapeEnd = point;
 	}
 }

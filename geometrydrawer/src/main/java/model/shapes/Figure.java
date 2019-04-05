@@ -16,9 +16,5 @@ import java.awt.*;
 
      boolean contain(Point point);
 
-     void addOrnament(Ornament ornament);
-
-     void deleteOrnament(Ornament ornament);
-
      void accept(Visitor v);
 }

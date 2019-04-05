@@ -1,20 +1,14 @@
 package controller;
 
-
 import model.Mouse;
 import model.commands.*;
-import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;
 import model.shapes.Group;
-import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCmdMng;
-import model.strategies.ShapeContext;
-import model.visitors.MoveVisitor;
 
 import java.awt.*;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +16,6 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-import static java.lang.Math.abs;
 
 public class CanvasController extends JPanel {
 
@@ -35,12 +27,13 @@ public class CanvasController extends JPanel {
     public Group mainGroup = new Group();
     public DefaultListModel<Figure> listmodel = new DefaultListModel<Figure>();
     public static List<Figure> selectedShapes = new ArrayList<>();
-    public List<Point> editableShapes = new ArrayList<>();
+    public static List<Figure> toDelete = new ArrayList<>();
 
     public int currentX;
     public int currentY;
     public int endX;
     public int endY;
+    public int unSelectedCounter = 0;
 
     Mouse mouse = SingleMouse.getInstance();
 
@@ -151,37 +144,17 @@ public class CanvasController extends JPanel {
     public void selectShape(MouseEvent e){
         currentX = e.getX();
         currentY = e.getY();
-        Point currentPoint = new Point(currentX, currentY);
-        int unSelectedCounter = 0;
 
         for (int i = listmodel.size() - 1; i >= 0; i = i - 1) {
             Figure figure = listmodel.get(i);
-
-            if (figure instanceof Group && ((Group) figure).contain(currentPoint, figure))
-                    commandManager.Execute(new SelectCommand(figure));
-            else if (figure instanceof Shape && figure.contain(currentPoint) )
-                    commandManager.Execute(new SelectCommand(figure));
-            else {
-                unSelectedCounter++;
-                continue;
-            }
-
-            if (selectedShapes.contains(figure)) {
-                selectedShapes.remove(figure);
-                commandManager.Execute(new UnselectCommand(figure));
-                break;
-            }
-
-            selectedShapes.add(figure);
-            break;
+            commandManager.Execute(new SelectCommand(figure));
         }
-
-        if (unSelectedCounter == listmodel.size() ) {
-            for (Figure figure : selectedShapes){
-                commandManager.Execute(new UnselectCommand(figure));
-            }
-            selectedShapes.clear();
+        for (Figure figure : selectedShapes) {
+            commandManager.Execute(new UnselectCommand(figure));
         }
+        unSelectedCounter = 0;
+        selectedShapes.removeAll(toDelete);
+        toDelete.clear();
         repaint();
     }
 
@@ -191,31 +164,15 @@ public class CanvasController extends JPanel {
         repaint();
     }
 
-    public void setPreviousPosition(Figure figure){
+    public void previousPosition(Figure figure){
         if (figure instanceof Group) {
             Group group = (Group) figure;
-            setPreviousGroupPositions(group.getSubShapes());
+            group.setPreviousGroupPositions(group.getSubShapes());
         }
         else {
             Shape shape = (Shape) figure;
             shape.setPreviousShapeStart(shape.getShapeStart());
             shape.setPreviousShapeEnd(shape.getShapeEnd());
         }
-
-    }
-
-    public void setPreviousGroupPositions(List<Figure> subShapes){
-        for (Figure f : subShapes){
-            if (f instanceof Group){
-                Group group = (Group) f;
-                setPreviousGroupPositions(group.getSubShapes());
-            }
-            else {
-                Shape shape = (Shape) f;
-                shape.setPreviousShapeStart(shape.getShapeStart());
-                shape.setPreviousShapeEnd(shape.getShapeEnd());
-            }
-        }
-        return;
     }
 }

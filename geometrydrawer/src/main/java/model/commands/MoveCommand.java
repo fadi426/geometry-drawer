@@ -34,18 +34,7 @@ public class MoveCommand implements Command {
         for (Shape shape : flatShapes) {
             shape.setShapeStart(shape.getPreviousShapeStart());
             shape.setShapeEnd(shape.getPreviousShapeEnd());
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
-//            }
         }
-
-//        for (Shape figure : groupList) {
-//            Group group = (Group) figure;
-//            group.CalculateBoundary();
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
-//            }
-//        }
     }
 
     @Override
@@ -54,18 +43,7 @@ public class MoveCommand implements Command {
             Shape shape = flatShapes.get(i);
             shape.setShapeStart(points.get(i).get(0));
             shape.setShapeEnd(points.get(i).get(1));
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
-//            }
         }
-
-//        for (Shape figure : groupList) {
-//            Group group = (Group) figure;
-//            group.CalculateBoundary();
-//            for (Ornament ornament : figure.getOrnaments()) {
-//                figure.updateOrnament(ornament);
-//            }
-//        }
     }
 
     public void flatMap(List<Figure> figures){

@@ -47,7 +47,6 @@ public class MakeGroupCommand implements Command{
         RemoveShapes();
 
         canvas.addElementToList(group);
-
     }
 
     private void RemoveShapes(){

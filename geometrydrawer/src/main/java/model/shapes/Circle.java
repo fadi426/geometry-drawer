@@ -34,7 +34,6 @@ public class Circle extends Shape {
 	public void fill(Graphics g) {
 
 	}
-
 	@Override
 	public void accept(Visitor v) {
 		v.visit(this);
