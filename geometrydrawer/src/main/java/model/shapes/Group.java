@@ -12,7 +12,6 @@ public class Group implements Figure {
 
     private List<Figure> subShapes = new ArrayList<>();
     private List<Ornament> ornaments = new ArrayList<>();
-    private Color currentColor = Color.BLACK;
 
     public Group(){}
 
@@ -118,77 +117,41 @@ public class Group implements Figure {
     }
 
 
-        public List<Point> CalculateBoundary(){
-        Shape shape = null;
-        Group group = null;
-        Point start = new Point();
-        Point end = new Point();
-        List<Point> tempPoints = new ArrayList<>();
-
-//        Shape shape = (Shape) subShapes.get(0);
-//
-//        start.x = shape.getShapeStart().x;
-//        start.y = shape.getShapeStart().y;
-
-        for (Figure figure : subShapes) {
-            if (figure instanceof Shape){
-                shape = (Shape) figure;
-                tempPoints = hoi(shape, start, end);
-                start = tempPoints.get(0);
-                end = tempPoints.get(1);
-        }
-            else {
-                group = (Group) figure;
-                tempPoints = multipleHois(group, start, end);
-                start = tempPoints.get(0);
-                end = tempPoints.get(1);
-            }
-
-        }
-
-        List<Point> boundary = new ArrayList<>();
-        boundary.add(start);
-        boundary.add(end);
-
-        return boundary;
+    public List<Point> CalculateBoundary(){
+        Point start = new Point(1000,1000);
+        Point end = new Point(-1000, -1000);
+        List<Point> tempPoints = recursiveCBoundary(this, start, end);
+        return tempPoints;
     }
 
-    public List<Point> multipleHois(Group group, Point start, Point end) {
-        for (Figure figure : group.getSubShapes()) {
-            if (figure instanceof Group) {
-                Group nextGroup = (Group) figure;
-                multipleHois(nextGroup, start, end);
-            } else {
-                Shape shape = (Shape) figure;
-                hoi(shape, start, end);
-            }
+    public List<Point> recursiveCBoundary(Figure figure, Point start, Point end) {
+        List<Point> boundary = new ArrayList<>();
+
+        if (figure instanceof Shape) {
+            Shape shape = (Shape) figure;
+
+            if (shape.getShapeEnd().x > end.x)
+                end.x = shape.getShapeEnd().x;
+
+            if (shape.getShapeEnd().y > end.y)
+                end.y = shape.getShapeEnd().y;
+
+            if (shape.getShapeStart().x < start.x)
+                start.x = shape.getShapeStart().x;
+
+            if (shape.getShapeStart().y < start.y)
+                start.y = shape.getShapeStart().y;
+
+            boundary.add(start);
+            boundary.add(end);
+
+            return boundary;
         }
 
-
-        List<Point> boundary = new ArrayList<>();
-        boundary.add(start);
-        boundary.add(end);
-
-        return boundary;
-    }
-
-    public List<Point> hoi(Shape shape, Point start, Point end){
-
-        if (shape.getShapeEnd().x > end.x)
-            end.x = shape.getShapeEnd().x;
-
-        if (shape.getShapeEnd().y > end.y)
-            end.y = shape.getShapeEnd().y;
-
-        if (shape.getShapeStart().x < start.x)
-            start.x = shape.getShapeStart().x;
-
-        if (shape.getShapeStart().y < start.y)
-            start.y = shape.getShapeStart().y;
-
-        List<Point> boundary = new ArrayList<>();
-        boundary.add(start);
-        boundary.add(end);
+        Group group = (Group) figure;
+        for (Figure f : group.getSubShapes()){
+            boundary =  recursiveCBoundary(f, start, end);
+        }
 
         return boundary;
     }
