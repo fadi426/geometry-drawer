@@ -1,5 +1,7 @@
 package model.shapes;
 
+import model.strategies.ShapeContext;
+import model.strategies.ShapeStrategy;
 import model.visitors.Visitable;
 import model.visitors.Visitor;
 
@@ -11,6 +13,7 @@ public abstract class Shape implements Visitable, Figure {
 
 	private Point startPoint, endPoint;
 	private Color currentColor = Color.BLACK;
+	private transient ShapeContext shapeContext;
 	private boolean filled = false;
 
 
@@ -50,4 +53,11 @@ public abstract class Shape implements Visitable, Figure {
 		v.visit(this);
 	}
 
+    public void setStrategy(ShapeStrategy strategy){
+        this.shapeContext = new ShapeContext(strategy);
+    }
+
+    public ShapeContext getStrategy(){
+	    return this.shapeContext.getStrategy();
+    }
 }

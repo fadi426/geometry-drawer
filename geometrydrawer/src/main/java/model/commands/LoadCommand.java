@@ -5,14 +5,17 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import controller.CanvasController;
 import model.adapters.InterfaceAdapter;
-import model.shapes.Circle;
-import model.shapes.Group;
+import model.shapes.*;
 import model.shapes.Rectangle;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 import model.singleObjects.SingletonCmdMng;
+import model.strategies.ShapeContext;
+import model.strategies.ShapeStrategy;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
@@ -52,7 +55,9 @@ public class LoadCommand implements Command {
     }
 
     private void LoadContent(String filePath){
-        Gson gson = new GsonBuilder().registerTypeAdapter(Shape.class, new InterfaceAdapter<Shape>()).create();
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Figure.class, new InterfaceAdapter<Figure>())
+                .create();
 
         String content = "";
         try {
@@ -61,14 +66,15 @@ public class LoadCommand implements Command {
             e.printStackTrace();
         }
 
-        Type type = new TypeToken<Group>(){}.getType();
-        Group group = gson.fromJson(content, type);
+        Type type = new TypeToken<Figure>(){}.getType();
+        Figure figure = gson.fromJson(content, type);
 
-        Instantiate(group);
+        Instantiate(figure);
 
     }
 
-    private void Instantiate(Group group){
+    private void Instantiate(Figure figure){
+        Group group = (Group) figure;
         canvas.clear();
         canvas.clearSelect();
         canvas.setMainGroup(group);
