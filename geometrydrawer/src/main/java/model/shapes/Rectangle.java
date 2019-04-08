@@ -2,6 +2,7 @@ package model.shapes;
 
 import model.strategies.RectangleStrategy;
 import model.strategies.ShapeContext;
+import model.strategies.ShapeStrategy;
 import model.visitors.Visitor;
 
 import java.awt.*;
@@ -14,15 +15,14 @@ import static java.lang.Math.abs;
 
 public class Rectangle extends Shape {
 
-	ShapeContext shapeContext = new ShapeContext(new RectangleStrategy());
-
 	public Rectangle(){
 		setShapeStart(new Point(0,0));
 		setShapeEnd(new Point(0,0));
+		setStrategy(new RectangleStrategy());
 	}
 	@Override
 	public void draw(Graphics g) {
-		shapeContext.executeDrawStrategy(this, g);
+		getStrategy().executeDrawStrategy(this, g);
 	}
 
 	@Override
@@ -32,7 +32,7 @@ public class Rectangle extends Shape {
 
 	@Override
 	public boolean contain(Point point) {
-		return shapeContext.executeContain(point);
+		return getStrategy().executeContain(point);
 	}
 
 	@Override

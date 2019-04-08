@@ -1,5 +1,7 @@
 package model.shapes;
 
+import model.strategies.ShapeContext;
+import model.strategies.ShapeStrategy;
 import model.visitors.Visitable;
 import model.visitors.Visitor;
 
@@ -14,6 +16,7 @@ public abstract class Shape implements Visitable, Figure {
 	private Point shapeStart,shapeEnd;
 	private Point previousShapeStart, previousShapeEnd;
 	private Color currentColor = Color.BLACK;
+	private transient ShapeContext shapeContext;
 	private boolean filled = false;
 
 
@@ -28,7 +31,6 @@ public abstract class Shape implements Visitable, Figure {
 	public void setShapeStart(Point shapeStart) {
 		this.shapeStart = shapeStart;
 	}
-
 
 	public Point getShapeEnd() {
 		return shapeEnd;
@@ -65,4 +67,12 @@ public abstract class Shape implements Visitable, Figure {
 	public void setPreviousPosition(Point point){
 		this.previousShapeEnd = point;
 	}
+
+    public void setStrategy(ShapeStrategy strategy){
+        this.shapeContext = new ShapeContext(strategy);
+    }
+
+    public ShapeContext getStrategy(){
+	    return this.shapeContext;
+    }
 }

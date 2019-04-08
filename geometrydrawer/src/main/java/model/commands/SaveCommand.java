@@ -8,8 +8,13 @@ import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
+import model.strategies.ShapeContext;
+import model.strategies.ShapeStrategy;
+
 import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Rectangle2D;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -81,15 +86,14 @@ public class SaveCommand implements Command {
 
         Gson gson = new GsonBuilder()
                 .setPrettyPrinting()
-                .registerTypeAdapter(Shape.class, new InterfaceAdapter<Shape>())
+                .registerTypeAdapter(Figure.class, new InterfaceAdapter<Figure>())
                 .create();
 
-        String json = gson.toJson(group, Shape.class);
+        String json = gson.toJson(group, Figure.class);
         return json;
     }
 
     private void resetColors(List<Figure> figures){
-        //reset colors
         for (Figure f : figures)
             f.setColor(Color.BLACK);
     }

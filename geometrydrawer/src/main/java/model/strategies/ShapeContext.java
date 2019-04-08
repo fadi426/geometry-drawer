@@ -22,5 +22,7 @@ public class ShapeContext {
 
     public Boolean executeContain(Point point){ return shapeStrategy.contain(point); }
 
+    public ShapeStrategy getStrategy() {return shapeStrategy;}
+
 //    public void setColor(Shape shape, Color color) { shapeStrategy.setColor(shape, color); }
 }

@@ -18,9 +18,11 @@ public class OrnamentDecorator extends ShapeDecorator {
     public void addOrnament(Figure figure, String value, String position) {
         ornament = new Ornament(value, position, figure);
         canvas.listmodel.addElement(ornament);
+        canvas.mainGroup.addFigure(ornament);
     }
 
     public void deleteOrnament(){
         canvas.listmodel.removeElement(ornament);
+        canvas.mainGroup.removeFigure(ornament);
     }
 }

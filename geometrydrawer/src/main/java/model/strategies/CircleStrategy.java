@@ -14,7 +14,6 @@ public class CircleStrategy implements ShapeStrategy {
 
     @Override
     public void draw(Shape shape, Graphics g) {
-
         int width = abs(shape.getShapeEnd().x - shape.getShapeStart().x);
         int height = abs(shape.getShapeEnd().y - shape.getShapeStart().y);
         Graphics2D g2D = (Graphics2D) g;
