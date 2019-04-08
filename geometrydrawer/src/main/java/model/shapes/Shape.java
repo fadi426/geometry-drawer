@@ -58,6 +58,6 @@ public abstract class Shape implements Visitable, Figure {
     }
 
     public ShapeContext getStrategy(){
-	    return this.shapeContext.getStrategy();
+	    return this.shapeContext;
     }
 }
