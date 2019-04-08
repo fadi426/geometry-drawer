@@ -1,17 +1,10 @@
 package model.visitors;
 
 import controller.CanvasController;
-import model.commands.CommandManager;
-import model.commands.MoveCommand;
-import model.shapes.Figure;
-import model.shapes.Group;
-import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
-import model.singleObjects.SingletonCmdMng;
 
 import java.awt.*;
-import java.util.List;
 
 import static java.lang.Math.abs;
 
@@ -33,14 +26,21 @@ public class MoveVisitor implements Visitor {
     public void moveShape(Shape shape) {
         int width;
         int height;
+        Point shapeStart = null;
 
-        width = abs(shape.getShapeEnd().x - shape.getShapeStart().x);
-        height = abs(shape.getShapeEnd().y - shape.getShapeStart().y);
 
-        if (shape.getPreviousShapeStart() != null) {
-            shape.setShapeStart(new Point(shape.getPreviousShapeStart().x + xDifference, shape.getPreviousShapeStart().y + yDifference));
-            shape.setShapeEnd(new Point(shape.getShapeStart().x + width, shape.getShapeStart().y + height));
+        for (int i = 0; i < canvas.flatEditableShapes.size(); i++) {
+            if (canvas.flatEditableShapes.get(i) == shape) {
+                shapeStart = canvas.flatPointsEditableShapes.get(i).get(0);
+            }
         }
 
+        width = abs(shape.getEndPoint().x - shape.getStartPoint().x);
+        height = abs(shape.getEndPoint().y - shape.getStartPoint().y);
+
+        if (shapeStart != null) {
+            shape.setStartPoint(new Point(shapeStart.x + xDifference, shapeStart.y + yDifference));
+            shape.setEndPoint(new Point(shape.getStartPoint().x + width, shape.getStartPoint().y + height));
+        }
     }
 }

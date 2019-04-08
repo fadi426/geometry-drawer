@@ -5,8 +5,6 @@ import model.commands.CommandManager;
 import model.commands.MoveCommand;
 import model.commands.ResizeCommand;
 import model.shapes.Figure;
-import model.shapes.Group;
-import model.shapes.Shape;
 import model.singleObjects.SingletonCmdMng;
 import model.visitors.MoveVisitor;
 import model.visitors.ResizeVisitor;
@@ -45,6 +43,7 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                     canvas.selectShape(e);
                     break;
         }
+        canvas.flatMap(canvas.selectedShapes);
         canvas.currentX = e.getPoint().x;
         canvas.currentY = e.getPoint().y;
     }
@@ -62,6 +61,9 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
             if (canvas.selectedShapes.size() > 0)
             commandManager.Execute(new ResizeCommand(canvas.selectedShapes));
         }
+
+        canvas.flatEditableShapes.clear();
+        canvas.flatPointsEditableShapes.clear();
 
         if(canvas.currShape == null)
             return;
@@ -85,7 +87,7 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
     @Override
     public void mouseDragged(MouseEvent e) {
         if(canvas.currShape!= null){
-            canvas.currShape.setShapeEnd(e.getPoint());
+            canvas.currShape.setEndPoint(e.getPoint());
             canvas.repaint();
         }
 
@@ -95,9 +97,6 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                 canvas.endX = e.getPoint().x;
                 canvas.endY = e.getPoint().y;
                 for (Figure f : canvas.selectedShapes) {
-                    if (firstTurn)
-                        canvas.previousPosition(f);
-
                     f.accept(moveVisitor);
                 }
                 firstTurn = false;
@@ -107,9 +106,6 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                 canvas.endX = e.getPoint().x;
                 canvas.endY = e.getPoint().y;
                 for (Figure f : canvas.selectedShapes) {
-                    if (firstTurn)
-                        canvas.previousPosition(f);
-
                     f.accept(resizeVisitor);
                 }
                 firstTurn = false;

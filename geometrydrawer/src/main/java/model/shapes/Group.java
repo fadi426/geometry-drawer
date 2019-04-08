@@ -115,17 +115,17 @@ public class Group implements Figure {
         if (figure instanceof Shape) {
             Shape shape = (Shape) figure;
 
-            if (shape.getShapeEnd().x > end.x)
-                end.x = shape.getShapeEnd().x;
+            if (shape.getEndPoint().x > end.x)
+                end.x = shape.getEndPoint().x;
 
-            if (shape.getShapeEnd().y > end.y)
-                end.y = shape.getShapeEnd().y;
+            if (shape.getEndPoint().y > end.y)
+                end.y = shape.getEndPoint().y;
 
-            if (shape.getShapeStart().x < start.x)
-                start.x = shape.getShapeStart().x;
+            if (shape.getStartPoint().x < start.x)
+                start.x = shape.getStartPoint().x;
 
-            if (shape.getShapeStart().y < start.y)
-                start.y = shape.getShapeStart().y;
+            if (shape.getStartPoint().y < start.y)
+                start.y = shape.getStartPoint().y;
 
             boundary.add(start);
             boundary.add(end);
@@ -140,24 +140,9 @@ public class Group implements Figure {
 
         return boundary;
     }
-
-    public void setPreviousGroupPositions(List<Figure> subShapes){
-        for (Figure f : subShapes){
-            if (f instanceof Group){
-                Group group = (Group) f;
-                setPreviousGroupPositions(group.getSubShapes());
-            }
-            else {
-                Shape shape = (Shape) f;
-                shape.setPreviousShapeStart(shape.getShapeStart());
-                shape.setPreviousShapeEnd(shape.getShapeEnd());
-            }
-        }
-        return;
-    }
 //    public String toString(Shape shape) {
-//        return "Group: (" + shape.getShapeStart() + ")-"
-//                + "(" + shape.getShapeEnd() + ")";
+//        return "Group: (" + shape.getStartPoint() + ")-"
+//                + "(" + shape.getEndPoint() + ")";
 //    }
 
 }

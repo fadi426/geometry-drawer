@@ -9,15 +9,15 @@ import static java.lang.Math.abs;
 
 public class Ornament implements Figure{
 
-    private Point shapeStart;
-    private String value;
+    private Point startPoint;
+    private String text;
     private String position;
     private Figure parent;
     private Color currentColor = Color.BLACK;
 
-    public Ornament(String value, String position, Figure parent){
+    public Ornament(String text, String position, Figure parent){
         this.position = position;
-        this.value = value;
+        this.text = text;
         this.parent = parent;
         updateOrnament();
     }
@@ -29,7 +29,7 @@ public class Ornament implements Figure{
             Graphics2D g2 = (Graphics2D)g;
             updateOrnament();
             g.setColor(parent.getColor());
-            g2.drawString(value, getShapeStart().x, getShapeStart().y);
+            g2.drawString(text, getStartPoint().x, getStartPoint().y);
         }
     }
 
@@ -71,8 +71,8 @@ public class Ornament implements Figure{
         }
         else {
             Shape shape = (Shape) parent;
-            start = shape.getShapeStart();
-            end = shape.getShapeEnd();
+            start = shape.getStartPoint();
+            end = shape.getEndPoint();
         }
 
 
@@ -80,25 +80,25 @@ public class Ornament implements Figure{
         height = abs(end.y - start.y);
         switch (position) {
             case "top":
-                setShapeStart(new Point(start.x + width / 2, start.y + offset));
+                setStartPoint(new Point(start.x + width / 2, start.y + offset));
                 break;
             case "bottom":
-                setShapeStart(new Point(start.x + width / 2, end.y + offset));
+                setStartPoint(new Point(start.x + width / 2, end.y + offset));
                 break;
             case "left":
-                setShapeStart(new Point(start.x, start.y + height / 2 + offset));
+                setStartPoint(new Point(start.x, start.y + height / 2 + offset));
                 break;
             case "right":
-                setShapeStart(new Point(end.x, start.y + height / 2 + offset));
+                setStartPoint(new Point(end.x, start.y + height / 2 + offset));
                 break;
         }
     }
 
-    public void setShapeStart(Point shapeStart) {
-        this.shapeStart = shapeStart;
+    public void setStartPoint(Point startPoint) {
+        this.startPoint = startPoint;
     }
 
-    public Point getShapeStart() {
-        return shapeStart;
+    public Point getStartPoint() {
+        return startPoint;
     }
 }

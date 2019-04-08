@@ -1,11 +1,8 @@
 package model.commands;
 
-import controller.CanvasController;
 import model.shapes.Figure;
 import model.shapes.Group;
-import model.shapes.Ornament;
 import model.shapes.Shape;
-import model.singleObjects.SingletonCanvas;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -14,16 +11,15 @@ import java.util.List;
 public class ResizeCommand implements Command {
     private List<Figure> figures;
     private List<Shape> flatShapes;
-    private CanvasController canvas;
-    private List<Point> points;
-    private List<Figure> groupList;
+    private List<List<Point>> previousPoints;
+
+    private List<List<Point>> newPoints;
 
     public ResizeCommand(List<Figure> figures){
         this.figures = figures;
         flatShapes = new ArrayList<>();
-        points = new ArrayList<>();
-        groupList = new ArrayList<>();
-        this.canvas = SingletonCanvas.getInstance();
+        previousPoints = new ArrayList<>();
+        newPoints = new ArrayList<>();
     }
 
     @Override
@@ -33,11 +29,12 @@ public class ResizeCommand implements Command {
 
     @Override
     public void Undo() {
-        for (Shape shape : flatShapes) {
-            shape.setShapeEnd(shape.getPreviousShapeEnd());
-        }
-
-        for (Figure figure : groupList) {
+        newPoints.clear();
+        for (int i = 0; i< flatShapes.size(); i++) {
+            Shape shape = flatShapes.get(i);
+            newPoints.add( previousPoints.get(i));
+            shape.setStartPoint(previousPoints.get(i).get(0));
+            shape.setEndPoint(previousPoints.get(i).get(1));
         }
     }
 
@@ -45,7 +42,8 @@ public class ResizeCommand implements Command {
     public void Redo() {
         for (int i = 0; i< flatShapes.size(); i++) {
             Shape shape = flatShapes.get(i);
-            shape.setShapeEnd(points.get(i));
+            shape.setStartPoint(newPoints.get(i).get(0));
+            shape.setEndPoint(newPoints.get(i).get(1));
         }
     }
 
@@ -54,12 +52,14 @@ public class ResizeCommand implements Command {
             if (f instanceof Group){
                 Group group = (Group) f;
                 flatMap(group.getSubShapes());
-                groupList.add(f);
             }
             else {
                 Shape shape = (Shape) f;
                 flatShapes.add(shape);
-                points.add(shape.getShapeEnd());
+                List<Point> temp_point = new ArrayList<>();
+                temp_point.add(shape.getStartPoint());
+                temp_point.add(shape.getEndPoint());
+                previousPoints.add(temp_point);
             }
         }
     }

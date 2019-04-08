@@ -15,8 +15,8 @@ public class OrnamentDecorator extends ShapeDecorator {
         this.canvas = SingletonCanvas.getInstance();
     }
 
-    public void addOrnament(Figure figure, String value, String position) {
-        ornament = new Ornament(value, position, figure);
+    public void addOrnament(Figure figure, String text, String position) {
+        ornament = new Ornament(text, position, figure);
         canvas.listmodel.addElement(ornament);
     }
 

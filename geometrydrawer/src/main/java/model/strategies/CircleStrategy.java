@@ -1,6 +1,5 @@
 package model.strategies;
 
-import model.shapes.Ornament;
 import model.shapes.Shape;
 
 import java.awt.*;
@@ -15,18 +14,18 @@ public class CircleStrategy implements ShapeStrategy {
     @Override
     public void draw(Shape shape, Graphics g) {
 
-        int width = abs(shape.getShapeEnd().x - shape.getShapeStart().x);
-        int height = abs(shape.getShapeEnd().y - shape.getShapeStart().y);
+        int width = abs(shape.getEndPoint().x - shape.getStartPoint().x);
+        int height = abs(shape.getEndPoint().y - shape.getStartPoint().y);
         Graphics2D g2D = (Graphics2D) g;
-        ellipse = new Ellipse2D.Double(shape.getShapeStart().x,shape.getShapeStart().y, width,height);
+        ellipse = new Ellipse2D.Double(shape.getStartPoint().x,shape.getStartPoint().y, width,height);
         g.setColor(shape.getColor());
         g2D.draw(ellipse);
     }
 
     @Override
     public String toString(Shape shape) {
-        return "Circle: ("+ shape.getShapeStart()+","+ shape.getShapeEnd()+")"
-                + " Radius: (" + (shape.getShapeEnd().x - shape.getShapeStart().x / 2) + ")";
+        return "Circle: ("+ shape.getStartPoint()+","+ shape.getEndPoint()+")"
+                + " Radius: (" + (shape.getEndPoint().x - shape.getStartPoint().x / 2) + ")";
     }
 
     @Override

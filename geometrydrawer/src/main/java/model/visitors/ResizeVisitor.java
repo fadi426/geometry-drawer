@@ -1,16 +1,10 @@
 package model.visitors;
 
 import controller.CanvasController;
-import model.shapes.Figure;
-import model.shapes.Group;
-import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 
 import java.awt.*;
-import java.util.List;
-
-import static java.lang.Math.abs;
 
 public class ResizeVisitor implements Visitor {
     CanvasController canvas = SingletonCanvas.getInstance();
@@ -27,12 +21,16 @@ public class ResizeVisitor implements Visitor {
     }
 
     private void resizeShape(Shape shape) {
-        if (shape.getPreviousShapeEnd() != null) {
-            shape.setShapeEnd(new Point(shape.getPreviousShapeEnd().x + xDifference, shape.getPreviousShapeEnd().y + yDifference));
-//            for (Ornament ornament : shape.getOrnaments()) {
-//                shape.updateOrnament(ornament);
-//            }
+        Point shapeEnd = null;
+
+        for (int i = 0; i < canvas.flatEditableShapes.size(); i++) {
+            if (canvas.flatEditableShapes.get(i) == shape) {
+                shapeEnd = canvas.flatPointsEditableShapes.get(i).get(1);
+            }
+        }
+
+        if (shapeEnd != null) {
+            shape.setEndPoint(new Point(shapeEnd.x + xDifference, shapeEnd.y + yDifference));
         }
     }
-
 }

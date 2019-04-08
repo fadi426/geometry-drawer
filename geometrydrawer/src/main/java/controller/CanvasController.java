@@ -26,8 +26,10 @@ public class CanvasController extends JPanel {
 
     public Group mainGroup = new Group();
     public DefaultListModel<Figure> listmodel = new DefaultListModel<Figure>();
-    public static List<Figure> selectedShapes = new ArrayList<>();
-    public static List<Figure> toDelete = new ArrayList<>();
+    public List<Figure> selectedShapes = new ArrayList<>();
+    public List<Figure> flatEditableShapes = new ArrayList<>();
+    public List<List<Point>> flatPointsEditableShapes = new ArrayList<List<Point>>();
+    public List<Figure> toDelete = new ArrayList<>();
 
     public int currentX;
     public int currentY;
@@ -59,7 +61,24 @@ public class CanvasController extends JPanel {
             e1.printStackTrace();
         }
         if (currShape != null) {
-            currShape.setShapeStart(e.getPoint());
+            currShape.setStartPoint(e.getPoint());
+        }
+    }
+
+    public void flatMap(List<Figure> figures){
+        for (Figure f : figures){
+            if (f instanceof Group){
+                Group group = (Group) f;
+                flatMap(group.getSubShapes());
+            }
+            else {
+                Shape shape = (Shape) f;
+                flatEditableShapes.add(shape);
+                List<Point> temp_point = new ArrayList<>();
+                temp_point.add(shape.getStartPoint());
+                temp_point.add(shape.getEndPoint());
+                flatPointsEditableShapes.add(temp_point);
+            }
         }
     }
 
@@ -162,17 +181,5 @@ public class CanvasController extends JPanel {
         commandManager.Execute(new MakeGroupCommand(selectedShapes));
         selectedShapes.clear();
         repaint();
-    }
-
-    public void previousPosition(Figure figure){
-        if (figure instanceof Group) {
-            Group group = (Group) figure;
-            group.setPreviousGroupPositions(group.getSubShapes());
-        }
-        else {
-            Shape shape = (Shape) figure;
-            shape.setPreviousShapeStart(shape.getShapeStart());
-            shape.setPreviousShapeEnd(shape.getShapeEnd());
-        }
     }
 }

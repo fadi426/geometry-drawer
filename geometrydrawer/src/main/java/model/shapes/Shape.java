@@ -6,13 +6,10 @@ import model.visitors.Visitor;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Shape implements Visitable, Figure {
 
-	private Point shapeStart,shapeEnd;
-	private Point previousShapeStart, previousShapeEnd;
+	private Point startPoint, endPoint;
 	private Color currentColor = Color.BLACK;
 	private boolean filled = false;
 
@@ -21,30 +18,21 @@ public abstract class Shape implements Visitable, Figure {
 
 	public abstract void fill(Graphics g);
 
-	public Point getShapeStart() {
-		return shapeStart;
+	public Point getStartPoint() {
+		return startPoint;
 	}
 
-	public void setShapeStart(Point shapeStart) {
-		this.shapeStart = shapeStart;
+	public void setStartPoint(Point startPoint) {
+		this.startPoint = startPoint;
 	}
 
-
-	public Point getShapeEnd() {
-		return shapeEnd;
+	public Point getEndPoint() {
+		return endPoint;
 	}
 
-	public void setShapeEnd(Point shapeEnd) {
-		this.shapeEnd = shapeEnd;
+	public void setEndPoint(Point endPoint) {
+		this.endPoint = endPoint;
 	}
-
-	public Point getPreviousShapeEnd() { return previousShapeEnd; }
-
-	public Point getPreviousShapeStart() { return previousShapeStart; }
-
-	public void setPreviousShapeEnd(Point previousShapeEnd) { this.previousShapeEnd = previousShapeEnd; }
-
-	public void setPreviousShapeStart(Point previousShapeStart) { this.previousShapeStart = previousShapeStart; }
 
 	public void setColor(Color currentColor) {
 		this.currentColor = currentColor;
@@ -62,7 +50,4 @@ public abstract class Shape implements Visitable, Figure {
 		v.visit(this);
 	}
 
-	public void setPreviousPosition(Point point){
-		this.previousShapeEnd = point;
-	}
 }

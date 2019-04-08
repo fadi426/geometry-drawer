@@ -5,19 +5,13 @@ import model.strategies.ShapeContext;
 import model.visitors.Visitor;
 
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.lang.Math.abs;
-
 public class Circle extends Shape {
 
 	ShapeContext shapeContext = new ShapeContext(new CircleStrategy());
 
 	public Circle(){
-		setShapeStart(new Point(0,0));
-		setShapeEnd(new Point(0,0));
+		setStartPoint(new Point(0,0));
+		setEndPoint(new Point(0,0));
 	}
 
 	@Override
