@@ -56,7 +56,6 @@ public class OrnamentDecorator extends FigureDecorator {
     public void addOrnament() {
         ornament = new Ornament(text, position, decoratedFigure);
         this.ornament = ornament;
-        canvas.addElementToList(ornament);
     }
 
     public Figure getOrnament(){

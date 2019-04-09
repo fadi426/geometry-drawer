@@ -59,6 +59,8 @@ public class OrnamentCommand implements Command {
 
             Figure figure = new OrnamentDecorator(f, text, position);
             newFigures.add(figure);
+            Ornament ornament = (Ornament) ((OrnamentDecorator) figure).getOrnament();
+            canvas.addElementToList(ornament);
         }
     }
 
