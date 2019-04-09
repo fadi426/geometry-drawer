@@ -6,6 +6,7 @@ import model.shapes.Ornament;
 import model.singleObjects.SingletonCanvas;
 import model.visitors.Visitor;
 
+import javax.swing.*;
 import java.awt.*;
 
 public class OrnamentDecorator extends FigureDecorator {
@@ -15,12 +16,11 @@ public class OrnamentDecorator extends FigureDecorator {
     private String text;
     private String position;
 
-    public OrnamentDecorator(Figure decoratedShape, String text, String position) {
+    public OrnamentDecorator(Figure decoratedShape) {
         super(decoratedShape);
         this.canvas = SingletonCanvas.getInstance();
-        this.text = text;
-        this.position = position;
-        addOrnament();
+        createOrnament();
+        ornament = new Ornament(text, position, decoratedShape);
     }
 
     @Override
@@ -53,13 +53,33 @@ public class OrnamentDecorator extends FigureDecorator {
 
     }
 
-    public void addOrnament() {
-        ornament = new Ornament(text, position, decoratedFigure);
-        this.ornament = ornament;
-    }
-
     public Figure getOrnament(){
         return ornament;
     }
+    private void createOrnament(){
+        text = setText();
+        while ((text.length() == 0)){
+            text = setText();
+        }
+        position = setPosition();
+    }
 
+    private String setText(){
+        return JOptionPane.showInputDialog(canvas, "Ornament Text");
+    }
+
+    private String setPosition() {
+        Object[] possibilities = {"top", "bottom", "left", "right"};
+
+        String position = (String) JOptionPane.showInputDialog(
+                canvas,
+                "Ornament Position",
+                "Ornament Position Chooser",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                possibilities,
+                "top");
+
+        return position;
+    }
 }

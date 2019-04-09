@@ -13,19 +13,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/OrnamentDecorator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+            <state relative-caret-position="1241">
+              <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#679#680#0" expanded="true" />
+                <element signature="e#718#719#0" expanded="true" />
                 <element signature="e#951#952#0" expanded="true" />
                 <element signature="e#978#979#0" expanded="true" />
                 <element signature="e#1035#1036#0" expanded="true" />
                 <element signature="e#1063#1064#0" expanded="true" />
                 <element signature="e#1333#1334#0" expanded="true" />
                 <element signature="e#1363#1364#0" expanded="true" />
+                <element signature="e#1357#1358#0" expanded="true" />
+                <element signature="e#1432#1433#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -45,11 +49,25 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="364">
+              <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#820#821#0" expanded="true" />
+                <element signature="e#849#850#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/InterfaceAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -69,8 +87,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/controller/CanvasController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1642">
-              <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+            <state relative-caret-position="240">
+              <caret line="164" selection-start-line="164" selection-end-line="164" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#771#779#0" expanded="true" />
@@ -85,18 +103,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="401">
               <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Group.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="33" column="25" lean-forward="true" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -148,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="31" selection-end-column="70" />
+            <state relative-caret-position="17">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -249,7 +255,6 @@
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Group.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Circle.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Shape.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/Mouse.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MoveCommand.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/ResizeCommand.java" />
@@ -258,9 +263,10 @@
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/controller/MainFrameController.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/FigureDecorator.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SaveCommand.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/controller/CanvasController.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/OrnamentDecorator.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java" />
       </list>
     </option>
   </component>
@@ -408,7 +414,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="426" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554812100741" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554813207280" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/geometrydrawer/pom.xml" />
     <property name="project.structure.last.edited" value="Project" />
@@ -521,8 +527,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3997833" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3997833" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -546,7 +552,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java</url>
-          <line>60</line>
+          <line>56</line>
           <properties />
           <option name="timeStamp" value="35" />
         </line-breakpoint>
@@ -594,13 +600,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/InterfaceAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -887,13 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="31" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Group.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -970,10 +962,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/controller/CanvasController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1642">
-          <caret line="35" column="20" selection-start-line="35" selection-start-column="20" selection-end-line="35" selection-end-column="20" />
+        <state relative-caret-position="240">
+          <caret line="164" selection-start-line="164" selection-end-line="164" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#771#779#0" expanded="true" />
@@ -982,28 +981,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/OrnamentDecorator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="27" column="22" selection-start-line="27" selection-start-column="22" selection-end-line="27" selection-end-column="22" />
+        <state relative-caret-position="1241">
+          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#718#719#0" expanded="true" />
             <element signature="e#951#952#0" expanded="true" />
             <element signature="e#978#979#0" expanded="true" />
             <element signature="e#1035#1036#0" expanded="true" />
             <element signature="e#1063#1064#0" expanded="true" />
             <element signature="e#1333#1334#0" expanded="true" />
             <element signature="e#1363#1364#0" expanded="true" />
+            <element signature="e#1357#1358#0" expanded="true" />
+            <element signature="e#1432#1433#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/InterfaceAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="54" lean-forward="true" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#820#821#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
           </folding>
         </state>
       </provider>
