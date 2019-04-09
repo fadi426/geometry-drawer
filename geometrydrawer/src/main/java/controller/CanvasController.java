@@ -29,13 +29,11 @@ public class CanvasController extends JPanel {
     public List<Figure> selectedShapes = new ArrayList<>();
     public List<Figure> flatEditableShapes = new ArrayList<>();
     public List<List<Point>> flatPointsEditableShapes = new ArrayList<List<Point>>();
-    public List<Figure> toDelete = new ArrayList<>();
 
     public int currentX;
     public int currentY;
     public int endX;
     public int endY;
-    public int unSelectedCounter = 0;
 
     Mouse mouse = SingleMouse.getInstance();
 
@@ -133,6 +131,18 @@ public class CanvasController extends JPanel {
         }
     }
 
+    public void removeElementFromList(Figure figure){
+        listmodel.removeElement(figure);
+        mainGroup.removeFigure(figure);
+        repaint();
+    }
+
+    public void removeElementsFromList(List<Figure> figures){
+        for (Figure figure : figures) {
+            removeElementFromList(figure);
+        }
+    }
+
     public void insertFromFile(List<Figure> figures){
         for (Figure figure : figures){
             listmodel.addElement(figure);
@@ -163,17 +173,32 @@ public class CanvasController extends JPanel {
     public void selectShape(MouseEvent e){
         currentX = e.getX();
         currentY = e.getY();
+        Point currentPoint = new Point(currentX, currentY);
+        int unSelectedCounter = 0;
 
         for (int i = listmodel.size() - 1; i >= 0; i = i - 1) {
             Figure figure = listmodel.get(i);
-            commandManager.Execute(new SelectCommand(figure));
+
+            if (figure instanceof Group && ((Group) figure).contain(currentPoint, figure)) {
+                if (selectedShapes.contains(figure))
+                    commandManager.Execute(new UnselectCommand(figure));
+                else
+                    commandManager.Execute(new SelectCommand(figure));
+                break;
+            }
+            else if (figure instanceof Shape && figure.contain(currentPoint)){
+                if (selectedShapes.contains(figure))
+                    commandManager.Execute(new UnselectCommand(figure));
+                else
+                    commandManager.Execute(new SelectCommand(figure));
+                break;
+            }
+            else {
+                unSelectedCounter++;
+            }
         }
-        for (Figure figure : selectedShapes) {
-            commandManager.Execute(new UnselectCommand(figure));
-        }
-        unSelectedCounter = 0;
-        selectedShapes.removeAll(toDelete);
-        toDelete.clear();
+        if (unSelectedCounter == listmodel.size())
+            clearSelect();
         repaint();
     }
 

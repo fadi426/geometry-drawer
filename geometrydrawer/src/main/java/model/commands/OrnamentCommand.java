@@ -13,16 +13,16 @@ import java.util.List;
 public class OrnamentCommand implements Command {
 
     private CanvasController canvas;
-    private List<Figure> figures;
-    private OrnamentDecorator ornament;
-    private List<OrnamentDecorator> ornaments = new ArrayList<>();
+    private List<Figure> selectedFigures;
+    private List<Figure> oldFigures = new ArrayList<>();
+    private List<Figure> newFigures = new ArrayList<>();
     private String text;
     private String position;
 
     public OrnamentCommand(){
         this.canvas = SingletonCanvas.getInstance();
-        this.figures = new ArrayList<>();
-        figures.addAll(canvas.getSelectedShapes());
+        this.selectedFigures = new ArrayList<>();
+        selectedFigures.addAll(canvas.getSelectedShapes());
     }
 
     @Override
@@ -33,31 +33,33 @@ public class OrnamentCommand implements Command {
 
     @Override
     public void Undo() {
-       for (OrnamentDecorator od : ornaments){
-           od.deleteOrnament();
-       }
+        oldFigures.clear();
+        oldFigures.addAll(newFigures);
+        for (Figure figure : newFigures){
+            OrnamentDecorator ornamentDecorator = (OrnamentDecorator) figure;
+            canvas.removeElementFromList((ornamentDecorator.getOrnament()));
+        }
     }
 
     @Override
     public void Redo() {
-        for (int i = 0; i < figures.size(); i++){
-            ornaments.get(i).addOrnament(figures.get(i), text, position);
+        for (Figure figure : oldFigures){
+            OrnamentDecorator ornamentDecorator = (OrnamentDecorator) figure;
+            canvas.addElementToList((ornamentDecorator.getOrnament()));
         }
     }
 
     private void addOrnament(){
-        if(figures.size() == 0)
+        if(selectedFigures.size() == 0)
             return;
 
-            for (Figure f : figures){
-                if (f instanceof Ornament)
-                    continue;
+        for (Figure f : selectedFigures){
+            if (f instanceof Ornament)
+                continue;
 
-                ornament = (new OrnamentDecorator(f));
-                ornament.addOrnament(f, text, position);
-                ornaments.add(ornament);
-            }
-        canvas.repaint();
+            Figure figure = new OrnamentDecorator(f, text, position);
+            newFigures.add(figure);
+        }
     }
 
     private void CreateOrnament(){

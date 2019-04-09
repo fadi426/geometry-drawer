@@ -2,11 +2,9 @@ package model.commands;
 
 import controller.CanvasController;
 import model.shapes.Figure;
-import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 
 import java.awt.*;
-import java.util.List;
 
 public class UnselectCommand implements Command {
 
@@ -15,21 +13,13 @@ public class UnselectCommand implements Command {
 
     public UnselectCommand(Figure figure){
         this.figure = figure;
-        this.canvas = SingletonCanvas.getInstance();
+        canvas = SingletonCanvas.getInstance();
     }
 
     @Override
     public void Execute() {
-        for (Figure figure : canvas.selectedShapes){
-            if (canvas.unSelectedCounter == canvas.listmodel.size() ) {
-                figure.setColor(Color.BLACK);
-                canvas.toDelete.addAll(canvas.selectedShapes);
-            }
-             if (moreThanOnce(canvas.selectedShapes, figure)) {
-                canvas.toDelete.remove(figure);
-                figure.setColor(Color.BLACK);
-            }
-        }
+        figure.setColor(Color.BLACK);
+        canvas.selectedShapes.remove(figure);
     }
 
     @Override
@@ -41,15 +31,6 @@ public class UnselectCommand implements Command {
     @Override
     public void Redo() {
         figure.setColor(Color.BLACK);
-        canvas.toDelete.add(figure);
-    }
-
-    public static boolean moreThanOnce(List<Figure> list, Figure searched)
-    {
-        int numCount = 0;
-        for (Figure thisFig : list) {
-            if (thisFig == searched) numCount++;
-        }
-        return numCount > 1;
+        canvas.selectedShapes.remove(figure);
     }
 }

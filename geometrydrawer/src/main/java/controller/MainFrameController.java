@@ -126,6 +126,7 @@ public class MainFrameController {
             mouse.setOperation("select");
             welcomeTA.append("cleared\n");
             currCanvas.clearSelect();
+            currCanvas.repaint();
         }
     }
 

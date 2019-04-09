@@ -2,7 +2,6 @@ package model.commands;
 
 import controller.CanvasController;
 import model.shapes.Figure;
-import model.shapes.Group;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 
@@ -20,23 +19,14 @@ public class SelectCommand implements Command {
 
     @Override
     public void Execute() {
-        Point currentPoint = new Point(canvas.currentX, canvas.currentY);
-
-        if (figure instanceof Group && ((Group) figure).contain(currentPoint, figure))
-            figure.setColor(Color.RED);
-        else if (figure instanceof Shape && figure.contain(currentPoint) )
-            figure.setColor(Color.RED);
-        else {
-            canvas.unSelectedCounter++;
-            return;
-        }
+        figure.setColor(Color.RED);
         canvas.selectedShapes.add(figure);
     }
 
     @Override
     public void Undo() {
         figure.setColor(Color.BLACK);
-        canvas.toDelete.add(figure);
+        canvas.selectedShapes.remove(figure);
     }
 
     @Override

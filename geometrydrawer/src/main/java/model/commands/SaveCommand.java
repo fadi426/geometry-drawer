@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import controller.CanvasController;
 import model.adapters.InterfaceAdapter;
+import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Shape;

@@ -32,7 +32,7 @@ public class ResizeCommand implements Command {
         newPoints.clear();
         for (int i = 0; i< flatShapes.size(); i++) {
             Shape shape = flatShapes.get(i);
-            newPoints.add( previousPoints.get(i));
+            newPoints.add( createCurrentPoisition(shape));
             shape.setStartPoint(previousPoints.get(i).get(0));
             shape.setEndPoint(previousPoints.get(i).get(1));
         }
@@ -56,11 +56,14 @@ public class ResizeCommand implements Command {
             else {
                 Shape shape = (Shape) f;
                 flatShapes.add(shape);
-                List<Point> temp_point = new ArrayList<>();
-                temp_point.add(shape.getStartPoint());
-                temp_point.add(shape.getEndPoint());
-                previousPoints.add(temp_point);
+                previousPoints.add(createCurrentPoisition(shape));
             }
         }
+    }
+    public List<Point> createCurrentPoisition(Shape shape){
+        List<Point> temp_points = new ArrayList<>();
+        temp_points.add(shape.getStartPoint());
+        temp_points.add(shape.getEndPoint());
+        return temp_points;
     }
 }

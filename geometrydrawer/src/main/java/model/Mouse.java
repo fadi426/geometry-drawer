@@ -35,6 +35,18 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if (operation == "move") {
+            firstTurn = true;
+            if (canvas.selectedShapes.size() > 0)
+                commandManager.Execute(new MoveCommand(canvas.selectedShapes));
+
+        }
+        if (operation == "resize"){
+            firstTurn = true;
+            if (canvas.selectedShapes.size() > 0)
+                commandManager.Execute(new ResizeCommand(canvas.selectedShapes));
+        }
+
             switch (operation) {
                 case "draw":
                     canvas.draw(e);
@@ -50,17 +62,6 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        if (operation == "move") {
-            firstTurn = true;
-            if (canvas.selectedShapes.size() > 0)
-            commandManager.Execute(new MoveCommand(canvas.selectedShapes));
-
-        }
-        if (operation == "resize"){
-            firstTurn = true;
-            if (canvas.selectedShapes.size() > 0)
-            commandManager.Execute(new ResizeCommand(canvas.selectedShapes));
-        }
 
         canvas.flatEditableShapes.clear();
         canvas.flatPointsEditableShapes.clear();
@@ -91,11 +92,12 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
             canvas.repaint();
         }
 
+        canvas.endX = e.getPoint().x;
+        canvas.endY = e.getPoint().y;
+
         switch (operation) {
             case "move":
                 MoveVisitor moveVisitor = new MoveVisitor();
-                canvas.endX = e.getPoint().x;
-                canvas.endY = e.getPoint().y;
                 for (Figure f : canvas.selectedShapes) {
                     f.accept(moveVisitor);
                 }
@@ -103,8 +105,6 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                 break;
             case "resize":
                 ResizeVisitor resizeVisitor = new ResizeVisitor();
-                canvas.endX = e.getPoint().x;
-                canvas.endY = e.getPoint().y;
                 for (Figure f : canvas.selectedShapes) {
                     f.accept(resizeVisitor);
                 }
