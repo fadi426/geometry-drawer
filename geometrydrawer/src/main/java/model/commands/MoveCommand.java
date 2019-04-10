@@ -48,6 +48,10 @@ public class MoveCommand implements Command {
         System.out.println("Redo MOVE");
     }
 
+    /**
+     * Flatten the selected shapes
+     * @param figures the figures to flatten
+     */
     public void flatMap(List<Figure> figures) {
         for (Figure f : figures) {
             if (f instanceof Group) {
@@ -62,6 +66,11 @@ public class MoveCommand implements Command {
         }
     }
 
+    /**
+     * Create list of 2 points that holds the current start and end point of the shape given.
+     * @param shape the shape create a position of
+     * @return A list of 2 points
+     */
     public List<Point> createCurrentPoisition(Shape shape) {
         List<Point> temp_points = new ArrayList<>();
         temp_points.add(shape.getStartPoint());

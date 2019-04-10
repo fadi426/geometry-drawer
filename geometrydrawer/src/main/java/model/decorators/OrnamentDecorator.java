@@ -46,6 +46,7 @@ public class OrnamentDecorator extends FigureDecorator {
     public void accept(Visitor v) {
     }
 
+
     public Figure getOrnament() {
         return ornament;
     }

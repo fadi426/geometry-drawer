@@ -42,6 +42,10 @@ public class LoadCommand implements Command {
 
     }
 
+    /**
+     * Selects the file to be loaded
+     * @return the file path
+     */
     private String pickFile() {
         FileDialog dialog = new FileDialog((Frame) null, "Select File to Open");
         dialog.setMode(FileDialog.LOAD);
@@ -49,6 +53,10 @@ public class LoadCommand implements Command {
         return dialog.getDirectory() + dialog.getFile();
     }
 
+    /**
+     * Load the content from the file
+     * @param filePath the path of the file
+     */
     private void LoadContent(String filePath) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Figure.class, new InterfaceAdapter<Figure>())
@@ -70,6 +78,10 @@ public class LoadCommand implements Command {
         Instantiate(mainGroup);
     }
 
+    /**
+     * Add the content from the file to the canvas
+     * @param group the group the add
+     */
     private void Instantiate(Group group) {
         canvas.clear();
         canvas.clearSelect();
@@ -77,6 +89,18 @@ public class LoadCommand implements Command {
         canvas.insertFromFile(group.getSubShapes());
     }
 
+    /**
+     * Set all the ornaments
+     *
+     * <p>
+     *     When you save the file, the parent reference from a ornament is not saved.
+     *     To fix this we check if the parent is the same with any figure that
+     *     is also loaded.
+     *     if that is the case set the parent of the ornament to the figure
+     *     so that the file is correctly restored.
+     * </p>
+     * @param groupFigures the figures that you want to look in to
+     */
     private void setOrnaments(List<Figure> groupFigures) {
         for (Figure f : groupFigures) {
             if (f instanceof Ornament) {

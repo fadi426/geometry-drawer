@@ -4,32 +4,39 @@ import model.Mouse;
 import model.commands.*;
 import model.shapes.Figure;
 import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCmdMng;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 public class CanvasController extends JPanel {
 
     public Shape shapeType;
     public Shape currShape;
+    private Color drawingColor = Color.BLACK;
+    private CommandManager commandManager = SingletonCmdMng.getInstance();
+
     public Group mainGroup = new Group();
     public DefaultListModel<Figure> listmodel = new DefaultListModel<Figure>();
     public List<Figure> selectedShapes = new ArrayList<>();
     public List<Figure> flatEditableShapes = new ArrayList<>();
     public List<List<Point>> flatPointsEditableShapes = new ArrayList<List<Point>>();
+
     public int currentX;
     public int currentY;
     public int endX;
     public int endY;
+
     Mouse mouse = SingleMouse.getInstance();
-    private Color drawingColor = Color.BLACK;
-    private CommandManager commandManager = SingletonCmdMng.getInstance();
 
     public CanvasController(Color bg) {
         this.setBackground(bg);
@@ -73,15 +80,26 @@ public class CanvasController extends JPanel {
         }
     }
 
+    /**
+     * Returns the selected figures from the canvas
+     * @return A list of figures
+     */
     public List<Figure> getSelectedShapes() {
         return selectedShapes;
     }
 
-
+    /**
+     * Sets the current shape type that you want to draw on the canvas
+     * @param toDraw Shapetype to set
+     */
     public void setCurrShape(Shape toDraw) {
         shapeType = toDraw;
     }
 
+    /**
+     * Makes a List of figures from the figures in the canvas
+     * @return A list of figures
+     */
     public List<Figure> toList() {
         List<Figure> figures = new ArrayList<>();
         for (int i = 0; i < listmodel.size(); i++) {
@@ -90,14 +108,25 @@ public class CanvasController extends JPanel {
         return figures;
     }
 
+    /**
+     * Returns the main group of the canvas
+     * @return returns a Group object
+     */
     public Group getMainGroup() {
         return mainGroup;
     }
 
+    /**
+     * Set the main group of the canvas
+     * @param group the group to set
+     */
     public void setMainGroup(Group group) {
         this.mainGroup = group;
     }
 
+    /**
+     * Removes the last element that was added from the canvas
+     */
     public void removeLastElement() {
         if (listmodel.size() > 0) {
             int last = listmodel.size() - 1;
@@ -107,6 +136,9 @@ public class CanvasController extends JPanel {
         }
     }
 
+    /**
+     * Clear the selection in the canvas
+     */
     public void clearSelect() {
         for (Figure figure : selectedShapes) {
             figure.setColor(Color.BLACK);
@@ -114,6 +146,10 @@ public class CanvasController extends JPanel {
         selectedShapes.clear();
     }
 
+    /**
+     * Add a figure to the canvas
+     * @param figure figure to add
+     */
     public void addElementToList(Figure figure) {
         listmodel.addElement(figure);
         mainGroup.addFigure(figure);
@@ -128,24 +164,40 @@ public class CanvasController extends JPanel {
         repaint();
     }
 
+    /**
+     * Add multiple figures to the canvas
+     * @param figures figures to add
+     */
     public void addElementsToList(List<Figure> figures) {
         for (Figure figure : figures) {
             addElementToList(figure);
         }
     }
 
+    /**
+     * Removes a Figure from the canvas
+     * @param figure figure to add
+     */
     public void removeElementFromList(Figure figure) {
         listmodel.removeElement(figure);
         mainGroup.removeFigure(figure);
         repaint();
     }
 
+    /**
+     * Remove multiple figures from the canvas
+     * @param figures figures to add
+     */
     public void removeElementsFromList(List<Figure> figures) {
         for (Figure figure : figures) {
             removeElementFromList(figure);
         }
     }
 
+    /**
+     * Insert the figures that are loaded from a json file
+     * @param figures figures to add
+     */
     public void insertFromFile(List<Figure> figures) {
         listmodel.clear();
         for (Figure figure : figures) {
@@ -154,6 +206,9 @@ public class CanvasController extends JPanel {
         repaint();
     }
 
+    /**
+     * Clear the whole canvas
+     */
     public void clear() {
         listmodel.clear();
         mainGroup.clear();
@@ -173,6 +228,10 @@ public class CanvasController extends JPanel {
         }
     }
 
+    /**
+     * Select a shape, accepts a MouseEvent
+     * @param e mouse position
+     */
     public void selectShape(MouseEvent e) {
         currentX = e.getX();
         currentY = e.getY();
@@ -203,6 +262,9 @@ public class CanvasController extends JPanel {
         repaint();
     }
 
+    /**
+     * Create a group in the canvas from the selected shapes
+     */
     public void createGroup() {
         commandManager.Execute(new MakeGroupCommand(selectedShapes));
         selectedShapes.clear();

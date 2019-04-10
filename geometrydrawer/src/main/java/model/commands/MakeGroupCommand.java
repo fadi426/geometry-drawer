@@ -47,6 +47,9 @@ public class MakeGroupCommand implements Command {
         canvas.addElementToList(group);
     }
 
+    /**
+     * Remove the shape from the canvas so that there wont be duplicates
+     */
     private void RemoveShapes() {
         List<Figure> mainGroupShapes = canvas.getMainGroup().getSubShapes();
         List<Figure> listmodel = canvas.toList();

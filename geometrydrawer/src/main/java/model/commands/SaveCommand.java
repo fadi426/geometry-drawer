@@ -43,6 +43,10 @@ public class SaveCommand implements Command {
 
     }
 
+    /**
+     * Save the canvas to a file
+     * @throws IOException
+     */
     private void Save() throws IOException {
         String filePath = CreateFile();
         String content = ParseContent();
@@ -50,6 +54,10 @@ public class SaveCommand implements Command {
         WriteFile(filePath, content);
     }
 
+    /**
+     * Create the file that you want save the contents to
+     * @return returns a filepath of the file
+     */
     private String CreateFile() {
         FileDialog dialog = new FileDialog((Frame) null, "Select File to Open", FileDialog.SAVE);
         dialog.setFile("*.json");
@@ -62,12 +70,22 @@ public class SaveCommand implements Command {
         return path;
     }
 
+    /**
+     * write the content to a file
+     * @param filePath filepath of the file
+     * @param content the json string
+     * @throws IOException
+     */
     private void WriteFile(String filePath, String content) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
         writer.write(content);
         writer.close();
     }
 
+    /**
+     * Parse the canvas to a json file
+     * @return the json string of the content
+     */
     private String ParseContent() {
         Group group = canvas.mainGroup;
         List<Figure> subshapes = group.getSubShapes();
@@ -85,6 +103,10 @@ public class SaveCommand implements Command {
         return json;
     }
 
+    /**
+     * Reset the colors of the shapes so that they won't be saved in a select state.
+     * @param figures the figures to reset the colors of
+     */
     private void resetColors(List<Figure> figures) {
         for (Figure f : figures)
             f.setColor(Color.BLACK);

@@ -42,6 +42,9 @@ public class UnselectCommand implements Command {
         deleteOrnaments();
     }
 
+    /**
+     * Find all the ornaments that belong to the selected shapes
+     */
     private void findOrnaments() {
         for (Figure f : canvas.toList()) {
             if (f instanceof Ornament) {
@@ -53,6 +56,9 @@ public class UnselectCommand implements Command {
         }
     }
 
+    /**
+     * Add the selected ornaments to the selected list from the canvas
+     */
     private void addOrnaments() {
         ornaments.clear();
         findOrnaments();
@@ -65,6 +71,9 @@ public class UnselectCommand implements Command {
         }
     }
 
+    /**
+     * Delete the ornaments from the selected list of the canvas
+     */
     private void deleteOrnaments() {
         if (ornaments.size() == 0)
             return;

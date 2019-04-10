@@ -54,6 +54,9 @@ public class OrnamentCommand implements Command {
         ornaments.removeAll(tempOrnaments);
     }
 
+    /**
+     * Add a new ornament
+     */
     private void addNewOrnament() {
         if (selectedFigures.size() == 0)
             return;
@@ -71,6 +74,12 @@ public class OrnamentCommand implements Command {
         }
     }
 
+    /**
+     * Look for the group where the parent of the ornament is in and add to it
+     * @param group group to find in
+     * @param ornament ornament to find its parent for
+     * @return
+     */
     private List<Figure> findParent(Group group, Ornament ornament) {
         Group newGroup = new Group();
         for (Figure figure : group.getSubShapes()) {
