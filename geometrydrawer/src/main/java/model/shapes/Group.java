@@ -1,44 +1,28 @@
 package model.shapes;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import model.visitors.Visitor;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.awt.Graphics;
-import java.awt.Point;
 import java.util.List;
 
 public class Group implements Figure {
 
     private List<Figure> subShapes = new ArrayList<>();
 
-    public Group(){}
+    public Group() {
+    }
 
-    public void addFigure(Figure figure){
+    public void addFigure(Figure figure) {
         subShapes.add(figure);
-    };
+    }
 
-    public void addFigures(List<Figure> figures){
+    public void addFigures(List<Figure> figures) {
         subShapes.addAll(figures);
     }
 
-    public void clear(){
+    public void clear() {
         subShapes.clear();
-    }
-
-    @Override
-    public void setColor(Color color){
-        for (Figure f : subShapes) {
-            if (f instanceof Group) {
-                Group group = (Group) f;
-                group.setColor(color);
-            }
-            else if (f instanceof Shape){
-                Shape shape = (Shape) f;
-                shape.setColor(color);
-            }
-        }
     }
 
     @Override
@@ -47,17 +31,30 @@ public class Group implements Figure {
     }
 
     @Override
+    public void setColor(Color color) {
+        for (Figure f : subShapes) {
+            if (f instanceof Group) {
+                Group group = (Group) f;
+                group.setColor(color);
+            } else if (f instanceof Shape) {
+                Shape shape = (Shape) f;
+                shape.setColor(color);
+            }
+        }
+    }
+
+    @Override
     public boolean contain(Point point) {
         return contain(point, this);
     }
 
-    public void removeFigure(Figure figure){
+    public void removeFigure(Figure figure) {
         subShapes.remove(figure);
-    };
+    }
 
-    public List<Figure> getSubShapes(){
+    public List<Figure> getSubShapes() {
         return subShapes;
-    };
+    }
 
     @Override
     public void draw(Graphics g) {
@@ -77,7 +74,7 @@ public class Group implements Figure {
                     if (f instanceof Shape) {
                         Shape shape = (Shape) f;
                         if (shape.contain(point))
-                        return true;
+                            return true;
                     }
                 }
             }
@@ -85,28 +82,22 @@ public class Group implements Figure {
         return false;
     }
 
-    @Override
-    public void fill(Graphics g) {
-
-    }
-
     public void accept(Visitor v) {
-        for (Figure f: subShapes) {
+        for (Figure f : subShapes) {
             if (f instanceof Group) {
                 f.accept(v);
-            }
-            else if (f instanceof Ornament)
+            } else if (f instanceof Ornament)
                 continue;
-        else{
-            Shape shape = (Shape) f;
-            v.visit(shape);
+            else {
+                Shape shape = (Shape) f;
+                v.visit(shape);
             }
         }
     }
 
 
-    public List<Point> CalculateBoundary(){
-        Point start = new Point(1000,1000);
+    public List<Point> CalculateBoundary() {
+        Point start = new Point(1000, 1000);
         Point end = new Point(-1000, -1000);
         List<Point> tempPoints = recursiveCalculateBoundary(this, start, end);
         return tempPoints;
@@ -146,9 +137,11 @@ public class Group implements Figure {
 
         return boundary;
     }
-//    public String toString(Shape shape) {
-//        return "Group: (" + shape.getStartPoint() + ")-"
-//                + "(" + shape.getEndPoint() + ")";
-//    }
+
+    public String toString() {
+        List<Point> boundry = CalculateBoundary();
+        return "Group: (" + boundry.get(0) + ")-"
+                + "(" + boundry.get(1) + ")";
+    }
 
 }

@@ -2,5 +2,5 @@ package model.visitors;
 
 public interface Visitable {
 
-    public void accept(Visitor v);
+    void accept(Visitor v);
 }

@@ -1,5 +1,6 @@
 package model.commands;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import controller.CanvasController;
 import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;
@@ -16,11 +17,12 @@ public class OrnamentCommand implements Command {
     private List<Figure> selectedFigures;
     private List<Figure> oldFigures = new ArrayList<>();
     private List<Figure> newFigures = new ArrayList<>();
-    private Ornament ornament;
+    private List<Ornament> ornaments;
 
     public OrnamentCommand() {
         this.canvas = SingletonCanvas.getInstance();
         this.selectedFigures = new ArrayList<>();
+        this.ornaments = new ArrayList<>();
         selectedFigures.addAll(canvas.getSelectedShapes());
     }
 
@@ -35,14 +37,21 @@ public class OrnamentCommand implements Command {
         oldFigures.addAll(newFigures);
         for (Figure figure : newFigures) {
             OrnamentDecorator ornamentDecorator = (OrnamentDecorator) figure;
-            ornament = (Ornament) ornamentDecorator.getOrnament();
+            Ornament ornament = (Ornament) ornamentDecorator.getOrnament();
+            ornaments.add(ornament);
             canvas.removeElementFromList(ornament);
         }
     }
 
     @Override
     public void Redo() {
-        canvas.setCanvasLists(findParent(canvas.mainGroup, ornament));
+        List<Ornament> tempOrnaments = new ArrayList<>();
+        for (Ornament ornament : ornaments) {
+            tempOrnaments.add(ornament);
+            canvas.setCanvasLists(findParent(canvas.mainGroup, ornament)
+            );
+        }
+        ornaments.removeAll(tempOrnaments);
     }
 
     private void addNewOrnament() {
@@ -56,6 +65,8 @@ public class OrnamentCommand implements Command {
             Figure figure = new OrnamentDecorator(f);
             newFigures.add(figure);
             Ornament ornament = (Ornament) ((OrnamentDecorator) figure).getOrnament();
+//            canvas.addElementToList(ornament);
+            ornaments.add(ornament);
             canvas.setCanvasLists(findParent(canvas.mainGroup, ornament));
         }
     }

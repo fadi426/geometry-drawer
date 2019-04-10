@@ -6,7 +6,7 @@ public class SingleMouse {
     private static Mouse instance;
 
     public static Mouse getInstance() {
-        if (instance == null){
+        if (instance == null) {
             instance = new Mouse();
         }
         return instance;

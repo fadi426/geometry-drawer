@@ -24,24 +24,17 @@ public class OrnamentDecorator extends FigureDecorator {
     }
 
     @Override
-    public void draw(Graphics g){
-
+    public void draw(Graphics g) {
         decoratedFigure.draw(g);
-    }
-
-    @Override
-    public void fill(Graphics g) {
-
-    }
-
-    @Override
-    public void setColor(Color currentColor) {
-
     }
 
     @Override
     public Color getColor() {
         return null;
+    }
+
+    @Override
+    public void setColor(Color currentColor) {
     }
 
     @Override
@@ -51,21 +44,21 @@ public class OrnamentDecorator extends FigureDecorator {
 
     @Override
     public void accept(Visitor v) {
-
     }
 
-    public Figure getOrnament(){
+    public Figure getOrnament() {
         return ornament;
     }
-    private void createOrnament(){
+
+    private void createOrnament() {
         text = setText();
-        while ((text.length() == 0)){
+        while ((text.length() == 0)) {
             text = setText();
         }
         position = setPosition();
     }
 
-    private String setText(){
+    private String setText() {
         return JOptionPane.showInputDialog(canvas, "Ornament Text");
     }
 

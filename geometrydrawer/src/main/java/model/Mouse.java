@@ -24,6 +24,7 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
     public void setCanvas(CanvasController canvas) {
         this.canvas = canvas;
     }
+
     public void setOperation(String operation) {
         this.operation = operation;
     }
@@ -41,19 +42,19 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
                 commandManager.Execute(new MoveCommand(canvas.selectedShapes));
 
         }
-        if (operation == "resize"){
+        if (operation == "resize") {
             firstTurn = true;
             if (canvas.selectedShapes.size() > 0)
                 commandManager.Execute(new ResizeCommand(canvas.selectedShapes));
         }
 
-            switch (operation) {
-                case "draw":
-                    canvas.draw(e);
-                    break;
-                case "select":
-                    canvas.selectShape(e);
-                    break;
+        switch (operation) {
+            case "draw":
+                canvas.draw(e);
+                break;
+            case "select":
+                canvas.selectShape(e);
+                break;
         }
         canvas.flatMap(canvas.selectedShapes);
         canvas.currentX = e.getPoint().x;
@@ -66,7 +67,7 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
         canvas.flatEditableShapes.clear();
         canvas.flatPointsEditableShapes.clear();
 
-        if(canvas.currShape == null)
+        if (canvas.currShape == null)
             return;
 
         canvas.clearSelect();
@@ -87,7 +88,7 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
 
     @Override
     public void mouseDragged(MouseEvent e) {
-        if(canvas.currShape!= null){
+        if (canvas.currShape != null) {
             canvas.currShape.setEndPoint(e.getPoint());
             canvas.repaint();
         }

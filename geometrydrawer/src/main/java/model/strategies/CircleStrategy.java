@@ -17,14 +17,14 @@ public class CircleStrategy implements ShapeStrategy {
         int width = abs(shape.getEndPoint().x - shape.getStartPoint().x);
         int height = abs(shape.getEndPoint().y - shape.getStartPoint().y);
         Graphics2D g2D = (Graphics2D) g;
-        ellipse = new Ellipse2D.Double(shape.getStartPoint().x,shape.getStartPoint().y, width,height);
+        ellipse = new Ellipse2D.Double(shape.getStartPoint().x, shape.getStartPoint().y, width, height);
         g.setColor(shape.getColor());
         g2D.draw(ellipse);
     }
 
     @Override
     public String toString(Shape shape) {
-        return "Circle: ("+ shape.getStartPoint()+","+ shape.getEndPoint()+")"
+        return "Circle: (" + shape.getStartPoint() + "," + shape.getEndPoint() + ")"
                 + " Radius: (" + (shape.getEndPoint().x - shape.getStartPoint().x / 2) + ")";
     }
 

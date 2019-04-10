@@ -16,7 +16,7 @@ public class RectangleStrategy implements ShapeStrategy {
         int width = abs(shape.getEndPoint().x - shape.getStartPoint().x);
         int height = abs(shape.getEndPoint().y - shape.getStartPoint().y);
         Graphics2D g2D = (Graphics2D) g;
-        rectangle = new Rectangle2D.Double(shape.getStartPoint().x,shape.getStartPoint().y, width,height);
+        rectangle = new Rectangle2D.Double(shape.getStartPoint().x, shape.getStartPoint().y, width, height);
         g.setColor(shape.getColor());
         g2D.draw(rectangle);
     }
