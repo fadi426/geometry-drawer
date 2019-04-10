@@ -15,7 +15,7 @@ public class UnselectCommand implements Command {
     private CanvasController canvas;
     private List<Figure> ornaments;
 
-    public UnselectCommand(Figure figure){
+    public UnselectCommand(Figure figure) {
         this.figure = figure;
         canvas = SingletonCanvas.getInstance();
         ornaments = new ArrayList<>();
@@ -42,34 +42,34 @@ public class UnselectCommand implements Command {
         deleteOrnaments();
     }
 
-    private void findOrnaments(){
-        for (Figure f : canvas.toList()){
-            if (f instanceof Ornament){
+    private void findOrnaments() {
+        for (Figure f : canvas.toList()) {
+            if (f instanceof Ornament) {
                 Ornament ornament = (Ornament) f;
-                if (ornament.getParent() == figure){
+                if (ornament.getParent() == figure) {
                     ornaments.add(ornament);
                 }
             }
         }
     }
 
-    private void addOrnaments(){
+    private void addOrnaments() {
         ornaments.clear();
         findOrnaments();
         if (ornaments.size() == 0)
             return;
 
-        for (Figure o : ornaments){
+        for (Figure o : ornaments) {
             o.setColor(Color.RED);
             canvas.selectedShapes.add(o);
         }
     }
 
-    private void deleteOrnaments(){
+    private void deleteOrnaments() {
         if (ornaments.size() == 0)
             return;
 
-        for (Figure o : ornaments){
+        for (Figure o : ornaments) {
             o.setColor(Color.BLACK);
             canvas.selectedShapes.add(o);
         }

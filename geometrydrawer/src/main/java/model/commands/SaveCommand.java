@@ -4,42 +4,30 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import controller.CanvasController;
 import model.adapters.InterfaceAdapter;
-import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;
 import model.shapes.Group;
-import model.shapes.Ornament;
-import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
-import model.strategies.ShapeContext;
-import model.strategies.ShapeStrategy;
 
-import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
-import java.awt.geom.Ellipse2D;
-import java.awt.geom.Rectangle2D;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SaveCommand implements Command {
 
     private CanvasController canvas;
-    private String FilePath = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/GeometryDrawer/%s.json";
-    private Group newGroup = new Group();
 
-    public SaveCommand(){
+    public SaveCommand() {
         this.canvas = SingletonCanvas.getInstance();
     }
 
     @Override
-    public void Execute(){
+    public void Execute() {
         try {
             Save();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         canvas.clearSelect();
@@ -62,8 +50,8 @@ public class SaveCommand implements Command {
         WriteFile(filePath, content);
     }
 
-    private String CreateFile(){
-        FileDialog dialog = new FileDialog((Frame)null, "Select File to Open", FileDialog.SAVE);
+    private String CreateFile() {
+        FileDialog dialog = new FileDialog((Frame) null, "Select File to Open", FileDialog.SAVE);
         dialog.setFile("*.json");
         dialog.setVisible(true);
 
@@ -74,17 +62,17 @@ public class SaveCommand implements Command {
         return path;
     }
 
-    private void WriteFile(String filePath, String content) throws IOException{
+    private void WriteFile(String filePath, String content) throws IOException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
         writer.write(content);
         writer.close();
     }
 
-    private String ParseContent(){
+    private String ParseContent() {
         Group group = canvas.mainGroup;
         List<Figure> subshapes = group.getSubShapes();
 
-        if(subshapes.size() == 0) return null;
+        if (subshapes.size() == 0) return null;
 
         resetColors(subshapes);
 
@@ -97,7 +85,7 @@ public class SaveCommand implements Command {
         return json;
     }
 
-    private void resetColors(List<Figure> figures){
+    private void resetColors(List<Figure> figures) {
         for (Figure f : figures)
             f.setColor(Color.BLACK);
     }

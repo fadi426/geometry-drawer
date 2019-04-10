@@ -1,10 +1,5 @@
 package controller;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
-
 import model.Mouse;
 import model.commands.*;
 import model.shapes.Circle;
@@ -12,9 +7,12 @@ import model.shapes.Rectangle;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCanvas;
 import model.singleObjects.SingletonCmdMng;
-import model.strategies.RectangleStrategy;
-import model.strategies.ShapeContext;
 import view.MainFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainFrameController {
 
@@ -72,15 +70,15 @@ public class MainFrameController {
         ornamentBtn = mainFrame.getOrnamentBtn();
     }
 
-    private void createCanvas(int width,int height){
+    private void createCanvas(int width, int height) {
         drawPanel.removeAll();
         currCanvas = SingletonCanvas.getInstance();
-        currCanvas.setPreferredSize(new Dimension(width,height));
+        currCanvas.setPreferredSize(new Dimension(width, height));
         drawPanel.add(currCanvas);
     }
 
     private void initListeners() {
-        createCanvas(500,500);
+        createCanvas(500, 500);
         circleBtn.addActionListener(new circleBtnListener());
         rectangleBtn.addActionListener(new rectangleBtnListener());
         clearBtn.addActionListener(new clearBtnListener());
@@ -103,6 +101,7 @@ public class MainFrameController {
             welcomeTA.append("circle\n");
         }
     }
+
     private class rectangleBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -156,12 +155,16 @@ public class MainFrameController {
 
     private class moveBtnListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) { mouse.setOperation("move"); }
+        public void actionPerformed(ActionEvent e) {
+            mouse.setOperation("move");
+        }
     }
 
     private class resizeBtnListener implements ActionListener {
         @Override
-        public void actionPerformed(ActionEvent e) { mouse.setOperation("resize"); }
+        public void actionPerformed(ActionEvent e) {
+            mouse.setOperation("resize");
+        }
     }
 
     private class saveBtnListener implements ActionListener {
