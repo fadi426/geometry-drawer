@@ -3,7 +3,6 @@ package model.commands;
 import controller.CanvasController;
 import model.shapes.Figure;
 import model.singleObjects.SingletonCanvas;
-import model.shapes.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +12,7 @@ public class ClearCommand implements Command {
     private CanvasController canvas;
     private List<Figure> figures = new ArrayList<>();
 
-    public ClearCommand(List<Figure> figures){
+    public ClearCommand(List<Figure> figures) {
         this.figures.addAll(figures);
         this.canvas = SingletonCanvas.getInstance();
     }

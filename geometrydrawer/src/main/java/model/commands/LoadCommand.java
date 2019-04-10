@@ -5,7 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import controller.CanvasController;
 import model.adapters.InterfaceAdapter;
-import model.shapes.*;
+import model.shapes.Figure;
+import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 import model.singleObjects.SingletonCmdMng;
@@ -22,7 +24,7 @@ public class LoadCommand implements Command {
     private CanvasController canvas;
     private CommandManager commandManager;
 
-    public LoadCommand(){
+    public LoadCommand() {
         this.canvas = SingletonCanvas.getInstance();
         this.commandManager = SingletonCmdMng.getInstance();
     }
@@ -43,14 +45,14 @@ public class LoadCommand implements Command {
 
     }
 
-    private String pickFile(){
-        FileDialog dialog = new FileDialog((Frame)null, "Select File to Open");
+    private String pickFile() {
+        FileDialog dialog = new FileDialog((Frame) null, "Select File to Open");
         dialog.setMode(FileDialog.LOAD);
         dialog.setVisible(true);
         return dialog.getDirectory() + dialog.getFile();
     }
 
-    private void LoadContent(String filePath){
+    private void LoadContent(String filePath) {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Figure.class, new InterfaceAdapter<Figure>())
                 .create();
@@ -62,7 +64,8 @@ public class LoadCommand implements Command {
             e.printStackTrace();
         }
 
-        Type type = new TypeToken<Figure>(){}.getType();
+        Type type = new TypeToken<Figure>() {
+        }.getType();
         Figure figure = gson.fromJson(content, type);
 
         Group mainGroup = (Group) figure;
@@ -71,16 +74,16 @@ public class LoadCommand implements Command {
         Instantiate(mainGroup);
     }
 
-    private void Instantiate(Group group){
+    private void Instantiate(Group group) {
         canvas.clear();
         canvas.clearSelect();
         canvas.setMainGroup(group);
         canvas.insertFromFile(group.getSubShapes());
     }
 
-    private void setOrnaments(List<Figure> groupFigures){
-        for (Figure f : groupFigures){
-            if (f instanceof Ornament){
+    private void setOrnaments(List<Figure> groupFigures) {
+        for (Figure f : groupFigures) {
+            if (f instanceof Ornament) {
                 Ornament o = (Ornament) f;
                 for (Figure f2 : groupFigures) {
                     if (f2 instanceof Shape) {

@@ -15,7 +15,7 @@ public class ResizeCommand implements Command {
 
     private List<List<Point>> newPoints;
 
-    public ResizeCommand(List<Figure> figures){
+    public ResizeCommand(List<Figure> figures) {
         this.figures = figures;
         flatShapes = new ArrayList<>();
         previousPoints = new ArrayList<>();
@@ -30,9 +30,9 @@ public class ResizeCommand implements Command {
     @Override
     public void Undo() {
         newPoints.clear();
-        for (int i = 0; i< flatShapes.size(); i++) {
+        for (int i = 0; i < flatShapes.size(); i++) {
             Shape shape = flatShapes.get(i);
-            newPoints.add( createCurrentPoisition(shape));
+            newPoints.add(createCurrentPoisition(shape));
             shape.setStartPoint(previousPoints.get(i).get(0));
             shape.setEndPoint(previousPoints.get(i).get(1));
         }
@@ -40,27 +40,28 @@ public class ResizeCommand implements Command {
 
     @Override
     public void Redo() {
-        for (int i = 0; i< flatShapes.size(); i++) {
+        for (int i = 0; i < flatShapes.size(); i++) {
             Shape shape = flatShapes.get(i);
             shape.setStartPoint(newPoints.get(i).get(0));
             shape.setEndPoint(newPoints.get(i).get(1));
         }
     }
 
-    public void flatMap(List<Figure> figures){
-        for (Figure f : figures){
-            if (f instanceof Group){
+    public void flatMap(List<Figure> figures) {
+        for (Figure f : figures) {
+            if (f instanceof Group) {
                 Group group = (Group) f;
                 flatMap(group.getSubShapes());
             }
-            if (f instanceof Shape){
+            if (f instanceof Shape) {
                 Shape shape = (Shape) f;
                 flatShapes.add(shape);
                 previousPoints.add(createCurrentPoisition(shape));
             }
         }
     }
-    public List<Point> createCurrentPoisition(Shape shape){
+
+    public List<Point> createCurrentPoisition(Shape shape) {
         List<Point> temp_points = new ArrayList<>();
         temp_points.add(shape.getStartPoint());
         temp_points.add(shape.getEndPoint());

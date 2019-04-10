@@ -6,7 +6,6 @@ import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;
 import model.shapes.Group;
 import model.shapes.Ornament;
-import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 
 import java.util.ArrayList;
@@ -18,11 +17,12 @@ public class OrnamentCommand implements Command {
     private List<Figure> selectedFigures;
     private List<Figure> oldFigures = new ArrayList<>();
     private List<Figure> newFigures = new ArrayList<>();
-    private Ornament ornament;
+    private List<Ornament> ornaments;
 
-    public OrnamentCommand(){
+    public OrnamentCommand() {
         this.canvas = SingletonCanvas.getInstance();
         this.selectedFigures = new ArrayList<>();
+        this.ornaments = new ArrayList<>();
         selectedFigures.addAll(canvas.getSelectedShapes());
     }
 
@@ -35,22 +35,30 @@ public class OrnamentCommand implements Command {
     public void Undo() {
         oldFigures.clear();
         oldFigures.addAll(newFigures);
-        for (Figure figure : newFigures){
+        for (Figure figure : newFigures) {
             OrnamentDecorator ornamentDecorator = (OrnamentDecorator) figure;
-            ornament = (Ornament) ornamentDecorator.getOrnament();
+            Ornament ornament = (Ornament) ornamentDecorator.getOrnament();
+            ornaments.add(ornament);
             canvas.removeElementFromList(ornament);
         }
     }
 
     @Override
     public void Redo() {
-        canvas.setCanvasLists(findParent(canvas.mainGroup, ornament));
+        List<Ornament> tempOrnaments = new ArrayList<>();
+        for (Ornament ornament : ornaments) {
+            tempOrnaments.add(ornament);
+            canvas.setCanvasLists(findParent(canvas.mainGroup, ornament)
+            );
+        }
+        ornaments.removeAll(tempOrnaments);
     }
-    private void addNewOrnament(){
-        if(selectedFigures.size() == 0)
+
+    private void addNewOrnament() {
+        if (selectedFigures.size() == 0)
             return;
 
-        for (Figure f : selectedFigures){
+        for (Figure f : selectedFigures) {
             if (f instanceof Ornament)
                 continue;
 
@@ -58,22 +66,22 @@ public class OrnamentCommand implements Command {
             newFigures.add(figure);
             Ornament ornament = (Ornament) ((OrnamentDecorator) figure).getOrnament();
 //            canvas.addElementToList(ornament);
+            ornaments.add(ornament);
             canvas.setCanvasLists(findParent(canvas.mainGroup, ornament));
         }
     }
 
-    private List<Figure> findParent(Group group, Ornament ornament){
+    private List<Figure> findParent(Group group, Ornament ornament) {
         Group newGroup = new Group();
         for (Figure figure : group.getSubShapes()) {
 
-            if (figure instanceof Group){
+            if (figure instanceof Group) {
                 Group g = (Group) figure;
                 newGroup.addFigure(g);
                 List<Figure> temp_figures = findParent(g, ornament);
                 g.clear();
                 g.addFigures(temp_figures);
-            }
-            else
+            } else
                 newGroup.addFigure(figure);
         }
         for (int i = 0; i < newGroup.getSubShapes().size(); i++) {

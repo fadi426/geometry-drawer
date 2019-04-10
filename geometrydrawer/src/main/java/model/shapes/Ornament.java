@@ -7,7 +7,7 @@ import java.util.List;
 
 import static java.lang.Math.abs;
 
-public class Ornament implements Figure{
+public class Ornament implements Figure {
 
     private Point startPoint;
     private String text;
@@ -15,7 +15,7 @@ public class Ornament implements Figure{
     private Figure parent;
     private Color currentColor = Color.BLACK;
 
-    public Ornament(String text, String position, Figure parent){
+    public Ornament(String text, String position, Figure parent) {
         this.position = position;
         this.text = text;
         this.parent = parent;
@@ -24,23 +24,12 @@ public class Ornament implements Figure{
 
     @Override
     public void draw(Graphics g) {
-        if(g instanceof Graphics2D)
-        {
-            Graphics2D g2 = (Graphics2D)g;
+        if (g instanceof Graphics2D) {
+            Graphics2D g2 = (Graphics2D) g;
             updateOrnament();
             g.setColor(parent.getColor());
             g2.drawString(text, getStartPoint().x, getStartPoint().y);
         }
-    }
-
-    @Override
-    public void fill(Graphics g) {
-
-    }
-
-    @Override
-    public void setColor(Color currentColor) {
-        this.currentColor = currentColor;
     }
 
     @Override
@@ -49,17 +38,17 @@ public class Ornament implements Figure{
     }
 
     @Override
+    public void setColor(Color currentColor) {
+        this.currentColor = currentColor;
+    }
+
+    @Override
     public boolean contain(Point point) {
-        if (parent.getColor()== Color.BLACK){
-            return false;
-        }
-        else
-           return true;
+        return parent.getColor() != Color.BLACK;
     }
 
     @Override
     public void accept(Visitor v) {
-
     }
 
     public void updateOrnament() {
@@ -72,8 +61,7 @@ public class Ornament implements Figure{
             List<Point> points = group.CalculateBoundary();
             start = points.get(0);
             end = points.get(1);
-        }
-        else if (parent instanceof Shape){
+        } else if (parent instanceof Shape) {
             Shape shape = (Shape) parent;
             start = shape.getStartPoint();
             end = shape.getEndPoint();
@@ -98,12 +86,12 @@ public class Ornament implements Figure{
         }
     }
 
-    public void setStartPoint(Point startPoint) {
-        this.startPoint = startPoint;
-    }
-
     public Point getStartPoint() {
         return startPoint;
+    }
+
+    public void setStartPoint(Point startPoint) {
+        this.startPoint = startPoint;
     }
 
     public Figure getParent() {
