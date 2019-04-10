@@ -4,6 +4,7 @@ import model.Mouse;
 import model.commands.*;
 import model.shapes.Figure;
 import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCmdMng;
@@ -69,7 +70,7 @@ public class CanvasController extends JPanel {
                 Group group = (Group) f;
                 flatMap(group.getSubShapes());
             }
-            else {
+            else if (f instanceof Shape){
                 Shape shape = (Shape) f;
                 flatEditableShapes.add(shape);
                 List<Point> temp_point = new ArrayList<>();
@@ -125,6 +126,14 @@ public class CanvasController extends JPanel {
         repaint();
     }
 
+    public void setCanvasLists(List <Figure> figures){
+        listmodel.clear();
+        mainGroup.clear();
+
+        addElementsToList(figures);
+        repaint();
+    }
+
     public void addElementsToList(List<Figure> figures){
         for (Figure figure : figures) {
             addElementToList(figure);
@@ -144,6 +153,7 @@ public class CanvasController extends JPanel {
     }
 
     public void insertFromFile(List<Figure> figures){
+        listmodel.clear();
         for (Figure figure : figures){
             listmodel.addElement(figure);
         }
@@ -164,7 +174,6 @@ public class CanvasController extends JPanel {
         for(int i = 0;i < listmodel.getSize();i++){
             listmodel.elementAt(i).draw(g2);
         }
-
         if(currShape != null){
             currShape.draw(g);
         }

@@ -1,9 +1,12 @@
 package model.commands;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import controller.CanvasController;
 import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;
+import model.shapes.Group;
 import model.shapes.Ornament;
+import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ public class OrnamentCommand implements Command {
     private List<Figure> selectedFigures;
     private List<Figure> oldFigures = new ArrayList<>();
     private List<Figure> newFigures = new ArrayList<>();
+    private Ornament ornament;
 
     public OrnamentCommand(){
         this.canvas = SingletonCanvas.getInstance();
@@ -33,18 +37,15 @@ public class OrnamentCommand implements Command {
         oldFigures.addAll(newFigures);
         for (Figure figure : newFigures){
             OrnamentDecorator ornamentDecorator = (OrnamentDecorator) figure;
-            canvas.removeElementFromList((ornamentDecorator.getOrnament()));
+            ornament = (Ornament) ornamentDecorator.getOrnament();
+            canvas.removeElementFromList(ornament);
         }
     }
 
     @Override
     public void Redo() {
-        for (Figure figure : oldFigures){
-            OrnamentDecorator ornamentDecorator = (OrnamentDecorator) figure;
-            canvas.addElementToList((ornamentDecorator.getOrnament()));
-        }
+        canvas.setCanvasLists(findParent(canvas.mainGroup, ornament));
     }
-
     private void addNewOrnament(){
         if(selectedFigures.size() == 0)
             return;
@@ -56,9 +57,30 @@ public class OrnamentCommand implements Command {
             Figure figure = new OrnamentDecorator(f);
             newFigures.add(figure);
             Ornament ornament = (Ornament) ((OrnamentDecorator) figure).getOrnament();
-            canvas.addElementToList(ornament);
+//            canvas.addElementToList(ornament);
+            canvas.setCanvasLists(findParent(canvas.mainGroup, ornament));
         }
     }
 
+    private List<Figure> findParent(Group group, Ornament ornament){
+        Group newGroup = new Group();
+        for (Figure figure : group.getSubShapes()) {
 
+            if (figure instanceof Group){
+                Group g = (Group) figure;
+                newGroup.addFigure(g);
+                List<Figure> temp_figures = findParent(g, ornament);
+                g.clear();
+                g.addFigures(temp_figures);
+            }
+            else
+                newGroup.addFigure(figure);
+        }
+        for (int i = 0; i < newGroup.getSubShapes().size(); i++) {
+            Figure figure = newGroup.getSubShapes().get(i);
+            if (ornament.getParent() == figure)
+                newGroup.addFigure(ornament);
+        }
+        return newGroup.getSubShapes();
+    }
 }

@@ -53,7 +53,7 @@ public class ResizeCommand implements Command {
                 Group group = (Group) f;
                 flatMap(group.getSubShapes());
             }
-            else {
+            if (f instanceof Shape){
                 Shape shape = (Shape) f;
                 flatShapes.add(shape);
                 previousPoints.add(createCurrentPoisition(shape));

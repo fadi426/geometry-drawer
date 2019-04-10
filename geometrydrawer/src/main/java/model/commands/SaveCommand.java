@@ -7,6 +7,7 @@ import model.adapters.InterfaceAdapter;
 import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;
 import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingletonCanvas;
 import model.strategies.ShapeContext;
@@ -20,12 +21,14 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SaveCommand implements Command {
 
     private CanvasController canvas;
     private String FilePath = FileSystemView.getFileSystemView().getDefaultDirectory().getPath() + "/GeometryDrawer/%s.json";
+    private Group newGroup = new Group();
 
     public SaveCommand(){
         this.canvas = SingletonCanvas.getInstance();
@@ -78,7 +81,7 @@ public class SaveCommand implements Command {
     }
 
     private String ParseContent(){
-        Group group = canvas.getMainGroup();
+        Group group = canvas.mainGroup;
         List<Figure> subshapes = group.getSubShapes();
 
         if(subshapes.size() == 0) return null;
@@ -98,5 +101,4 @@ public class SaveCommand implements Command {
         for (Figure f : figures)
             f.setColor(Color.BLACK);
     }
-
 }

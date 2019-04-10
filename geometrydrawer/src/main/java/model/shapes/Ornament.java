@@ -50,7 +50,11 @@ public class Ornament implements Figure{
 
     @Override
     public boolean contain(Point point) {
-        return parent.contain(point);
+        if (parent.getColor()== Color.BLACK){
+            return false;
+        }
+        else
+           return true;
     }
 
     @Override
@@ -59,7 +63,7 @@ public class Ornament implements Figure{
     }
 
     public void updateOrnament() {
-        Point start, end;
+        Point start = null, end = null;
         int width, height;
         int offset = 10;
 
@@ -69,7 +73,7 @@ public class Ornament implements Figure{
             start = points.get(0);
             end = points.get(1);
         }
-        else {
+        else if (parent instanceof Shape){
             Shape shape = (Shape) parent;
             start = shape.getStartPoint();
             end = shape.getEndPoint();
@@ -100,5 +104,13 @@ public class Ornament implements Figure{
 
     public Point getStartPoint() {
         return startPoint;
+    }
+
+    public Figure getParent() {
+        return parent;
+    }
+
+    public void setParent(Figure figure) {
+        this.parent = figure;
     }
 }

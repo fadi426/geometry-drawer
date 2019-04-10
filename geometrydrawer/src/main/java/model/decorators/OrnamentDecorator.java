@@ -25,6 +25,7 @@ public class OrnamentDecorator extends FigureDecorator {
 
     @Override
     public void draw(Graphics g){
+
         decoratedFigure.draw(g);
     }
 

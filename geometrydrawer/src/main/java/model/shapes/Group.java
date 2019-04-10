@@ -1,5 +1,6 @@
 package model.shapes;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import model.visitors.Visitor;
 
 import java.awt.*;
@@ -94,6 +95,8 @@ public class Group implements Figure {
             if (f instanceof Group) {
                 f.accept(v);
             }
+            else if (f instanceof Ornament)
+                continue;
         else{
             Shape shape = (Shape) f;
             v.visit(shape);
@@ -105,12 +108,22 @@ public class Group implements Figure {
     public List<Point> CalculateBoundary(){
         Point start = new Point(1000,1000);
         Point end = new Point(-1000, -1000);
-        List<Point> tempPoints = recursiveCBoundary(this, start, end);
+        List<Point> tempPoints = recursiveCalculateBoundary(this, start, end);
         return tempPoints;
     }
 
-    public List<Point> recursiveCBoundary(Figure figure, Point start, Point end) {
+    public List<Point> recursiveCalculateBoundary(Figure figure, Point start, Point end) {
         List<Point> boundary = new ArrayList<>();
+
+        if (figure instanceof Group) {
+            Group group = (Group) figure;
+            for (Figure f : group.getSubShapes()) {
+                if (f instanceof Ornament)
+                    continue;
+
+                boundary = recursiveCalculateBoundary(f, start, end);
+            }
+        }
 
         if (figure instanceof Shape) {
             Shape shape = (Shape) figure;
@@ -129,13 +142,6 @@ public class Group implements Figure {
 
             boundary.add(start);
             boundary.add(end);
-
-            return boundary;
-        }
-
-        Group group = (Group) figure;
-        for (Figure f : group.getSubShapes()){
-            boundary =  recursiveCBoundary(f, start, end);
         }
 
         return boundary;
