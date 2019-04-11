@@ -1,23 +1,27 @@
 package model.visitors;
 
 import controller.CanvasController;
+import model.Mouse;
+import model.shapes.Figure;
 import model.shapes.Shape;
+import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCanvas;
 
 import java.awt.*;
 
 public class ResizeVisitor implements Visitor {
-    CanvasController canvas = SingletonCanvas.getInstance();
-    int xDifference;
-    int yDifference;
+    private CanvasController canvas = SingletonCanvas.getInstance();
+    private Mouse mouse = SingleMouse.getInstance();
+    private int xDifference;
+    private int yDifference;
 
     @Override
-    public void visit(Shape shape) {
+    public void visit(Figure figure) {
 
-        xDifference = canvas.endX - canvas.currentX;
-        yDifference = canvas.endY - canvas.currentY;
+        xDifference = mouse.getEndX() - mouse.getCurrentX();
+        yDifference = mouse.getEndY() - mouse.getCurrentY();
 
-        resizeShape(shape);
+        resizeShape((Shape) figure);
     }
 
     /**
@@ -27,9 +31,9 @@ public class ResizeVisitor implements Visitor {
     private void resizeShape(Shape shape) {
         Point shapeEnd = null;
 
-        for (int i = 0; i < canvas.flatEditableShapes.size(); i++) {
-            if (canvas.flatEditableShapes.get(i) == shape) {
-                shapeEnd = canvas.flatPointsEditableShapes.get(i).get(1);
+        for (int i = 0; i < canvas.getFlatEditableShapes().size(); i++) {
+            if (canvas.getFlatEditableShapes().get(i) == shape) {
+                shapeEnd = canvas.getFlatPointsEditableShapes().get(i).get(1);
             }
         }
 

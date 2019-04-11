@@ -1,4 +1,4 @@
-package model.commands;
+package model.visitors;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -15,34 +15,25 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class SaveCommand implements Command {
-
+public class SaveVisitor implements Visitor{
     private CanvasController canvas;
+    private Figure figure;
 
-    public SaveCommand() {
-        this.canvas = SingletonCanvas.getInstance();
+    public SaveVisitor(){
+        canvas = SingletonCanvas.getInstance();
     }
 
     @Override
-    public void Execute() {
+    public void visit(Figure figure) {
+        this.figure = figure;
+        canvas.clearSelect();
+
         try {
             Save();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Failed to save");
         }
-        canvas.clearSelect();
     }
-
-    @Override
-    public void Undo() {
-
-    }
-
-    @Override
-    public void Redo() {
-
-    }
-
     /**
      * Save the canvas to a file
      * @throws IOException
@@ -87,7 +78,7 @@ public class SaveCommand implements Command {
      * @return the json string of the content
      */
     private String ParseContent() {
-        Group group = canvas.getMainGroup();
+        Group group = (Group) this.figure;
         List<Figure> subshapes = group.getSubShapes();
 
         if (subshapes.size() == 0) return null;

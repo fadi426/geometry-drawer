@@ -14,7 +14,7 @@ public class MakeShapeCommand implements Command {
     }
 
     public void Execute() {
-        canvas.setCurrShape(shape);
+        canvas.setCurrentShapeType(shape);
     }
 
     public void Undo() {

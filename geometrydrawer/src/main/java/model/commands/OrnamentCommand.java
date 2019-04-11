@@ -48,7 +48,7 @@ public class OrnamentCommand implements Command {
         List<Ornament> tempOrnaments = new ArrayList<>();
         for (Ornament ornament : ornaments) {
             tempOrnaments.add(ornament);
-            canvas.setCanvasLists(findParent(canvas.mainGroup, ornament)
+            canvas.setCanvasLists(findParent(canvas.getMainGroup(), ornament)
             );
         }
         ornaments.removeAll(tempOrnaments);
@@ -70,7 +70,7 @@ public class OrnamentCommand implements Command {
             Ornament ornament = (Ornament) ((OrnamentDecorator) figure).getOrnament();
 //            canvas.addElementToList(ornament);
             ornaments.add(ornament);
-            canvas.setCanvasLists(findParent(canvas.mainGroup, ornament));
+            canvas.setCanvasLists(findParent(canvas.getMainGroup(), ornament));
         }
     }
 

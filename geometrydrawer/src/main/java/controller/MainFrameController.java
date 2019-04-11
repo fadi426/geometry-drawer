@@ -42,10 +42,16 @@ public class MainFrameController {
         initListeners();
     }
 
+    /**
+     * Makes the mainFrame visible
+     */
     public void showMainFrameWindow() {
         mainFrame.setVisible(true);
     }
 
+    /**
+     * Initialize the components from the MainFrame.form
+     */
     private void initComponents() {
         mainFrame = new MainFrame();
         currCanvas = SingletonCanvas.getInstance();
@@ -70,6 +76,12 @@ public class MainFrameController {
         ornamentBtn = mainFrame.getOrnamentBtn();
     }
 
+    /**
+     * Creates the drawingCanvas to be used to draw figures on
+     * @param width is the width of the canvas
+     * @param height is the height of the canvas
+     */
+
     private void createCanvas(int width, int height) {
         drawPanel.removeAll();
         currCanvas = SingletonCanvas.getInstance();
@@ -77,6 +89,9 @@ public class MainFrameController {
         drawPanel.add(currCanvas);
     }
 
+    /**
+     * Initialize the Buttonlisteners for the buttons
+     */
     private void initListeners() {
         createCanvas(500, 500);
         circleBtn.addActionListener(new circleBtnListener());
@@ -97,7 +112,7 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             mouse.setOperation("draw");
-            currCanvas.setCurrShape(new Circle());
+            currCanvas.setCurrentShapeType(new Circle());
             welcomeTA.append("circle\n");
         }
     }
@@ -106,7 +121,7 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             mouse.setOperation("draw");
-            currCanvas.setCurrShape(new Rectangle());
+            currCanvas.setCurrentShapeType(new Rectangle());
             welcomeTA.append("rectangle\n");
         }
     }
@@ -170,6 +185,11 @@ public class MainFrameController {
     private class saveBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+
+//            SaveVisitor save = new SaveVisitor();
+//            Group group = currCanvas.getMainGroup();
+//            group.accept(save);
+//
             commandManager.Execute(new SaveCommand());
         }
     }

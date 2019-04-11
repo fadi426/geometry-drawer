@@ -27,7 +27,6 @@ public class MakeGroupCommand implements Command {
         group.setColor(Color.BLACK);
 
         RemoveShapes();
-
         canvas.addElementToList(group);
     }
 
@@ -43,7 +42,6 @@ public class MakeGroupCommand implements Command {
     @Override
     public void Redo() {
         RemoveShapes();
-
         canvas.addElementToList(group);
     }
 
@@ -56,8 +54,7 @@ public class MakeGroupCommand implements Command {
 
         for (Figure f : figures) {
             if (listmodel.contains(f) && mainGroupShapes.contains(f)) {
-                canvas.listmodel.removeElement(f);
-                canvas.mainGroup.removeFigure(f);
+                canvas.removeElementFromList(f);
             }
         }
     }

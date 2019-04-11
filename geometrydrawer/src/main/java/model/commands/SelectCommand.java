@@ -24,21 +24,21 @@ public class SelectCommand implements Command {
     @Override
     public void Execute() {
         figure.setColor(Color.RED);
-        canvas.selectedShapes.add(figure);
+        canvas.addToSelected(figure);
         addOrnaments();
     }
 
     @Override
     public void Undo() {
         figure.setColor(Color.BLACK);
-        canvas.selectedShapes.remove(figure);
+        canvas.removeFromSelected(figure);
         deleteOrnaments();
     }
 
     @Override
     public void Redo() {
         figure.setColor(Color.RED);
-        canvas.selectedShapes.add(figure);
+        canvas.addToSelected(figure);
         addOrnaments();
     }
 
@@ -67,7 +67,7 @@ public class SelectCommand implements Command {
 
         for (Figure o : ornaments) {
             o.setColor(Color.RED);
-            canvas.selectedShapes.add(o);
+            canvas.addToSelected(o);
         }
     }
 
@@ -80,7 +80,7 @@ public class SelectCommand implements Command {
 
         for (Figure o : ornaments) {
             o.setColor(Color.BLACK);
-            canvas.selectedShapes.add(o);
+            canvas.removeFromSelected(o);
         }
     }
 }

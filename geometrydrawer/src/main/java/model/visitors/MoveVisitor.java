@@ -1,7 +1,10 @@
 package model.visitors;
 
 import controller.CanvasController;
+import model.Mouse;
+import model.shapes.Figure;
 import model.shapes.Shape;
+import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCanvas;
 
 import java.awt.*;
@@ -9,17 +12,18 @@ import java.awt.*;
 import static java.lang.Math.abs;
 
 public class MoveVisitor implements Visitor {
-    CanvasController canvas = SingletonCanvas.getInstance();
-    int xDifference;
-    int yDifference;
+    private CanvasController canvas = SingletonCanvas.getInstance();
+    private Mouse mouse = SingleMouse.getInstance();
+    private int xDifference;
+    private int yDifference;
 
     @Override
-    public void visit(Shape shape) {
+    public void visit(Figure figure) {
 
-        xDifference = canvas.endX - canvas.currentX;
-        yDifference = canvas.endY - canvas.currentY;
+        xDifference = mouse.getEndX() - mouse.getCurrentX();
+        yDifference = mouse.getEndY() - mouse.getCurrentY();
 
-        moveShape(shape);
+        moveShape((Shape) figure);
     }
 
 
@@ -34,9 +38,9 @@ public class MoveVisitor implements Visitor {
         Point shapeStart = null;
 
 
-        for (int i = 0; i < canvas.flatEditableShapes.size(); i++) {
-            if (canvas.flatEditableShapes.get(i) == shape) {
-                shapeStart = canvas.flatPointsEditableShapes.get(i).get(0);
+        for (int i = 0; i < canvas.getFlatEditableShapes().size(); i++) {
+            if (canvas.getFlatEditableShapes().get(i) == shape) {
+                shapeStart = canvas.getFlatPointsEditableShapes().get(i).get(0);
             }
         }
 
