@@ -28,4 +28,9 @@ public class Rectangle extends Shape {
         v.visit(this);
     }
 
+    @Override
+    public String toString(){
+        return getStrategy().executeToString(this);
+    }
+
 }

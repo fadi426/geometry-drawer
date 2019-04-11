@@ -2,12 +2,11 @@ package model.shapes;
 
 import model.strategies.ShapeContext;
 import model.strategies.ShapeStrategy;
-import model.visitors.Visitable;
 import model.visitors.Visitor;
 
 import java.awt.*;
 
-public abstract class Shape implements Visitable, Figure {
+public abstract class Shape implements Figure {
 
     private Point startPoint, endPoint;
     private Color currentColor = Color.BLACK;
@@ -83,4 +82,7 @@ public abstract class Shape implements Visitable, Figure {
     public void setStrategy(ShapeStrategy strategy) {
         this.shapeContext = new ShapeContext(strategy);
     }
+
+    @Override
+    public String toString(){ return ""; };
 }

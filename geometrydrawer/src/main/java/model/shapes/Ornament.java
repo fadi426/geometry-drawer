@@ -120,4 +120,9 @@ public class Ornament implements Figure {
     public void setParent(Figure figure) {
         this.parent = figure;
     }
+
+    @Override
+    public String toString(){
+        return "Ornament: ( " + getStartPoint() + " )" ;
+    }
 }

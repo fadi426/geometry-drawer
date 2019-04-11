@@ -274,6 +274,8 @@ public class CanvasController extends JPanel {
         if (currentShape != null) {
             currentShape.draw(g);
         }
+
+
     }
 
     /**

@@ -1,6 +1,5 @@
 package model.commands;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 import controller.CanvasController;
 import model.decorators.OrnamentDecorator;
 import model.shapes.Figure;

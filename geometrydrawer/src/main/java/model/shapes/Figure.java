@@ -1,10 +1,11 @@
 package model.shapes;
 
+import model.visitors.Visitable;
 import model.visitors.Visitor;
 
 import java.awt.*;
 
-public interface Figure {
+public interface Figure extends Visitable {
 
     /**
      * Execute specific draw function for the figure
@@ -35,4 +36,7 @@ public interface Figure {
      * @param v references to the Visitor object
      */
     void accept(Visitor v);
+
+    @Override
+    String toString();
 }

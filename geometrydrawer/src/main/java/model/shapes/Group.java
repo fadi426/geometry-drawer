@@ -173,10 +173,11 @@ public class Group implements Figure {
         return boundary;
     }
 
+    @Override
     public String toString() {
-        List<Point> boundery = CalculateBoundary();
-        return "Group: (" + boundery.get(0) + ")-"
-                + "(" + boundery.get(1) + ")";
+        List<Point> boundary = CalculateBoundary();
+        return "Group: (" + boundary.get(0) + ")-"
+                + "(" + boundary.get(1) + ")";
     }
 
 }

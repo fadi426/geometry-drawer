@@ -18,6 +18,8 @@ import java.util.List;
 public class SaveCommand implements Command {
 
     private CanvasController canvas;
+    private String filePath;
+    private String content;
 
     public SaveCommand() {
         this.canvas = SingletonCanvas.getInstance();
@@ -28,19 +30,23 @@ public class SaveCommand implements Command {
         try {
             Save();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Failed to add the file to the directory");
         }
         canvas.clearSelect();
     }
 
     @Override
     public void Undo() {
-
+        deleteFile();
     }
 
     @Override
     public void Redo() {
-
+        try {
+            WriteFile(filePath, content);
+        } catch (IOException e) {
+            System.out.println("Failed to add the file to the directory");
+        }
     }
 
     /**
@@ -48,10 +54,18 @@ public class SaveCommand implements Command {
      * @throws IOException
      */
     private void Save() throws IOException {
-        String filePath = CreateFile();
-        String content = ParseContent();
+        filePath = CreateFile();
+        content = ParseContent();
 
         WriteFile(filePath, content);
+    }
+
+    /**
+     * Deletes the file that you have saved
+     */
+    private void deleteFile() {
+        File file = new File(filePath);
+        file.delete();
     }
 
     /**
