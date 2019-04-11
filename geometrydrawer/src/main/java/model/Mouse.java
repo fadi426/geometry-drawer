@@ -25,6 +25,10 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
         this.canvas = canvas;
     }
 
+    /**
+     * Sets the operation the mouse should do when clicked in the canvas
+     * @param operation the operation it needs to execute when a click happens
+     */
     public void setOperation(String operation) {
         this.operation = operation;
     }

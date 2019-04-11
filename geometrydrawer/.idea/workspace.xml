@@ -2,23 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="21b9792e-5936-47ff-9453-03df808597ac" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/CanvasController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/CanvasController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/CommandManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/CommandManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/LoadCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/LoadCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/MakeGroupCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/MakeGroupCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/MoveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/MoveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/OrnamentCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/OrnamentCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/ResizeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/ResizeCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/SaveCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/SaveCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/SelectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/SelectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/commands/UnselectCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/commands/UnselectCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/decorators/OrnamentDecorator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/decorators/OrnamentDecorator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/commands/LoadCommand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/commands/LoadCommand$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/commands/LoadCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/commands/LoadCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/model/commands/SaveCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/commands/SaveCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Mouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Mouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/singleObjects/SingleMouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/singleObjects/SingleMouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCanvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCanvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCmdMng.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCmdMng.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/strategies/ShapeContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/strategies/ShapeContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/strategies/ShapeStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/strategies/ShapeStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/visitors/MoveVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/visitors/MoveVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/visitors/ResizeVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/visitors/ResizeVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/visitors/Visitable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/visitors/Visitable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/visitors/Visitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/visitors/Visitor.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -36,117 +29,99 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/CommandManager.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/ShapeContext.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+            <state relative-caret-position="68">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="e#373#374#0" expanded="true" />
+                <element signature="e#417#418#0" expanded="true" />
+                <element signature="e#467#468#0" expanded="true" />
+                <element signature="e#519#520#0" expanded="true" />
+                <element signature="e#568#569#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCanvas.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/UnselectCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/LoadCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-272">
-              <caret line="101" column="66" selection-start-line="101" selection-start-column="66" selection-end-line="101" selection-end-column="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/MakeGroupCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="50" column="72" selection-start-line="50" selection-start-column="72" selection-end-line="50" selection-end-column="72" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/MoveCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="686">
-              <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/OrnamentCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="79" column="54" selection-start-line="79" selection-start-column="54" selection-end-line="79" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/ResizeCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="70" column="41" selection-start-line="70" selection-start-column="41" selection-end-line="70" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/SaveCommand.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/singleObjects/SingleMouse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
-              <caret line="58" column="45" selection-start-line="58" selection-start-column="45" selection-end-line="58" selection-end-column="45" />
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/SelectCommand.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/RectangleStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="73" column="4" lean-forward="true" selection-start-line="73" selection-start-column="4" selection-end-line="75" selection-end-column="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="255">
+              <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/controller/CanvasController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/CircleStrategy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-221">
-              <caret line="232" column="30" selection-start-line="232" selection-start-column="30" selection-end-line="232" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#801#809#0" expanded="true" />
-                <element signature="e#1006#1019#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="221">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCmdMng.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/visitors/MoveVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/ShapeStrategy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/visitors/ResizeVisitor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/model/visitors/Visitable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -207,14 +182,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/model/Command.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/DrawCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/SingleObject.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/SingletonCanvas.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/SingletonCmdMng.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/MakeShapeCommand.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/CommandManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Rectangle.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Pentagon.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Shape.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Group.java" />
@@ -235,8 +202,6 @@
         <option value="$PROJECT_DIR$/src/main/java/model/strategies/RectangleStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/shapes/Ornament.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/shapes/Group.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/Mouse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/model/strategies/ShapeContext.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/strategies/CircleStrategy.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/shapes/Circle.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/shapes/Shape.java" />
@@ -258,6 +223,16 @@
         <option value="$PROJECT_DIR$/src/main/java/model/commands/OrnamentCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/commands/ResizeCommand.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/commands/SaveCommand.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/Mouse.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/visitors/Visitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/visitors/Visitable.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/visitors/ResizeVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/visitors/MoveVisitor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/strategies/ShapeStrategy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/strategies/ShapeContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCmdMng.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCanvas.java" />
+        <option value="$PROJECT_DIR$/src/main/java/model/singleObjects/SingleMouse.java" />
       </list>
     </option>
   </component>
@@ -414,7 +389,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="156" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="375" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554905220568" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554970524900" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -640,25 +615,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/SingletonCanvas.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/ClearCommand.java" />
-    <entry file="jar://D:/JavaJDK/src.zip!/java/io/BufferedWriter.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/view/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="51" column="47" selection-start-line="51" selection-start-column="47" selection-end-line="51" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/stream/JsonReader.class" />
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/internal/$Gson$Preconditions.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/TypeAdapter.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/internal/bind/ObjectTypeAdapter.class" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/internal/Excluder.class" />
@@ -679,20 +635,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Mouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="54" column="28" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/visitors/MoveVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/Gson.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
@@ -707,20 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/ShapeStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/RectangleStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/shapes/Group.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
@@ -732,20 +660,6 @@
             <element signature="e#1156#1157#0" expanded="true" />
             <element signature="e#1230#1231#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/CircleStrategy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/ShapeContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="35" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -943,11 +857,114 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/model/commands/UnselectCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+        <state relative-caret-position="340">
+          <caret line="69" column="41" lean-forward="true" selection-start-line="69" selection-start-column="41" selection-end-line="69" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/view/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Mouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="29" column="78" selection-start-line="29" selection-start-column="78" selection-end-line="29" selection-end-column="78" />
+          <folding>
+            <element signature="e#889#890#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/visitors/Visitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="50" selection-start-line="6" selection-start-column="50" selection-end-line="6" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/visitors/Visitable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/visitors/ResizeVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/visitors/MoveVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/ShapeStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/ShapeContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="e#467#468#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+            <element signature="e#568#569#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/RectangleStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/strategies/CircleStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCmdMng.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/singleObjects/SingletonCanvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="11" column="44" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/singleObjects/SingleMouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
