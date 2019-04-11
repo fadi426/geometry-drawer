@@ -23,8 +23,8 @@ public class RectangleStrategy implements ShapeStrategy {
 
     @Override
     public String toString(Shape shape) {
-        return "Rectangle: (" + shape.getStartPoint() + ")-"
-                + "(" + shape.getEndPoint() + ")";
+        return "Rectangle: (" + shape.getStartPoint().x + ", " + shape.getStartPoint().y + "):"
+                + "(" + shape.getEndPoint().x + ", " + shape.getEndPoint().y + ")";
     }
 
     @Override

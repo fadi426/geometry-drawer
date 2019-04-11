@@ -70,6 +70,7 @@ public class OrnamentCommand implements Command {
 //            canvas.addElementToList(ornament);
             ornaments.add(ornament);
             canvas.setCanvasLists(findParent(canvas.getMainGroup(), ornament));
+            canvas.addToSelected(ornament);
         }
     }
 

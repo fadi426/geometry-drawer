@@ -18,7 +18,7 @@ public class MainFrameController {
 
     private MainFrame mainFrame;
     private CommandManager commandManager;
-    private JTextArea welcomeTA;
+    private JTextArea shapeInfoTA;
 
     private JButton circleBtn;
     private JButton rectangleBtn;
@@ -32,6 +32,7 @@ public class MainFrameController {
     private JButton saveBtn;
     private JButton loadBtn;
     private JButton ornamentBtn;
+    private JButton deleteBtn;
 
     private JPanel drawPanel;
     private CanvasController currCanvas;
@@ -59,14 +60,14 @@ public class MainFrameController {
         mouse = SingleMouse.getInstance();
         mouse.setCanvas(currCanvas);
 
-        welcomeTA = mainFrame.getShapeInfoTA();
+        shapeInfoTA = mainFrame.getShapeInfoTA();
         drawPanel = mainFrame.getDrawPanel();
         drawPanel.setLayout(new BorderLayout());
         circleBtn = mainFrame.getCircleBtn();
         rectangleBtn = mainFrame.getRectangleBtn();
         clearBtn = mainFrame.getClearBtn();
         selectBtn = mainFrame.getSelectBtn();
-        undoBtn = mainFrame.getUndoBtn();
+        undoBtn = mainFrame.getUndobtn();
         redoBtn = mainFrame.getRedoBtn();
         groupBtn = mainFrame.getGroupBtn();
         moveBtn = mainFrame.getMoveBtn();
@@ -74,6 +75,7 @@ public class MainFrameController {
         saveBtn = mainFrame.getSaveBtn();
         loadBtn = mainFrame.getLoadBtn();
         ornamentBtn = mainFrame.getOrnamentBtn();
+        deleteBtn = mainFrame.getDeleteBtn();
     }
 
     /**
@@ -87,13 +89,14 @@ public class MainFrameController {
         currCanvas = SingletonCanvas.getInstance();
         currCanvas.setPreferredSize(new Dimension(width, height));
         drawPanel.add(currCanvas);
+        currCanvas.setShapeInfoTA(shapeInfoTA);
     }
 
     /**
      * Initialize the Buttonlisteners for the buttons
      */
     private void initListeners() {
-        createCanvas(500, 500);
+        createCanvas(900, 900);
         circleBtn.addActionListener(new circleBtnListener());
         rectangleBtn.addActionListener(new rectangleBtnListener());
         clearBtn.addActionListener(new clearBtnListener());
@@ -106,6 +109,7 @@ public class MainFrameController {
         saveBtn.addActionListener(new saveBtnListener());
         loadBtn.addActionListener(new loadBtnListener());
         ornamentBtn.addActionListener(new ornamentBtnListener());
+        deleteBtn.addActionListener(new deleteBtnListener());
     }
 
     private class circleBtnListener implements ActionListener {
@@ -113,7 +117,6 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             mouse.setOperation("draw");
             currCanvas.setCurrentShapeType(new Circle());
-            welcomeTA.append("circle\n");
         }
     }
 
@@ -122,7 +125,6 @@ public class MainFrameController {
         public void actionPerformed(ActionEvent e) {
             mouse.setOperation("draw");
             currCanvas.setCurrentShapeType(new Rectangle());
-            welcomeTA.append("rectangle\n");
         }
     }
 
@@ -130,7 +132,7 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             commandManager.Execute(new ClearCommand(currCanvas.toList()));
-            welcomeTA.append("cleared\n");
+            shapeInfoTA.append("cleared\n");
         }
     }
 
@@ -138,7 +140,6 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             mouse.setOperation("select");
-            welcomeTA.append("cleared\n");
             currCanvas.clearSelect();
             currCanvas.repaint();
         }
@@ -149,6 +150,7 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             commandManager.Undo();
+            shapeInfoTA.append("Undo");
             currCanvas.repaint();
         }
     }
@@ -157,6 +159,7 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             commandManager.Redo();
+            shapeInfoTA.append("Redo");
             currCanvas.repaint();
         }
     }
@@ -185,11 +188,7 @@ public class MainFrameController {
     private class saveBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-
-//            SaveVisitor save = new SaveVisitor();
-//            Group group = currCanvas.getMainGroup();
-//            group.accept(save);
-//
+            shapeInfoTA.append("Save file");
             commandManager.Execute(new SaveCommand());
         }
     }
@@ -197,6 +196,7 @@ public class MainFrameController {
     private class loadBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            shapeInfoTA.append("Load file");
             commandManager.Execute(new LoadCommand());
         }
     }
@@ -205,6 +205,13 @@ public class MainFrameController {
         @Override
         public void actionPerformed(ActionEvent e) {
             commandManager.Execute(new OrnamentCommand());
+        }
+    }
+
+    private class deleteBtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            commandManager.Execute(new DeleteCommand());
         }
     }
 }

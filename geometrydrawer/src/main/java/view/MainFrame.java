@@ -13,14 +13,15 @@ public class MainFrame extends JFrame {
     private JButton rectangleBtn;
     private JButton clearBtn;
     private JButton selectBtn;
-    private JButton UndoBtn;
-    private JButton RedoBtn;
+    private JButton undobtn;
+    private JButton redoBtn;
     private JButton groupBtn;
     private JButton moveBtn;
     private JButton resizeBtn;
-    private JButton SaveBtn;
-    private JButton LoadBtn;
-    private JButton OrnamentBtn;
+    private JButton saveBtn;
+    private JButton loadBtn;
+    private JButton ornamentBtn;
+    private JButton deleteBtn;
 
     public MainFrame() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -54,12 +55,12 @@ public class MainFrame extends JFrame {
         return selectBtn;
     }
 
-    public JButton getUndoBtn() {
-        return UndoBtn;
+    public JButton getUndobtn() {
+        return undobtn;
     }
 
     public JButton getRedoBtn() {
-        return RedoBtn;
+        return redoBtn;
     }
 
     public JButton getGroupBtn() {
@@ -75,15 +76,17 @@ public class MainFrame extends JFrame {
     }
 
     public JButton getSaveBtn() {
-        return SaveBtn;
+        return saveBtn;
     }
 
     public JButton getLoadBtn() {
-        return LoadBtn;
+        return loadBtn;
     }
 
     public JButton getOrnamentBtn() {
-        return OrnamentBtn;
+        return ornamentBtn;
     }
+
+    public JButton getDeleteBtn() { return deleteBtn; }
 }
 

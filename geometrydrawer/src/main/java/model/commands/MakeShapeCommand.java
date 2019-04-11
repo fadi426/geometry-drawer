@@ -13,9 +13,7 @@ public class MakeShapeCommand implements Command {
         this.canvas = SingletonCanvas.getInstance();
     }
 
-    public void Execute() {
-        canvas.setCurrentShapeType(shape);
-    }
+    public void Execute() { canvas.setCurrentShapeType(shape);}
 
     public void Undo() {
         canvas.removeLastElement();

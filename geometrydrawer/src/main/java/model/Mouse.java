@@ -90,7 +90,6 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
         if (currentShape == null)
             return;
 
-        canvas.clearSelect();
         canvas.addElementToList(currentShape);
         canvas.setCurrentShape(null);
         canvas.repaint();

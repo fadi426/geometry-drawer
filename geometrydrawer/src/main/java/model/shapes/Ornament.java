@@ -68,6 +68,7 @@ public class Ornament implements Figure {
             Shape shape = (Shape) parent;
             start = shape.getStartPoint();
             end = shape.getEndPoint();
+
         }
 
 
@@ -123,6 +124,6 @@ public class Ornament implements Figure {
 
     @Override
     public String toString(){
-        return "Ornament: ( " + getStartPoint() + " )" ;
+        return "Ornament: (" + getStartPoint().x + ", " + getStartPoint().y + ")" ;
     }
 }

@@ -10,8 +10,7 @@ public class Group implements Figure {
 
     private List<Figure> subShapes = new ArrayList<>();
 
-    public Group() {
-    }
+    public Group() {    }
 
     /**
      * Adds 1 figure to the subshapes of the current group
@@ -38,7 +37,7 @@ public class Group implements Figure {
 
     @Override
     public Color getColor() {
-        return null;
+        return subShapes.get(0).getColor();
     }
 
     @Override
@@ -176,8 +175,8 @@ public class Group implements Figure {
     @Override
     public String toString() {
         List<Point> boundary = CalculateBoundary();
-        return "Group: (" + boundary.get(0) + ")-"
-                + "(" + boundary.get(1) + ")";
+        return "Group: (" + boundary.get(0).x + ", " + boundary.get(0).y + "): "
+                + "(" + boundary.get(1).x + ", " + boundary.get(1).y + ")";
     }
 
 }

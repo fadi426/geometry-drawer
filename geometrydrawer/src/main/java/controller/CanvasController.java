@@ -13,9 +13,7 @@ import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 
 public class CanvasController extends JPanel {
 
@@ -31,6 +29,7 @@ public class CanvasController extends JPanel {
     private List<List<Point>> flatPointsEditableShapes = new ArrayList<>();
 
     private Mouse mouse = SingleMouse.getInstance();
+    private JTextArea shapeInfoTA;
 
     public CanvasController(Color bg) {
         this.setBackground(bg);
@@ -274,8 +273,7 @@ public class CanvasController extends JPanel {
         if (currentShape != null) {
             currentShape.draw(g);
         }
-
-
+        updateShapeInfoTA();
     }
 
     /**
@@ -321,5 +319,16 @@ public class CanvasController extends JPanel {
         commandManager.Execute(new MakeGroupCommand(selectedShapes));
         selectedShapes.clear();
         repaint();
+    }
+
+    public void setShapeInfoTA(JTextArea shapeInfoTA){
+        this.shapeInfoTA = shapeInfoTA;
+    }
+
+    public void updateShapeInfoTA(){
+        shapeInfoTA.setText(null);
+        for (Figure figure : toList()){
+            shapeInfoTA.append(figure.toString() + "\n");
+        }
     }
 }

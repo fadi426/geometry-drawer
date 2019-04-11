@@ -80,7 +80,7 @@ public class UnselectCommand implements Command {
 
         for (Figure o : ornaments) {
             o.setColor(Color.BLACK);
-            canvas.addToSelected(o);
+            canvas.removeFromSelected(o);
         }
     }
 }

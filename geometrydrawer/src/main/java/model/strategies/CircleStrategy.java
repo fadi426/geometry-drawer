@@ -24,7 +24,8 @@ public class CircleStrategy implements ShapeStrategy {
 
     @Override
     public String toString(Shape shape) {
-        return "Circle: (" + shape.getStartPoint() + "," + shape.getEndPoint() + ")"
+        return "Circle: (" + shape.getStartPoint().x + ", " + shape.getStartPoint().y + "): "
+                + "(" + shape.getEndPoint().x + ", " + shape.getEndPoint().y + ")  "
                 + " Radius: (" + (shape.getEndPoint().x - shape.getStartPoint().x / 2) + ")";
     }
 
