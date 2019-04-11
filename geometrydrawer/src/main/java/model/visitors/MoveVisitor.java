@@ -23,6 +23,11 @@ public class MoveVisitor implements Visitor {
     }
 
 
+    /**
+     * Moves the given shape to a different spot by changing the position of the
+     * start and end point relative to the difference of the mouse position
+     * @param shape The shape to move
+     */
     public void moveShape(Shape shape) {
         int width;
         int height;

@@ -20,6 +20,10 @@ public class ResizeVisitor implements Visitor {
         resizeShape(shape);
     }
 
+    /**
+     * Resize the shape by resetting the end point of the given shape
+     * @param shape The shape thats needs to be resized.
+     */
     private void resizeShape(Shape shape) {
         Point shapeEnd = null;
 
