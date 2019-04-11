@@ -16,30 +16,36 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LoadCommand implements Command {
 
     private CanvasController canvas;
+    private String filePath;
+    private List<Figure> oldFigures;
 
     public LoadCommand() {
         this.canvas = SingletonCanvas.getInstance();
+        oldFigures = new ArrayList<>();
     }
 
     @Override
     public void Execute() {
-        String filePath = pickFile();
+        oldFigures = canvas.toList();
+        filePath = pickFile();
         LoadContent(filePath);
     }
 
     @Override
     public void Undo() {
-
+        canvas.setCanvasLists(oldFigures);
     }
 
     @Override
     public void Redo() {
-
+        oldFigures = canvas.toList();
+        LoadContent(filePath);
     }
 
     /**
