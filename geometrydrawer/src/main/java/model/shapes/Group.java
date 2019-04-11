@@ -13,14 +13,25 @@ public class Group implements Figure {
     public Group() {
     }
 
+    /**
+     * Adds 1 figure to the subshapes of the current group
+     * @param figure can be any kind of shape/group/ornament to be added to the group
+     */
     public void addFigure(Figure figure) {
         subShapes.add(figure);
     }
 
+    /**
+     * * Adds a list of figures to the subshapes of the current group
+     * @param figures is a list of figures to be added to the group
+     */
     public void addFigures(List<Figure> figures) {
         subShapes.addAll(figures);
     }
 
+    /**
+     * Clears the subshapes list of the group
+     */
     public void clear() {
         subShapes.clear();
     }
@@ -48,10 +59,18 @@ public class Group implements Figure {
         return contain(point, this);
     }
 
+    /**
+     * Deletes a figure from the subshape list of the current group
+     * @param figure is the to be deleted figure
+     */
     public void removeFigure(Figure figure) {
         subShapes.remove(figure);
     }
 
+    /**
+     * Retrieves the list of subshapes from the current Group
+     * @return the subshapes of the current group
+     */
     public List<Figure> getSubShapes() {
         return subShapes;
     }
@@ -63,6 +82,13 @@ public class Group implements Figure {
         }
     }
 
+    /**
+     * Loop recursively trough the subshapes of the group to determine if the current
+     * mouse position is inside one of the subshapes of the group
+     * @param point is the current mouse position
+     * @param figure is either a single shape or a group, if figure is a group recall the method with the subgroup of that figure
+     * @return true or false depending if the current mouse position is inside a subshape of the current group.
+     */
     public boolean contain(Point point, Figure figure) {
         if (figure instanceof Group) {
             Group group = (Group) figure;
@@ -82,6 +108,7 @@ public class Group implements Figure {
         return false;
     }
 
+    @Override
     public void accept(Visitor v) {
         for (Figure f : subShapes) {
             if (f instanceof Group) {
@@ -95,7 +122,10 @@ public class Group implements Figure {
         }
     }
 
-
+    /**
+     * Sets the min and max values outside of the canvas and calls the recursive method recursiveCalculateBoundary
+     * @return 1 list of the absolute min and max starting/ending positions of the subshapes
+     */
     public List<Point> CalculateBoundary() {
         Point start = new Point(1000, 1000);
         Point end = new Point(-1000, -1000);
@@ -103,6 +133,11 @@ public class Group implements Figure {
         return tempPoints;
     }
 
+    /**
+     * Loop recursively trough all the subshapes that are an instance of group and read/compare the positions of the single shapes
+     * to determine the max/min x and y of the starting and end position of the subshapes.
+     * @return a changing list of the min/max startpoint and endpoint
+     */
     public List<Point> recursiveCalculateBoundary(Figure figure, Point start, Point end) {
         List<Point> boundary = new ArrayList<>();
 

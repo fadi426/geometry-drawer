@@ -46,11 +46,17 @@ public class OrnamentDecorator extends FigureDecorator {
     public void accept(Visitor v) {
     }
 
-
+    /**
+     * @return the current ornament
+     */
     public Figure getOrnament() {
         return ornament;
     }
 
+    /**
+     * Build the current ornament with its text and positionreference,
+     * check if text is filled in before you continue.
+     */
     private void createOrnament() {
         text = setText();
         while ((text.length() == 0)) {
@@ -59,10 +65,18 @@ public class OrnamentDecorator extends FigureDecorator {
         position = setPosition();
     }
 
+    /**
+     * Trigger a input dialog from the Jpanel object canvas
+     * @return text from the dialog
+     */
     private String setText() {
         return JOptionPane.showInputDialog(canvas, "Ornament Text");
     }
 
+    /**
+     * Trigger a dropdown dialog from the Jpanel object canvas
+     * @return position from the dialog
+     */
     private String setPosition() {
         Object[] possibilities = {"top", "bottom", "left", "right"};
 

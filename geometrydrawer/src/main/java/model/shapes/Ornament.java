@@ -51,6 +51,9 @@ public class Ornament implements Figure {
     public void accept(Visitor v) {
     }
 
+    /**
+     * Updates the current position relatively to its parent Figure min/max starting/ending position
+     */
     public void updateOrnament() {
         Point start = null, end = null;
         int width, height;
@@ -86,18 +89,34 @@ public class Ornament implements Figure {
         }
     }
 
+    /**
+     * Gives back the current starting point of the current Ornament
+     * @return the starting position of the ornament
+     */
     public Point getStartPoint() {
         return startPoint;
     }
 
+    /**
+     * Changes the current starting position of the current ornament
+     * @param startPoint is the target starting position that has to be changed to
+     */
     public void setStartPoint(Point startPoint) {
         this.startPoint = startPoint;
     }
 
+    /**
+     * Gives back the parent (Group or Shape) of the current ornament
+     * @return the parent of the ornament
+     */
     public Figure getParent() {
         return parent;
     }
 
+    /**
+     * Changes the current parent (Group or Shape) of the current ornament.
+     * @param figure is the target parent that has to be changed to
+     */
     public void setParent(Figure figure) {
         this.parent = figure;
     }
