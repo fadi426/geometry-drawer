@@ -42,8 +42,8 @@ public class DeleteCommand implements Command {
 
     /**
      * Deletes the figures in the selectedShapes map inside the canvas from the mainGroup of the canvas
-     * @param figures
-     * @return
+     * @param figures is the listmodel
+     * @return a new list without the elements from the selectedList
      */
     private List<Figure> deleteSelected(List<Figure> figures) {
         Group newGroup = new Group();
