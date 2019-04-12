@@ -126,8 +126,8 @@ public class Group implements Figure {
      * @return 1 list of the absolute min and max starting/ending positions of the subshapes
      */
     public List<Point> CalculateBoundary() {
-        Point start = new Point(1000, 1000);
-        Point end = new Point(-1000, -1000);
+        Point start = new Point(Integer.MAX_VALUE, Integer.MAX_VALUE);
+        Point end = new Point(Integer.MIN_VALUE, Integer.MIN_VALUE);
         List<Point> tempPoints = recursiveCalculateBoundary(this, start, end);
         return tempPoints;
     }
