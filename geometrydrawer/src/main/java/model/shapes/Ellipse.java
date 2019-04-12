@@ -1,16 +1,16 @@
 package model.shapes;
 
-import model.strategies.CircleStrategy;
+import model.strategies.EllipseStrategy;
 import model.visitors.Visitor;
 
 import java.awt.*;
 
-public class Circle extends Shape {
+public class Ellipse extends Shape {
 
-    public Circle() {
+    public Ellipse() {
         setStartPoint(new Point(0, 0));
         setEndPoint(new Point(0, 0));
-        setStrategy(new CircleStrategy());
+        setStrategy(new EllipseStrategy());
     }
 
     @Override

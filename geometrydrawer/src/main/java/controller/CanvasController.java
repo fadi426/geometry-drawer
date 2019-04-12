@@ -1,9 +1,11 @@
 package controller;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import model.adapters.Mouse;
 import model.commands.*;
 import model.shapes.Figure;
 import model.shapes.Group;
+import model.shapes.Ornament;
 import model.shapes.Shape;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCmdMng;
@@ -92,18 +94,6 @@ public class CanvasController extends JPanel {
             figures.add(listmodel.get(i));
         }
         return figures;
-    }
-
-    /**
-     * Removes the last element that was added from the canvas
-     */
-    public void removeLastElement() {
-        if (listmodel.size() > 0) {
-            int last = listmodel.size() - 1;
-            mainGroup.removeFigure(listmodel.get(last));
-            listmodel.removeElementAt(last);
-            repaint();
-        }
     }
 
     /**
@@ -226,21 +216,16 @@ public class CanvasController extends JPanel {
         for (int i = listmodel.size() - 1; i >= 0; i = i - 1) {
             Figure figure = listmodel.get(i);
 
-            if (figure instanceof Group && ((Group) figure).contain(currentPoint, figure)) {
+            if (figure instanceof Ornament)
+                continue;
+            else if (figure.contain(currentPoint)) {
                 if (selectedShapes.contains(figure))
                     commandManager.Execute(new UnselectCommand(figure));
                 else
                     commandManager.Execute(new SelectCommand(figure));
                 break;
-            } else if (figure instanceof Shape && figure.contain(currentPoint)) {
-                if (selectedShapes.contains(figure))
-                    commandManager.Execute(new UnselectCommand(figure));
-                else
-                    commandManager.Execute(new SelectCommand(figure));
-                break;
-            } else {
+            } else
                 unSelectedCounter++;
-            }
         }
         if (unSelectedCounter == listmodel.size())
             clearSelect();
@@ -248,20 +233,16 @@ public class CanvasController extends JPanel {
     }
 
     /**
-     * Create a group in the canvas from the selected shapes
+     * Sets the shapeInfoTA of the mainFrame controller in the canvasController to adjust it inside the canvasCOntroller
+     * @param shapeInfoTA
      */
-    public void createGroup() {
-        if (selectedShapes.size() == 0)
-            return;
-        commandManager.Execute(new MakeGroupCommand(selectedShapes));
-        selectedShapes.clear();
-        repaint();
-    }
-
     public void setShapeInfoTA(JTextArea shapeInfoTA){
         this.shapeInfoTA = shapeInfoTA;
     }
 
+    /**
+     * Update the shapeInfoTA Jcomponent to show the content of the listModel
+     */
     public void updateShapeInfoTA(){
         shapeInfoTA.setText(null);
         for (Figure figure : toList()){
@@ -275,6 +256,18 @@ public class CanvasController extends JPanel {
      */
     public List<Figure> getSelectedShapes() {
         return selectedShapes;
+    }
+
+    /**
+     * Sets the list of selected shapes to the target, also changes the color of the selected figures to red
+     * @param selectedShapes
+     */
+    public void setSelectedShapes(List<Figure> selectedShapes){
+
+        this.selectedShapes = selectedShapes;
+        for (Figure figure : selectedShapes){
+            figure.setColor(Color.RED);
+        }
     }
 
     /**

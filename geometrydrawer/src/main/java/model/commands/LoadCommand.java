@@ -50,6 +50,7 @@ public class LoadCommand implements Command {
 
     /**
      * Selects the file to be loaded
+     *
      * @return the file path
      */
     private String pickFile() {
@@ -61,6 +62,7 @@ public class LoadCommand implements Command {
 
     /**
      * Load the content from the file
+     *
      * @param filePath the path of the file
      */
     private void LoadContent(String filePath) {
@@ -86,6 +88,7 @@ public class LoadCommand implements Command {
 
     /**
      * Add the content from the file to the canvas
+     *
      * @param group the group the add
      */
     private void Instantiate(Group group) {
@@ -99,12 +102,13 @@ public class LoadCommand implements Command {
      * Set all the ornaments
      *
      * <p>
-     *     When you save the file, the parent reference from a ornament is not saved.
-     *     To fix this we check if the parent is the same with any figure that
-     *     is also loaded.
-     *     if that is the case set the parent of the ornament to the figure
-     *     so that the file is correctly restored.
+     * When you save the file, the parent reference from a ornament is not saved.
+     * To fix this we check if the parent is the same with any figure that
+     * is also loaded.
+     * if that is the case set the parent of the ornament recursively to the figure
+     * so that the file is correctly restored.
      * </p>
+     *
      * @param groupFigures the figures that you want to look in to
      */
     private void setOrnaments(List<Figure> groupFigures) {
@@ -117,7 +121,6 @@ public class LoadCommand implements Command {
 
                         if (o.getParent() instanceof Shape) {
                             Shape oParent = (Shape) o.getParent();
-
                             if (oParent.getStartPoint().x == shape.getStartPoint().x
                                     && oParent.getStartPoint().y == shape.getStartPoint().y
                                     && oParent.getEndPoint().x == shape.getEndPoint().x
@@ -142,9 +145,7 @@ public class LoadCommand implements Command {
                         }
                         setOrnaments(group.getSubShapes());
                     }
-
                 }
-
             }
         }
     }

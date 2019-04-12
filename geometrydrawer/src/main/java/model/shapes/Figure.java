@@ -37,6 +37,10 @@ public interface Figure extends Visitable {
      */
     void accept(Visitor v);
 
+    /**
+     * Overrides the Java toString method to return a custom message when triggered
+     * @return a custom message for every individual figure
+     */
     @Override
     String toString();
 }

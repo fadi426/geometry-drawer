@@ -14,145 +14,91 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Group.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="175" column="30" lean-forward="true" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/singleObjects/SingletonCanvas.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/controller/CanvasController.java">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="262">
-              <caret line="292" column="32" lean-forward="true" selection-start-line="292" selection-start-column="32" selection-end-line="292" selection-end-column="32" />
+              <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="docComment;method#draw#0;class#CanvasController#0" />
-                <element signature="docComment;method#flatMap#0;class#CanvasController#0" />
-                <element signature="docComment;method#toList#0;class#CanvasController#0" />
-                <element signature="docComment;method#removeLastElement#0;class#CanvasController#0" />
-                <element signature="docComment;method#clearSelect#0;class#CanvasController#0" />
-                <element signature="docComment;method#addElementToList#0;class#CanvasController#0" />
-                <element signature="docComment;method#setCanvasLists#0;class#CanvasController#0" />
-                <element signature="docComment;method#addElementsToList#0;class#CanvasController#0" />
-                <element signature="docComment;method#removeElementFromList#0;class#CanvasController#0" />
-                <element signature="docComment;method#insertFromFile#0;class#CanvasController#0" />
-                <element signature="docComment;method#clear#0;class#CanvasController#0" />
-                <element signature="docComment;method#paint#0;class#CanvasController#0" />
-                <element signature="docComment;method#selectShape#0;class#CanvasController#0" />
-                <element signature="docComment;method#createGroup#0;class#CanvasController#0" />
-                <element signature="e#7464#7465#0" expanded="true" />
-                <element signature="e#7510#7511#0" expanded="true" />
-                <element signature="docComment;method#getSelectedShapes#0;class#CanvasController#0" />
-                <element signature="e#8434#8435#0" expanded="true" />
-                <element signature="docComment;method#addToSelected#0;class#CanvasController#0" />
-                <element signature="e#8032#8033#0" expanded="true" />
-                <element signature="e#8074#8075#0" expanded="true" />
-                <element signature="docComment;method#removeFromSelected#0;class#CanvasController#0" />
-                <element signature="e#8236#8237#0" expanded="true" />
-                <element signature="e#8281#8282#0" expanded="true" />
-                <element signature="docComment;method#setCurrentShapeType#0;class#CanvasController#0" />
-                <element signature="e#9045#9046#0" expanded="true" />
-                <element signature="docComment;method#getCurrentShape#0;class#CanvasController#0" />
-                <element signature="e#8674#8675#0" expanded="true" />
-                <element signature="e#8709#8710#0" expanded="true" />
-                <element signature="docComment;method#setCurrentShape#0;class#CanvasController#0" />
-                <element signature="e#8876#8877#0" expanded="true" />
-                <element signature="e#8917#8918#0" expanded="true" />
-                <element signature="docComment;method#getMainGroup#0;class#CanvasController#0" />
-                <element signature="e#9634#9635#0" expanded="true" />
-                <element signature="docComment;method#setMainGroup#0;class#CanvasController#0" />
-                <element signature="e#9810#9811#0" expanded="true" />
-                <element signature="docComment;method#getFlatEditableShapes#0;class#CanvasController#0" />
-                <element signature="e#10002#10003#0" expanded="true" />
-                <element signature="docComment;method#getFlatPointsEditableShapes#0;class#CanvasController#0" />
-                <element signature="e#10221#10222#0" expanded="true" />
+                <element signature="e#3393#3394#0" expanded="true" />
+                <element signature="e#3483#3484#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/singleObjects/SingleMouse.java">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Rectangle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="408">
+              <caret line="30" selection-start-line="30" selection-end-line="33" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Shape.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="86" column="40" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/Mouse.java">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/controller/CanvasController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state relative-caret-position="286">
+              <caret line="265" column="9" lean-forward="true" selection-start-line="265" selection-start-column="9" selection-end-line="265" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#7547#7548#0" expanded="true" />
+                <element signature="e#7593#7594#0" expanded="true" />
+                <element signature="e#7724#7725#0" expanded="true" />
+                <element signature="e#7761#7762#0" expanded="true" />
+                <element signature="e#8209#8210#0" expanded="true" />
+                <element signature="e#8251#8252#0" expanded="true" />
+                <element signature="e#8413#8414#0" expanded="true" />
+                <element signature="e#8458#8459#0" expanded="true" />
+                <element signature="e#8636#8637#0" expanded="true" />
+                <element signature="e#8670#8671#0" expanded="true" />
+                <element signature="e#8851#8852#0" expanded="true" />
+                <element signature="e#8886#8887#0" expanded="true" />
+                <element signature="e#9053#9054#0" expanded="true" />
+                <element signature="e#9094#9095#0" expanded="true" />
+                <element signature="e#9227#9228#0" expanded="true" />
+                <element signature="e#9259#9260#0" expanded="true" />
+                <element signature="e#9397#9398#0" expanded="true" />
+                <element signature="e#9435#9436#0" expanded="true" />
+                <element signature="e#9586#9587#0" expanded="true" />
+                <element signature="e#9627#9628#0" expanded="true" />
+                <element signature="e#9799#9800#0" expanded="true" />
+                <element signature="e#9846#9847#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/CircleStrategy.java">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeGroupCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="26" column="91" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="64">
+              <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/RectangleStrategy.java">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/controller/MainFrameController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="25" column="96" selection-start-line="25" selection-start-column="96" selection-end-line="25" selection-end-column="96" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/DeleteCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#696#697#0" expanded="true" />
-                <element signature="e#745#746#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="105" column="65" lean-forward="true" selection-start-line="105" selection-start-column="65" selection-end-line="105" selection-end-column="65" />
+            <state relative-caret-position="245">
+              <caret line="208" column="17" lean-forward="true" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -163,8 +109,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SelectCommand.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="557">
-              <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
+            <state relative-caret-position="432">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/DeleteCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="483">
+              <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#920#921#0" expanded="true" />
+                <element signature="e#990#991#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MoveCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="789">
+              <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#633#634#0" expanded="true" />
+                <element signature="e#665#666#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/UnselectCommand.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -184,12 +170,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>s</find>
-      <find>ornament.set</find>
-      <find>instanceof</find>
-      <find>figure</find>
-      <find>parent.getShapeStart()</find>
-      <find>ornament</find>
       <find>getSub</find>
       <find>getSubShapes</find>
       <find>MoveVisitor</find>
@@ -206,7 +186,6 @@
       <find>current</find>
       <find>e</find>
       <find>wrapper</find>
-      <find>mouse</find>
       <find>conte</find>
       <find>parent</find>
       <find>filePath</find>
@@ -214,6 +193,13 @@
       <find>welcom</find>
       <find>getStartPoint</find>
       <find>setColor</find>
+      <find>mouse</find>
+      <find>CIrcle</find>
+      <find>Circle</find>
+      <find>removeLa</find>
+      <find>contrain</find>
+      <find>contain</find>
+      <find>crea</find>
     </findStrings>
     <replaceStrings>
       <replace>figure</replace>
@@ -230,7 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/Rectangle.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/Shape.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/AreaVisitor.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Line.java" />
@@ -254,33 +239,34 @@
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/singleObjects/SingletonCanvas.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/singleObjects/SingleMouse.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/OrnamentDecorator.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/LoadCommand.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/visitors/SaveVisitor.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/visitors/MoveVisitor.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/visitors/ResizeVisitor.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeGroupCommand.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/InterfaceAdapter.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/visitors/Visitor.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SaveCommand.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Figure.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Shape.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Rectangle.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Circle.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeShapeCommand.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/UnselectCommand.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SelectCommand.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/Mouse.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/view/MainFrame.form" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/view/MainFrame.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/controller/MainFrameController.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/CircleStrategy.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Group.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/RectangleStrategy.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/DeleteCommand.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java" />
-        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/controller/CanvasController.java" />
         <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/Mouse.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/view/MainFrame.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/view/MainFrame.form" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/CircleStrategy.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/EllipseStrategy.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/LoadCommand.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeShapeCommand.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Figure.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SelectCommand.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/UnselectCommand.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeGroupCommand.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/controller/MainFrameController.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/DeleteCommand.java" />
+        <option value="$PROJECT_DIR$/geometrydrawer/src/main/java/controller/CanvasController.java" />
       </list>
     </option>
   </component>
@@ -419,6 +405,15 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="geometry-drawer" type="b2602c69:ProjectViewProjectNode" />
+              <item name="geometrydrawer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="MainFrame" type="e9f4de52:FormNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -428,7 +423,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="426" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555056164557" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555065497871" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/geometrydrawer/pom.xml" />
     <property name="project.structure.last.edited" value="Project" />
@@ -541,7 +536,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4853738" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -549,7 +544,7 @@
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
       <window_info anchor="right" id="PlantUML" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -594,6 +589,11 @@
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>canvas.getSelectedShapes()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>pointZero</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -633,11 +633,6 @@
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>o.getParent() == f2</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
@@ -666,16 +661,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/singleObjects/SingleObject.java" />
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/ResizeCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/singleObjects/SingletonCmdMng.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -711,13 +696,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/ClearCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/visitors/Visitable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -729,16 +707,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="79" column="35" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/visitors/MoveVisitor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="4" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -772,226 +740,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/FigureDecorator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_201/src.zip!/java/nio/file/Files.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="1124" column="23" selection-start-line="1124" selection-start-column="23" selection-end-line="1124" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/ShapeContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#786#787#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Rectangle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="30" selection-start-line="30" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#663#664#0" expanded="true" />
-            <element signature="e#698#699#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/Command.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding>
-            <element signature="docComment;method#Execute#0;class#Command#0" />
-            <element signature="docComment;method#Undo#0;class#Command#0" />
-            <element signature="docComment;method#Redo#0;class#Command#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SaveCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-640">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#Save#0;class#SaveCommand#0" />
-            <element signature="docComment;method#CreateFile#0;class#SaveCommand#0" />
-            <element signature="docComment;method#WriteFile#0;class#SaveCommand#0" />
-            <element signature="docComment;method#ParseContent#0;class#SaveCommand#0" />
-            <element signature="docComment;method#resetColors#0;class#SaveCommand#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/LoadCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/UnselectCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="82" column="38" selection-start-line="82" selection-start-column="38" selection-end-line="82" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MoveCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="56" selection-start-line="56" selection-end-line="56" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/CommandManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="docComment;method#Execute#0;class#CommandManager#0" />
-            <element signature="docComment;method#Undo#0;class#CommandManager#0" />
-            <element signature="docComment;method#Redo#0;class#CommandManager#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/OrnamentDecorator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Figure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Circle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/view/MainFrame.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/view/MainFrame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="31" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
-          <folding>
-            <element signature="e#1195#1196#0" expanded="true" />
-            <element signature="e#1226#1227#0" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1492#1493#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/controller/MainFrameController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3230">
-          <caret line="213" column="46" selection-start-line="213" selection-start-column="46" selection-end-line="213" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeGroupCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;method#RemoveShapes#0;class#MakeGroupCommand#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeShapeCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding>
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#508#509#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#580#581#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/InterfaceAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#deserialize#0;class#InterfaceAdapter#0" />
-            <element signature="docComment;method#typeForName#0;class#InterfaceAdapter#0" />
-            <element signature="docComment;method#get#0;class#InterfaceAdapter#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Shape.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="86" column="40" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="126" column="79" selection-start-line="126" selection-start-column="79" selection-end-line="126" selection-end-column="79" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;method#updateOrnament#0;class#Ornament#0" />
-            <element signature="docComment;method#getStartPoint#0;class#Ornament#0" />
-            <element signature="docComment;method#setStartPoint#0;class#Ornament#0" />
-            <element signature="docComment;method#getParent#0;class#Ornament#0" />
-            <element signature="docComment;method#setParent#0;class#Ornament#0" />
-            <element signature="e#3393#3394#0" expanded="true" />
-            <element signature="e#3483#3484#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1015,10 +767,215 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/CircleStrategy.java">
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/singleObjects/SingleMouse.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="26" column="91" selection-start-line="26" selection-start-column="91" selection-end-line="26" selection-end-column="91" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/ShapeContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="19" column="16" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#463#464#0" expanded="true" />
+            <element signature="e#507#508#0" expanded="true" />
+            <element signature="e#734#735#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/visitors/MoveVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/view/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="42" column="25" selection-start-line="42" selection-start-column="25" selection-end-line="42" selection-end-column="25" />
+          <folding>
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1195#1196#0" expanded="true" />
+            <element signature="e#1226#1227#0" expanded="true" />
+            <element signature="e#1461#1462#0" expanded="true" />
+            <element signature="e#1492#1493#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/view/MainFrame.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/strategies/EllipseStrategy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/InterfaceAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="63" column="29" lean-forward="true" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/Mouse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1513">
+          <caret line="46" column="39" selection-start-line="46" selection-start-column="39" selection-end-line="46" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1023#1024#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+            <element signature="e#1475#1476#0" expanded="true" />
+            <element signature="e#3932#3933#0" expanded="true" />
+            <element signature="e#3963#3964#0" expanded="true" />
+            <element signature="e#4153#4154#0" expanded="true" />
+            <element signature="e#4193#4194#0" expanded="true" />
+            <element signature="e#4346#4347#0" expanded="true" />
+            <element signature="e#4377#4378#0" expanded="true" />
+            <element signature="e#4567#4568#0" expanded="true" />
+            <element signature="e#4607#4608#0" expanded="true" />
+            <element signature="e#4765#4766#0" expanded="true" />
+            <element signature="e#4792#4793#0" expanded="true" />
+            <element signature="e#4949#4950#0" expanded="true" />
+            <element signature="e#4976#4977#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/ClearCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#582#583#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/Command.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/CommandManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="40" column="19" lean-forward="true" selection-start-line="40" selection-start-column="19" selection-end-line="40" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/LoadCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="806">
+          <caret line="146" column="21" lean-forward="true" selection-start-line="146" selection-start-column="21" selection-end-line="146" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeShapeCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#534#535#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="68" column="86" selection-start-line="68" selection-start-column="86" selection-end-line="68" selection-end-column="86" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/ResizeCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="59" column="13" lean-forward="true" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SaveCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-877">
+          <caret line="49" column="5" lean-forward="true" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/FigureDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/decorators/OrnamentDecorator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ellipse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Figure.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="41" column="59" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1027,8 +984,89 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Group.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="175" column="30" lean-forward="true" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
+        <state relative-caret-position="-1599">
+          <caret line="57" column="15" lean-forward="true" selection-start-line="57" selection-start-column="15" selection-end-line="57" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Rectangle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="30" selection-start-line="30" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Shape.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="86" column="40" selection-start-line="86" selection-start-column="40" selection-end-line="86" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SelectCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/UnselectCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/shapes/Ornament.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="46" column="37" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3393#3394#0" expanded="true" />
+            <element signature="e#3483#3484#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MakeGroupCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="23" column="27" lean-forward="true" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/MoveCommand.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="66" column="5" lean-forward="true" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#665#666#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/controller/MainFrameController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="208" column="17" lean-forward="true" selection-start-line="208" selection-start-column="17" selection-end-line="208" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1037,99 +1075,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/DeleteCommand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        <state relative-caret-position="483">
+          <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#696#697#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/SelectCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="557">
-          <caret line="67" column="31" selection-start-line="67" selection-start-column="31" selection-end-line="67" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/commands/OrnamentCommand.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="105" column="65" lean-forward="true" selection-start-line="105" selection-start-column="65" selection-end-line="105" selection-end-column="65" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#920#921#0" expanded="true" />
+            <element signature="e#990#991#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/controller/CanvasController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="292" column="32" lean-forward="true" selection-start-line="292" selection-start-column="32" selection-end-line="292" selection-end-column="32" />
+        <state relative-caret-position="286">
+          <caret line="265" column="9" lean-forward="true" selection-start-line="265" selection-start-column="9" selection-end-line="265" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="docComment;method#draw#0;class#CanvasController#0" />
-            <element signature="docComment;method#flatMap#0;class#CanvasController#0" />
-            <element signature="docComment;method#toList#0;class#CanvasController#0" />
-            <element signature="docComment;method#removeLastElement#0;class#CanvasController#0" />
-            <element signature="docComment;method#clearSelect#0;class#CanvasController#0" />
-            <element signature="docComment;method#addElementToList#0;class#CanvasController#0" />
-            <element signature="docComment;method#setCanvasLists#0;class#CanvasController#0" />
-            <element signature="docComment;method#addElementsToList#0;class#CanvasController#0" />
-            <element signature="docComment;method#removeElementFromList#0;class#CanvasController#0" />
-            <element signature="docComment;method#insertFromFile#0;class#CanvasController#0" />
-            <element signature="docComment;method#clear#0;class#CanvasController#0" />
-            <element signature="docComment;method#paint#0;class#CanvasController#0" />
-            <element signature="docComment;method#selectShape#0;class#CanvasController#0" />
-            <element signature="docComment;method#createGroup#0;class#CanvasController#0" />
-            <element signature="e#7464#7465#0" expanded="true" />
-            <element signature="e#7510#7511#0" expanded="true" />
-            <element signature="docComment;method#getSelectedShapes#0;class#CanvasController#0" />
-            <element signature="e#8434#8435#0" expanded="true" />
-            <element signature="docComment;method#addToSelected#0;class#CanvasController#0" />
-            <element signature="e#8032#8033#0" expanded="true" />
-            <element signature="e#8074#8075#0" expanded="true" />
-            <element signature="docComment;method#removeFromSelected#0;class#CanvasController#0" />
-            <element signature="e#8236#8237#0" expanded="true" />
-            <element signature="e#8281#8282#0" expanded="true" />
-            <element signature="docComment;method#setCurrentShapeType#0;class#CanvasController#0" />
-            <element signature="e#9045#9046#0" expanded="true" />
-            <element signature="docComment;method#getCurrentShape#0;class#CanvasController#0" />
-            <element signature="e#8674#8675#0" expanded="true" />
-            <element signature="e#8709#8710#0" expanded="true" />
-            <element signature="docComment;method#setCurrentShape#0;class#CanvasController#0" />
-            <element signature="e#8876#8877#0" expanded="true" />
-            <element signature="e#8917#8918#0" expanded="true" />
-            <element signature="docComment;method#getMainGroup#0;class#CanvasController#0" />
-            <element signature="e#9634#9635#0" expanded="true" />
-            <element signature="docComment;method#setMainGroup#0;class#CanvasController#0" />
-            <element signature="e#9810#9811#0" expanded="true" />
-            <element signature="docComment;method#getFlatEditableShapes#0;class#CanvasController#0" />
-            <element signature="e#10002#10003#0" expanded="true" />
-            <element signature="docComment;method#getFlatPointsEditableShapes#0;class#CanvasController#0" />
-            <element signature="e#10221#10222#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/singleObjects/SingleMouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geometrydrawer/src/main/java/model/adapters/Mouse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#7547#7548#0" expanded="true" />
+            <element signature="e#7593#7594#0" expanded="true" />
+            <element signature="e#7724#7725#0" expanded="true" />
+            <element signature="e#7761#7762#0" expanded="true" />
+            <element signature="e#8209#8210#0" expanded="true" />
+            <element signature="e#8251#8252#0" expanded="true" />
+            <element signature="e#8413#8414#0" expanded="true" />
+            <element signature="e#8458#8459#0" expanded="true" />
+            <element signature="e#8636#8637#0" expanded="true" />
+            <element signature="e#8670#8671#0" expanded="true" />
+            <element signature="e#8851#8852#0" expanded="true" />
+            <element signature="e#8886#8887#0" expanded="true" />
+            <element signature="e#9053#9054#0" expanded="true" />
+            <element signature="e#9094#9095#0" expanded="true" />
+            <element signature="e#9227#9228#0" expanded="true" />
+            <element signature="e#9259#9260#0" expanded="true" />
+            <element signature="e#9397#9398#0" expanded="true" />
+            <element signature="e#9435#9436#0" expanded="true" />
+            <element signature="e#9586#9587#0" expanded="true" />
+            <element signature="e#9627#9628#0" expanded="true" />
+            <element signature="e#9799#9800#0" expanded="true" />
+            <element signature="e#9846#9847#0" expanded="true" />
           </folding>
         </state>
       </provider>

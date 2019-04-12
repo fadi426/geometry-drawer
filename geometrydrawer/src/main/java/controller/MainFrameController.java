@@ -2,7 +2,7 @@ package controller;
 
 import model.adapters.Mouse;
 import model.commands.*;
-import model.shapes.Circle;
+import model.shapes.Ellipse;
 import model.shapes.Rectangle;
 import model.singleObjects.SingleMouse;
 import model.singleObjects.SingletonCanvas;
@@ -20,7 +20,7 @@ public class MainFrameController {
     private CommandManager commandManager;
     private JTextArea shapeInfoTA;
 
-    private JButton circleBtn;
+    private JButton ellipseBtn;
     private JButton rectangleBtn;
     private JButton clearBtn;
     private JButton selectBtn;
@@ -63,7 +63,7 @@ public class MainFrameController {
         shapeInfoTA = mainFrame.getShapeInfoTA();
         drawPanel = mainFrame.getDrawPanel();
         drawPanel.setLayout(new BorderLayout());
-        circleBtn = mainFrame.getCircleBtn();
+        ellipseBtn = mainFrame.getEllipseBtn();
         rectangleBtn = mainFrame.getRectangleBtn();
         clearBtn = mainFrame.getClearBtn();
         selectBtn = mainFrame.getSelectBtn();
@@ -97,7 +97,7 @@ public class MainFrameController {
      */
     private void initListeners() {
         createCanvas(900, 900);
-        circleBtn.addActionListener(new circleBtnListener());
+        ellipseBtn.addActionListener(new ellipseBtnListener());
         rectangleBtn.addActionListener(new rectangleBtnListener());
         clearBtn.addActionListener(new clearBtnListener());
         selectBtn.addActionListener(new selectBtnListener());
@@ -112,11 +112,11 @@ public class MainFrameController {
         deleteBtn.addActionListener(new deleteBtnListener());
     }
 
-    private class circleBtnListener implements ActionListener {
+    private class ellipseBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             mouse.setOperation("draw");
-            currCanvas.setCurrentShapeType(new Circle());
+            currCanvas.setCurrentShapeType(new Ellipse());
         }
     }
 
@@ -167,7 +167,11 @@ public class MainFrameController {
     private class groupBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            currCanvas.createGroup();
+            if (currCanvas.getSelectedShapes().size() == 0)
+                return;
+            commandManager.Execute(new MakeGroupCommand(currCanvas.getSelectedShapes()));
+            currCanvas.clearSelect();
+            currCanvas.repaint();
         }
     }
 
@@ -211,7 +215,10 @@ public class MainFrameController {
     private class deleteBtnListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            if (currCanvas.getSelectedShapes().size() == 0)
+                return;
             commandManager.Execute(new DeleteCommand());
+            currCanvas.clearSelect();
         }
     }
 }

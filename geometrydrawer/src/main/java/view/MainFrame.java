@@ -9,7 +9,7 @@ public class MainFrame extends JFrame {
     private JPanel mainPanel;
     private JTextArea shapeInfoTA;
     private JPanel drawPanel;
-    private JButton circleBtn;
+    private JButton ellipseBtn;
     private JButton rectangleBtn;
     private JButton clearBtn;
     private JButton selectBtn;
@@ -39,8 +39,8 @@ public class MainFrame extends JFrame {
         return shapeInfoTA;
     }
 
-    public JButton getCircleBtn() {
-        return circleBtn;
+    public JButton getEllipseBtn() {
+        return ellipseBtn;
     }
 
     public JButton getRectangleBtn() {

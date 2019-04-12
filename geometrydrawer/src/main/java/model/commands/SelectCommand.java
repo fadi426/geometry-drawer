@@ -25,62 +25,17 @@ public class SelectCommand implements Command {
     public void Execute() {
         figure.setColor(Color.RED);
         canvas.addToSelected(figure);
-        addOrnaments();
     }
 
     @Override
     public void Undo() {
         figure.setColor(Color.BLACK);
         canvas.removeFromSelected(figure);
-        deleteOrnaments();
     }
 
     @Override
     public void Redo() {
         figure.setColor(Color.RED);
         canvas.addToSelected(figure);
-        addOrnaments();
-    }
-
-    /**
-     * Find all the ornaments that belong to the selected shapes
-     */
-    private void findOrnaments() {
-        for (Figure f : canvas.toList()) {
-            if (f instanceof Ornament) {
-                Ornament ornament = (Ornament) f;
-                if (ornament.getParent() == figure) {
-                    ornaments.add(ornament);
-                }
-            }
-        }
-    }
-
-    /**
-     * Add the selected ornaments to the selected list from the canvas
-     */
-    private void addOrnaments() {
-        ornaments.clear();
-        findOrnaments();
-        if (ornaments.size() == 0)
-            return;
-
-        for (Figure o : ornaments) {
-            o.setColor(Color.RED);
-            canvas.addToSelected(o);
-        }
-    }
-
-    /**
-     * Delete the ornaments from the selected list of the canvas
-     */
-    private void deleteOrnaments() {
-        if (ornaments.size() == 0)
-            return;
-
-        for (Figure o : ornaments) {
-            o.setColor(Color.BLACK);
-            canvas.removeFromSelected(o);
-        }
     }
 }

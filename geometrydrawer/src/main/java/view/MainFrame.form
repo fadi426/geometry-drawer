@@ -26,10 +26,10 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="fcb0d" class="javax.swing.JButton" binding="circleBtn">
+          <component id="fcb0d" class="javax.swing.JButton" binding="ellipseBtn">
             <constraints/>
             <properties>
-              <text value="Circle"/>
+              <text value="Ellipse"/>
             </properties>
           </component>
           <component id="28e9b" class="javax.swing.JButton" binding="rectangleBtn">

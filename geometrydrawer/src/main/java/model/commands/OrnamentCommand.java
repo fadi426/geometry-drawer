@@ -67,7 +67,6 @@ public class OrnamentCommand implements Command {
             Figure figure = new OrnamentDecorator(f);
             newFigures.add(figure);
             Ornament ornament = (Ornament) ((OrnamentDecorator) figure).getOrnament();
-//            canvas.addElementToList(ornament);
             ornaments.add(ornament);
             canvas.setCanvasLists(addInOrder(canvas.getMainGroup(), ornament));
             canvas.addToSelected(ornament);
@@ -103,6 +102,12 @@ public class OrnamentCommand implements Command {
         return newGroup.getSubShapes();
     }
 
+    /**
+     * compare the figure with the parent of an Ornament
+     * @param figure can be any figure
+     * @param ornament is the ornament that has been created
+     * @return true if the parent of the ornament equals the figure, and false if this isn't the case
+     */
     private Boolean findParent(Figure figure, Ornament ornament){
             if (ornament.getParent() == figure) {
                 return true;

@@ -32,8 +32,7 @@ public class MakeGroupCommand implements Command {
 
     @Override
     public void Undo() {
-        canvas.removeLastElement();
-
+        canvas.removeElementFromList(group);
         for (Figure f : figures) {
             canvas.addElementToList(f);
         }

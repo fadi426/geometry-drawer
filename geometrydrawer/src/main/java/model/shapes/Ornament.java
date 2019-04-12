@@ -44,7 +44,7 @@ public class Ornament implements Figure {
 
     @Override
     public boolean contain(Point point) {
-        return parent.getColor() != Color.BLACK;
+        return parent.contain(point);
     }
 
     @Override

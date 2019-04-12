@@ -16,7 +16,7 @@ public class MakeShapeCommand implements Command {
     public void Execute() { canvas.setCurrentShapeType(shape);}
 
     public void Undo() {
-        canvas.removeLastElement();
+        canvas.removeElementFromList(shape);
     }
 
     public void Redo() {

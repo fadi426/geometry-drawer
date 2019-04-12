@@ -11,30 +11,40 @@ import java.util.List;
 public class DeleteCommand implements Command {
     CanvasController canvas;
     List<Figure> oldFigures;
+    List<Figure> newFigures;
+    List<Figure> oldSelected;
+
 
     public DeleteCommand(){
         canvas = SingletonCanvas.getInstance();
         oldFigures = new ArrayList<>();
+        oldSelected = new ArrayList<>();
+        newFigures = new ArrayList<>();
     }
     @Override
     public void Execute() {
-        oldFigures.clear();
         oldFigures.addAll(canvas.getMainGroup().getSubShapes());
+        oldSelected.addAll(canvas.getSelectedShapes());
         canvas.setCanvasLists(deleteSelected(canvas.toList()));
+        newFigures.addAll(canvas.getMainGroup().getSubShapes());
     }
 
     @Override
     public void Undo() {
         canvas.setCanvasLists(oldFigures);
+        canvas.setSelectedShapes(oldSelected);
     }
 
     @Override
     public void Redo() {
-        oldFigures.clear();
-        oldFigures.addAll(canvas.getMainGroup().getSubShapes());
-        canvas.setCanvasLists(deleteSelected(canvas.toList()));
+        canvas.setCanvasLists(newFigures);
     }
 
+    /**
+     * Deletes the figures in the selectedShapes map inside the canvas from the mainGroup of the canvas
+     * @param figures
+     * @return
+     */
     private List<Figure> deleteSelected(List<Figure> figures) {
         Group newGroup = new Group();
         for (Figure figure : figures) {
@@ -42,15 +52,6 @@ public class DeleteCommand implements Command {
             newGroup.addFigure(figure);
             if (canvas.getSelectedShapes().contains(figure)) {
                 newGroup.removeFigure(figure);
-                continue;
-            }
-
-            if (figure instanceof Group) {
-                Group g = (Group) figure;
-                newGroup.addFigure(g);
-                List<Figure> temp_figures = deleteSelected(g.getSubShapes());
-                g.clear();
-                g.addFigures(temp_figures);
             }
         }
         return newGroup.getSubShapes();
