@@ -143,8 +143,7 @@ public class LoadCommand implements Command {
                             )
                                 o.setParent(f2);
                         }
-                        else
-                            setOrnaments(group.getSubShapes());
+                        setOrnaments(group.getSubShapes());
                     }
                 }
             }
