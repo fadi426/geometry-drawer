@@ -175,7 +175,7 @@ public class Group implements Figure {
     @Override
     public String toString() {
         List<Point> boundary = CalculateBoundary();
-        return "Group: (" + boundary.get(0).x + ", " + boundary.get(0).y + "): "
+        return "Group: (" + boundary.get(0).x + ", " + boundary.get(0).y + ") : "
                 + "(" + boundary.get(1).x + ", " + boundary.get(1).y + ")";
     }
 

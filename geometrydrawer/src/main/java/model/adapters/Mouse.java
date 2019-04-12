@@ -1,4 +1,4 @@
-package model;
+package model.adapters;
 
 import controller.CanvasController;
 import model.commands.CommandManager;
@@ -10,7 +10,6 @@ import model.singleObjects.SingletonCmdMng;
 import model.visitors.MoveVisitor;
 import model.visitors.ResizeVisitor;
 
-import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -86,13 +85,7 @@ public class Mouse extends MouseAdapter implements MouseListener, MouseMotionLis
         canvas.getFlatEditableShapes().clear();
         canvas.getFlatPointsEditableShapes().clear();
 
-        Shape currentShape = canvas.getCurrentShape();
-        if (currentShape == null)
-            return;
-
-        canvas.addElementToList(currentShape);
-        canvas.setCurrentShape(null);
-        canvas.repaint();
+        canvas.addCurrentShape();
     }
 
     @Override
