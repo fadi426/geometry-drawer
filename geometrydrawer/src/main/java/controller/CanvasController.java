@@ -1,6 +1,6 @@
 package controller;
 
-import model.Mouse;
+import model.adapters.Mouse;
 import model.commands.*;
 import model.shapes.Figure;
 import model.shapes.Group;
@@ -81,37 +81,6 @@ public class CanvasController extends JPanel {
         }
     }
 
-    /**
-     * Returns the selected figures from the canvas
-     * @return A list of figures
-     */
-    public List<Figure> getSelectedShapes() {
-        return selectedShapes;
-    }
-
-    /**
-     * Adds a figure to the selected list
-     * @param figure is a to be added figure
-     */
-    public void addToSelected(Figure figure){
-        selectedShapes.add(figure);
-    }
-
-    /**
-     * Removes a figure from the selected list
-     * @param figure is a to be removed figure
-     */
-    public void removeFromSelected(Figure figure){
-        selectedShapes.remove(figure);
-    }
-
-    /**
-     * Sets the current shape type that you want to draw on the canvas
-     * @param toDraw Shapetype to set
-     */
-    public void setCurrentShapeType(Shape toDraw) {
-        shapeType = toDraw;
-    }
 
     /**
      * Makes a List of figures from the figures in the canvas
@@ -123,38 +92,6 @@ public class CanvasController extends JPanel {
             figures.add(listmodel.get(i));
         }
         return figures;
-    }
-
-    /**
-     * Gives the shape object of the chosen shape from the buttons in the MainFrameController class
-     * @return currentShape
-     */
-    public Shape getCurrentShape(){
-        return currentShape;
-    }
-
-    /**
-     * Sets the current shape type that you want to draw on the canvas
-     * @param shape Shape to set
-     */
-    public void setCurrentShape(Shape shape){
-        this.currentShape = shape;
-    }
-
-    /**
-     * Returns the main group of the canvas
-     * @return returns a Group object
-     */
-    public Group getMainGroup() {
-        return mainGroup;
-    }
-
-    /**
-     * Set the main group of the canvas
-     * @param group the group to set
-     */
-    public void setMainGroup(Group group) {
-        this.mainGroup = group;
     }
 
     /**
@@ -180,6 +117,22 @@ public class CanvasController extends JPanel {
     }
 
     /**
+     * Adds the currently drawing shape to the list after doing some checks and resets the current shape afterwards
+     */
+    public void addCurrentShape(){
+        Point pointZero = new Point(0,0);
+        if (currentShape == null )
+            return;
+
+        if (currentShape.getEndPoint().x == pointZero.x && currentShape.getEndPoint().y == pointZero.y)
+            return;
+
+        addElementToList(currentShape);
+        setCurrentShape(null);
+        repaint();
+    }
+
+    /**
      * Add a figure to the canvas
      * @param figure figure to add
      */
@@ -199,22 +152,6 @@ public class CanvasController extends JPanel {
 
         addElementsToList(figures);
         repaint();
-    }
-
-    /**
-     * Gives the current flatEditableShapes list
-     * @return flatEditableShapes
-     */
-    public List<Figure> getFlatEditableShapes() {
-        return flatEditableShapes;
-    }
-
-    /**
-     * ives the current flatPointsEditableShapes list
-     * @return flatPointsEditableShapes
-     */
-    public List<List<Point>> getFlatPointsEditableShapes() {
-        return flatPointsEditableShapes;
     }
 
     /**
@@ -330,5 +267,86 @@ public class CanvasController extends JPanel {
         for (Figure figure : toList()){
             shapeInfoTA.append(figure.toString() + "\n");
         }
+    }
+
+    /**
+     * Returns the selected figures from the canvas
+     * @return A list of figures
+     */
+    public List<Figure> getSelectedShapes() {
+        return selectedShapes;
+    }
+
+    /**
+     * Adds a figure to the selected list
+     * @param figure is a to be added figure
+     */
+    public void addToSelected(Figure figure){
+        selectedShapes.add(figure);
+    }
+
+    /**
+     * Removes a figure from the selected list
+     * @param figure is a to be removed figure
+     */
+    public void removeFromSelected(Figure figure){
+        selectedShapes.remove(figure);
+    }
+
+    /**
+     * Sets the current shape type that you want to draw on the canvas
+     * @param toDraw Shapetype to set
+     */
+    public void setCurrentShapeType(Shape toDraw) {
+        shapeType = toDraw;
+    }
+
+    /**
+     * Gives the shape object of the chosen shape from the buttons in the MainFrameController class
+     * @return currentShape
+     */
+    public Shape getCurrentShape(){
+        return currentShape;
+    }
+
+    /**
+     * Sets the current shape type that you want to draw on the canvas
+     * @param shape Shape to set
+     */
+    public void setCurrentShape(Shape shape){
+        this.currentShape = shape;
+    }
+
+    /**
+     * Returns the main group of the canvas
+     * @return returns a Group object
+     */
+    public Group getMainGroup() {
+        return mainGroup;
+    }
+
+    /**
+     * Set the main group of the canvas
+     * @param group the group to set
+     */
+    public void setMainGroup(Group group) {
+        this.mainGroup = group;
+    }
+
+
+    /**
+     * Gives the current flatEditableShapes list
+     * @return flatEditableShapes
+     */
+    public List<Figure> getFlatEditableShapes() {
+        return flatEditableShapes;
+    }
+
+    /**
+     * ives the current flatPointsEditableShapes list
+     * @return flatPointsEditableShapes
+     */
+    public List<List<Point>> getFlatPointsEditableShapes() {
+        return flatPointsEditableShapes;
     }
 }

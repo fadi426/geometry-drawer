@@ -47,7 +47,7 @@ public class OrnamentCommand implements Command {
         List<Ornament> tempOrnaments = new ArrayList<>();
         for (Ornament ornament : ornaments) {
             tempOrnaments.add(ornament);
-            canvas.setCanvasLists(findParent(canvas.getMainGroup(), ornament)
+            canvas.setCanvasLists(addInOrder(canvas.getMainGroup(), ornament)
             );
         }
         ornaments.removeAll(tempOrnaments);
@@ -69,7 +69,7 @@ public class OrnamentCommand implements Command {
             Ornament ornament = (Ornament) ((OrnamentDecorator) figure).getOrnament();
 //            canvas.addElementToList(ornament);
             ornaments.add(ornament);
-            canvas.setCanvasLists(findParent(canvas.getMainGroup(), ornament));
+            canvas.setCanvasLists(addInOrder(canvas.getMainGroup(), ornament));
             canvas.addToSelected(ornament);
         }
     }
@@ -80,24 +80,33 @@ public class OrnamentCommand implements Command {
      * @param ornament ornament to find its parent for
      * @return
      */
-    private List<Figure> findParent(Group group, Ornament ornament) {
+    private List<Figure> addInOrder(Group group, Ornament ornament) {
         Group newGroup = new Group();
         for (Figure figure : group.getSubShapes()) {
 
             if (figure instanceof Group) {
                 Group g = (Group) figure;
                 newGroup.addFigure(g);
-                List<Figure> temp_figures = findParent(g, ornament);
+                if (findParent(figure, ornament)) {
+                    newGroup.addFigure(ornament);
+                }
+                List<Figure> temp_figures = addInOrder(g, ornament);
                 g.clear();
                 g.addFigures(temp_figures);
-            } else
+            } else {
                 newGroup.addFigure(figure);
-        }
-        for (int i = 0; i < newGroup.getSubShapes().size(); i++) {
-            Figure figure = newGroup.getSubShapes().get(i);
-            if (ornament.getParent() == figure)
-                newGroup.addFigure(ornament);
+                if (findParent(figure, ornament)) {
+                    newGroup.addFigure(ornament);
+                }
+            }
         }
         return newGroup.getSubShapes();
     }
-}
+
+    private Boolean findParent(Figure figure, Ornament ornament){
+            if (ornament.getParent() == figure) {
+                return true;
+            }
+            return false;
+        }
+    }

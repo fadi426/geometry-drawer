@@ -1,7 +1,7 @@
 package model.visitors;
 
 import controller.CanvasController;
-import model.Mouse;
+import model.adapters.Mouse;
 import model.shapes.Figure;
 import model.shapes.Shape;
 import model.singleObjects.SingleMouse;

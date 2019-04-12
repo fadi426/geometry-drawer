@@ -20,7 +20,7 @@ public class DeleteCommand implements Command {
     public void Execute() {
         oldFigures.clear();
         oldFigures.addAll(canvas.getMainGroup().getSubShapes());
-        canvas.setCanvasLists(deleteSelected(canvas.getSelectedShapes()));
+        canvas.setCanvasLists(deleteSelected(canvas.toList()));
     }
 
     @Override
@@ -32,7 +32,7 @@ public class DeleteCommand implements Command {
     public void Redo() {
         oldFigures.clear();
         oldFigures.addAll(canvas.getMainGroup().getSubShapes());
-        canvas.setCanvasLists(deleteSelected(canvas.getSelectedShapes()));
+        canvas.setCanvasLists(deleteSelected(canvas.toList()));
     }
 
     private List<Figure> deleteSelected(List<Figure> figures) {
@@ -40,7 +40,7 @@ public class DeleteCommand implements Command {
         for (Figure figure : figures) {
 
             newGroup.addFigure(figure);
-            if (canvas.getMainGroup().getSubShapes().contains(figure)) {
+            if (canvas.getSelectedShapes().contains(figure)) {
                 newGroup.removeFigure(figure);
                 continue;
             }

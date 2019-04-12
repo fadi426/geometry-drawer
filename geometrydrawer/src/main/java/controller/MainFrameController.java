@@ -1,6 +1,6 @@
 package controller;
 
-import model.Mouse;
+import model.adapters.Mouse;
 import model.commands.*;
 import model.shapes.Circle;
 import model.shapes.Rectangle;

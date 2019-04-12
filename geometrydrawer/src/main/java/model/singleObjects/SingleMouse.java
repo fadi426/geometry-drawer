@@ -1,6 +1,6 @@
 package model.singleObjects;
 
-import model.Mouse;
+import model.adapters.Mouse;
 
 public class SingleMouse {
     private static Mouse instance;
